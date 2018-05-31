@@ -110,7 +110,12 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
 
         if (listview.isItemChecked(arg0)) {
 //            arg1.findViewById(R.id.rly_back).setBackgroundColor(Color.parseColor("#eff0f5"));
-            arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedList));
+//            arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedList));
+            if(context instanceof CategoryChildActivity){
+                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedListSub));
+            }else{
+                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedList));
+            }
             if(context instanceof YoutubePlayerActivity){
                 hostview.spin.setVisibility(View.VISIBLE);
             }
@@ -123,6 +128,8 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
         hostview.m_tvNumber.setText("" + (arg0 + 1));
         if(context instanceof RankActivity && arg0 < 3){
             hostview.m_tvNumber.setTextColor(context.getResources().getColor(R.color.numberHighlight));
+        }else{
+            hostview.m_tvNumber.setTextColor(context.getResources().getColor(R.color.defRank));
         }
 
         // "-"로 나눔

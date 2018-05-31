@@ -31,10 +31,9 @@
                 android:id="@+id/bottom_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
                 android:text="@string/rank"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="13dp" />
 
         </LinearLayout>
 
@@ -55,10 +54,9 @@
                 android:id="@+id/bottom_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
                 android:text="@string/category"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="13dp" />
 
         </LinearLayout>
 
@@ -79,10 +77,9 @@
                 android:id="@+id/bottom_text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
                 android:text="@string/search"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="13dp" />
 
         </LinearLayout>
 

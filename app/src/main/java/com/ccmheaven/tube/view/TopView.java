@@ -1,8 +1,11 @@
 package com.ccmheaven.tube.view;
 
+import com.RKclassichaeven.tube.CategoryActivity;
 import com.RKclassichaeven.tube.MyPageActivity;
 import com.RKclassichaeven.tube.R;
+import com.RKclassichaeven.tube.RankActivity;
 import com.RKclassichaeven.tube.SettingActivity;
+import com.RKclassichaeven.tube.TimerActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -32,7 +35,7 @@ public class TopView extends RelativeLayout {
         /**
          * Hide share button when the context is mypageActivity
          */
-        if (getContext().getClass().equals(MyPageActivity.class)) {
+        if (getContext().getClass().equals(MyPageActivity.class) || getContext().getClass().equals(TimerActivity.class)) {
             share.setVisibility(View.INVISIBLE);
         }
 
@@ -79,7 +82,11 @@ public class TopView extends RelativeLayout {
                 }
                 break;
                 case R.id.left_menu: {
-
+                    if(getContext() instanceof RankActivity){
+                        ((RankActivity) getContext()).openDrawer();
+                    }else if(getContext() instanceof CategoryActivity){
+                        ((CategoryActivity) getContext()).openDrawer();
+                    }
                 }
             }
         }

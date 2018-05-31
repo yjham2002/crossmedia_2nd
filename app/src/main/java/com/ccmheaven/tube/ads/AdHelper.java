@@ -1,6 +1,7 @@
 package com.ccmheaven.tube.ads;
 
 import com.RKclassichaeven.tube.LogoActivity;
+import com.google.android.gms.ads.AdSize;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +21,7 @@ public class AdHelper {
 	private Activity activity;
 	
 	/**
-	 * @param context
+	 * @param activity
 	 */
 	public AdHelper(Activity activity){
 		this.activity = activity;
@@ -31,7 +32,19 @@ public class AdHelper {
         
         Log.d("dev", "AdHelper.AdHelper() ad: " + ad + ", ad_type: " + ad_type + ", ad_interstital: " + ad_interstital);
 	}
-	
+
+	public void addAdViewWithSize(LinearLayout layout, AdSize adSize){
+		if ("Y".equals(ad)) {
+			if("admob".equals(ad_type)){
+				Log.d("dev", "AdHelper.addAdView() admob");
+				new AdmobHelper(activity).addAdView(layout, adSize);
+			}else if("adfit".equals(ad_type)){
+				Log.d("dev", "AdHelper.addAdView() adfit");
+				new AdfitHelper(activity).addAdView(layout);
+			}
+		}
+	}
+
 	/**
 	 * @param layout
 	 */

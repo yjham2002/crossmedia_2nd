@@ -19,6 +19,7 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,13 +39,16 @@ import com.ccmheaven.tube.view.ListviewLoadView;
 import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import bases.imageTransform.RoundedTransform;
+
 public class CategoryChildActivity extends Activity {
-    private TextView[] m_tvTab = new TextView[2];
+//    private TextView[] m_tvTab = new TextView[2];
     private ListView listview;
     private CenterView centerView;
     private BottomView bottomview;
@@ -58,6 +62,12 @@ public class CategoryChildActivity extends Activity {
     private CenterViewListener centerviewlistener = new CenterViewListener();
     private int page;
     private int totalPage;
+
+    private String title;
+    private String imgUrl;
+
+    private ImageView thm, left_back;
+    private TextView cateName, cateNum;
     private String cgid;
     private ListviewLoadView listviewLoadView;
     private String orderType;
@@ -71,32 +81,60 @@ public class CategoryChildActivity extends Activity {
         Bundle data = getIntent().getExtras();
         if (data != null) {
             cgid = data.getString("cgid");
+            title = data.getString("title");
+            imgUrl = data.getString("img");
             page = 1;
             myMusicDB = new MyMusicDB(this);
             listviewLoadView = (ListviewLoadView) findViewById(R.id.listviewLoadView1);
             // listviewLoad = (Button) findViewById(R.id.listviewTextview);
-            m_tvTab[0] = (TextView) findViewById(R.id.tv_tab1);
-            m_tvTab[0].setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onTabSelected(0);
-                }
-            });
-            m_tvTab[1] = (TextView) findViewById(R.id.tv_tab2);
-            m_tvTab[1].setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onTabSelected(1);
-                }
-            });
+//            m_tvTab[0] = (TextView) findViewById(R.id.tv_tab1);
+//            m_tvTab[0].setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onTabSelected(0);
+//                }
+//            });
+//            m_tvTab[1] = (TextView) findViewById(R.id.tv_tab2);
+//            m_tvTab[1].setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onTabSelected(1);
+//                }
+//            });
 
             listview = (ListView) findViewById(R.id.lv_category);
-            ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
+//            ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
 
             bottomview = (BottomView) findViewById(R.id.bottomView1);
 //            topMenuView = findViewById(R.id.topMenuView);
             bottomview.setActivity(this);
             bottomview.addAdView();
+
+            left_back = findViewById(R.id.left_back);
+
+            left_back.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
+            cateName = findViewById(R.id.cateName);
+            cateNum = findViewById(R.id.cateNum);
+
+            thm = findViewById(R.id.thm);
+
+            cateName.setText(title);
+
+            if(imgUrl != null && !imgUrl.equals("")){
+                Picasso
+                        .get()
+                        .load(imgUrl)
+                        .centerCrop()
+                        .resize(100, 100)
+                        .placeholder(R.drawable.icon_hour_glass)
+                        .transform(new RoundedTransform(10, 0)).into(thm);
+            }
 
             centerView = (CenterView) findViewById(R.id.center_view);
             centerView.InitButtonListener(centerviewlistener);
@@ -136,13 +174,13 @@ public class CategoryChildActivity extends Activity {
     }
 
     private void onTabSelected(int index) {
-        if (m_tvTab[index].isSelected())
-            return;
-
-        m_tvTab[index].setSelected(true);
-        m_tvTab[index].setBackgroundColor(Color.WHITE);
-        m_tvTab[1 - index].setSelected(false);
-        m_tvTab[1 - index].setBackgroundColor(Color.parseColor("#eff0f5"));
+//        if (m_tvTab[index].isSelected())
+//            return;
+//
+//        m_tvTab[index].setSelected(true);
+//        m_tvTab[index].setBackgroundColor(Color.WHITE);
+//        m_tvTab[1 - index].setSelected(false);
+//        m_tvTab[1 - index].setBackgroundColor(Color.parseColor("#eff0f5"));
         page = 1;
         totalPage = 1;
         list.clear();
@@ -178,6 +216,8 @@ public class CategoryChildActivity extends Activity {
                     // }
                     listviewLoadView.setVisibility(View.GONE);
                     totalPage = msg.arg1;
+                    if(list.size() > 0) cateNum.setText(list.get(0).getTotal() + " Songs");
+                    else cateNum.setText("0 Songs");
                     Log.d("dev", "listviewLoadView GONE");
                     loagindDialog.dismiss();
                 }

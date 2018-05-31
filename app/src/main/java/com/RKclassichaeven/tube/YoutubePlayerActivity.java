@@ -1,6 +1,9 @@
 package com.RKclassichaeven.tube;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -46,7 +49,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	public static int FromActivity;
 	private BottomView bottomview;
-//	private TopMenuView topMenuView;
+	private TopMenuView topMenuView;
 	TextView tvTitle;
 	LinearLayout topView;
 	public static int index;
@@ -61,6 +64,32 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	private CheckBox chkShuffle;
 	private boolean doShuffle = false;
+
+	private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			final String action = intent.getExtras().getString("second", "");
+			Log.e("TimerRecv", action);
+			switch (action){
+				case "stopYT":{
+					if(player != null) player.pause();
+					break;
+				}
+			}
+		}
+	};
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		registerReceiver(broadcastReceiver, new IntentFilter(bases.Constants.ACTIVITY_INTENT_FILTER));
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		unregisterReceiver(broadcastReceiver);
+	}
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -2,51 +2,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eff0f5"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".CategoryChildActivity">
 
-    <com.ccmheaven.tube.view.TopView
-        android:id="@+id/topView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <!--<com.ccmheaven.tube.view.TopView-->
+        <!--android:id="@+id/topView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <LinearLayout
-        android:id="@+id/tab_view"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_tab1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="#a9afc0"
-            android:textSize="15sp"
-            android:text="@string/popular"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="@android:color/white" />
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
 
-        <ImageView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#e5e8f1" />
+            <ImageView
+                android:id="@+id/left_back"
+                android:layout_width="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ico_top_back_black"
+                android:scaleType="centerInside" />
 
-        <TextView
-            android:id="@+id/tv_tab2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="#a9afc0"
-            android:textSize="15sp"
-            android:text="@string/abc"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="#eff0f5" />
+        </RelativeLayout>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/thm"
+                android:src="@drawable/icon_hour_glass"
+                android:layout_width="120dp"
+                android:layout_height="120dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/cateName"
+                    android:text="Category Title"
+                    android:textColor="@color/jet"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="200dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/cateNum"
+                    android:text="0 Songs"
+                    android:textColor="@color/selectedListSub2"
+                    android:layout_width="200dp"
+                    android:textSize="14dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:src="@drawable/toggle_shuffle_sub_on"
+            android:id="@+id/shufflePlay"
+            android:clickable="true"
+            android:layout_margin="20dp"
+            android:layout_gravity="right|bottom"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/iv_line"

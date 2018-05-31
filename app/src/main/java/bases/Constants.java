@@ -7,31 +7,31 @@ package bases;
 public class Constants {
 
     public interface PREFERENCE{
-        String IS_ALARM_SET = "kr.co.picklecode.crossmedia.isAlarmSet";
-        String ALARM_TIME = "kr.co.picklecode.crossmedia.alarmTime";
-        String ALARM_TIME_FOR_ADAPTER = "kr.co.picklecode.crossmedia.alarmTime.adapter";
+        String IS_ALARM_SET = "kr.co.picklecode.crossmedia2.isAlarmSet";
+        String ALARM_TIME = "kr.co.picklecode.crossmedia2.alarmTime";
+        String ALARM_TIME_FOR_ADAPTER = "kr.co.picklecode.crossmedia2.alarmTime.adapter";
     }
 
     public interface DATABASE{
-        String DB_NAME = "kr.co.picklecode.crossmedia.pickDB";
+        String DB_NAME = "kr.co.picklecode.crossmedia2.pickDB";
     }
 
     public interface INTENT_NOTIFICATION{
-        String REP_FILTER = "kr.co.picklecode.crossmedia.action.notification";
-        String ACTION_PLAY = "kr.co.picklecode.crossmedia.action.notification.play";
+        String REP_FILTER = "kr.co.picklecode.crossmedia2.action.notification";
+        String ACTION_PLAY = "kr.co.picklecode.crossmedia2.action.notification.play";
         int REQ_CODE_ACTION_PLAY = 111;
-        String ACTION_STOP = "kr.co.picklecode.crossmedia.action.notification.stop";
+        String ACTION_STOP = "kr.co.picklecode.crossmedia2.action.notification.stop";
         int REQ_CODE_ACTION_STOP = 121;
-        String ACTION_CLOSE = "kr.co.picklecode.crossmedia.action.notification.close";
+        String ACTION_CLOSE = "kr.co.picklecode.crossmedia2.action.notification.close";
         int REQ_CODE_ACTION_CLOSE = 131;
     }
 
-    public static final String ACTIVITY_INTENT_FILTER = "kr.co.picklecode.crossmedia.intent.activity.common";
+    public static final String ACTIVITY_INTENT_FILTER = "kr.co.picklecode.crossmedia2.intent.activity.common";
 
     public static final String BASE_YOUTUBE_URL = "http://zacchaeus151.cafe24.com/youtube.php?vid=";
 
-    public static final String NOTIFICATION_CHANNEL_ID = "kr.co.picklecode.crossmedia.channel001";
-    public static final String NOTIFICATION_CHANNEL_NAME = "kr.co.picklecode.crossmedia.channel001.name";
+    public static final String NOTIFICATION_CHANNEL_ID = "kr.co.picklecode.crossmedia2.channel001";
+    public static final String NOTIFICATION_CHANNEL_NAME = "kr.co.picklecode.crossmedia2.channel001.name";
 
     public static String getYoutubeSrc(String filtered){
         final String source = "<!DOCTYPE html>\n" +

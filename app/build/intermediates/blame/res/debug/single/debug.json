@@ -444,6 +444,10 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.2.aar\\cfd7eb6b4e3053088ff0c137e3b0e4de\\res\\drawable\\cast_mini_controller_gradient_light.xml"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_categorychild_old.xml.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\activity_categorychild_old.xml"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9840015ef6fd75d56f751678a7d54c1e\\res\\layout\\abc_list_menu_item_icon.xml"
     },
@@ -748,6 +752,10 @@
         "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toggle_shuffle_sub_off.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\toggle_shuffle_sub_off.png"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b062e89640195ba11b953328338edfa6\\res\\drawable-xxhdpi-v4\\ic_mr_button_connected_13_dark.png"
     },
@@ -790,6 +798,10 @@
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_quantum_ic_skip_next_white_36.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.2.aar\\cfd7eb6b4e3053088ff0c137e3b0e4de\\res\\drawable-mdpi-v4\\quantum_ic_skip_next_white_36.png"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_timer.xml.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\activity_timer.xml"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -1984,6 +1996,10 @@
         "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\btn_favor_play_off.png"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_review.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\menu_review.png"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_cast_expanded_controller_activity.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.2.aar\\cfd7eb6b4e3053088ff0c137e3b0e4de\\res\\layout\\cast_expanded_controller_activity.xml"
     },
@@ -3072,8 +3088,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\07512d7f9329ad821683b27a44d519dd\\res\\layout\\notification_template_part_time.xml"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toggle_shuffle_sub_on.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\toggle_shuffle_sub_on.png"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cast_ic_notification_small_icon.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.2.aar\\cfd7eb6b4e3053088ff0c137e3b0e4de\\res\\drawable\\cast_ic_notification_small_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_img.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\menu_img.png"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
@@ -3226,6 +3250,10 @@
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.2.aar\\536efb45848a4ebba4c016c6df87c080\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_sleep.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\menu_sleep.png"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mr_media_play_light.xml.flat",
@@ -4576,6 +4604,10 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b062e89640195ba11b953328338edfa6\\res\\drawable-xhdpi-v4\\ic_mr_button_connecting_18_dark.png"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_timer.xml.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\layout_timer.xml"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_arrow_top.png.flat",
         "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\btn_arrow_top.png"
     },
@@ -4650,6 +4682,10 @@
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9840015ef6fd75d56f751678a7d54c1e\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_home.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\menu_home.png"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_vol_type_tv_light.png.flat",

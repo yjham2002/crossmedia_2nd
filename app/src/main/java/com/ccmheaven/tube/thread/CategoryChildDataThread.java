@@ -2,6 +2,7 @@ package com.ccmheaven.tube.thread;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.ccmheaven.tube.pub.Constants;
 import com.ccmheaven.tube.pub.ListInfo;
@@ -48,6 +49,7 @@ public class CategoryChildDataThread extends Thread {
         ByteArrayOutputStream data = null;
         String datastr = null;
         try {
+            Log.e("chThread", Constants.API_VIDEO_LIST + "&cg_id=" + cgid + "&page=" + page + "&order_type=" + orderType);
             url = new URL(Constants.API_VIDEO_LIST + "&cg_id=" + cgid + "&page=" + page + "&order_type=" + orderType);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -65,11 +67,13 @@ public class CategoryChildDataThread extends Thread {
             JSONObject jsonobject = new JSONObject(datastr);
             JSONArray jsonarray = jsonobject.getJSONObject("result")
                     .getJSONArray("list");
+            int total = jsonobject.getJSONObject("result").getInt("total_count");
             if (page == 1)
                 list.clear();
             for (int i = 0; i < jsonarray.length(); i++) {
                 JSONObject json = jsonarray.getJSONObject(i);
                 ListInfo listinfo = new ListInfo();
+                listinfo.setTotal(total);
                 listinfo.setVideoName(json.getString("vd_title").replace("/", ""));
                 listinfo.setVideoCode(json.getString("vd_code"));
                 listinfo.setImageUrl(json.getString("vd_thum_url"));

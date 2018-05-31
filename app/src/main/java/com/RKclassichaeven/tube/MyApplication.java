@@ -12,6 +12,8 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import bases.BaseApp;
+
 public class MyApplication extends Application {
 	
 	public static GoogleAnalytics analytics;
@@ -27,6 +29,7 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
+		BaseApp.context = this;
 		// Parse?
 //		Parse.initialize(
 //			this,

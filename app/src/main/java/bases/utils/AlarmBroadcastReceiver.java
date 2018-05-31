@@ -18,6 +18,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
         final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
         activityIntent1.putExtra("action", "refresh");
+        activityIntent1.putExtra("second", "stopYT");
         context.sendBroadcast(activityIntent1);
 
         PreferenceUtil.setBoolean(Constants.PREFERENCE.IS_ALARM_SET, false);

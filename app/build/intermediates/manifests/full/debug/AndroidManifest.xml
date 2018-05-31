@@ -34,7 +34,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:testOnly="true"
-        android:theme="@android:style/Theme.NoTitleBar" >
+        android:theme="@style/AppThemeSolid" >
         <activity
             android:name="com.RKclassichaeven.tube.LogoActivity"
             android:screenOrientation="portrait"
@@ -72,6 +72,10 @@
         </activity>
         <activity
             android:name="com.RKclassichaeven.tube.CategoryChildActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.RKclassichaeven.tube.TimerActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity

@@ -4,13 +4,13 @@
     <solid android:color="#00ffffff" />
 
     <stroke
-        android:width="2dp"
+        android:width="1dp"
         android:color="@color/thisgray" />
 
     <corners
-        android:bottomLeftRadius="8dp"
-        android:bottomRightRadius="8dp"
-        android:topLeftRadius="8dp"
-        android:topRightRadius="8dp" />
+        android:bottomLeftRadius="6dp"
+        android:bottomRightRadius="6dp"
+        android:topLeftRadius="6dp"
+        android:topRightRadius="6dp" />
 
 </shape>

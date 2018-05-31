@@ -1,6 +1,7 @@
 package com.ccmheaven.tube.pub;
 
 public class ListInfo {
+    private int total;
     private String imageUrl;
     private String videoName;
     private String videoCode;
@@ -9,6 +10,14 @@ public class ListInfo {
     private String artistName;
     private String runTime;
     private String views;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     public String getVideoUrl() {
         return videoUrl;

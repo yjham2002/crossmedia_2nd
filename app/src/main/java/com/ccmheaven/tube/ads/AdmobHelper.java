@@ -43,7 +43,30 @@ public class AdmobHelper {
 		// add it to the linearlayout
 		layout.addView(adview);
 	}
-	
+
+	public void addAdView(LinearLayout layout, AdSize adSize){
+
+		final AdView adview = new AdView(context);
+		adview.setAdSize(adSize);
+		adview.setAdUnitId(Constants.ADMOB_KEY_BANNER);
+		adview.setVisibility(View.GONE);
+		adview.setAdListener(new AdListener() {
+			@Override
+			public void onAdLoaded() {
+				super.onAdLoaded();
+				adview.setVisibility(View.VISIBLE);
+			}
+		});
+		AdRequest adRequest = new AdRequest.Builder()
+				//.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+				//.addTestDevice("1BC5DF7052976BDA26A695A6EA80308F")
+				.build();
+		adview.loadAd(adRequest);
+
+		// add it to the linearlayout
+		layout.addView(adview);
+	}
+
 	/**
 	 * @param context
 	 * @param interstitial

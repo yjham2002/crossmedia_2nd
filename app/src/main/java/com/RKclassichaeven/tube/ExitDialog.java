@@ -1,5 +1,6 @@
 package com.RKclassichaeven.tube;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -7,9 +8,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.LinearLayout;
 
+import com.ccmheaven.tube.ads.AdHelper;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.google.android.gms.ads.VideoController;
 import com.google.android.gms.ads.VideoOptions;
@@ -19,8 +24,8 @@ public class ExitDialog extends Dialog implements View.OnClickListener {
 
     private static String LOG_TAG = "EXAMPLE";
 
-    NativeExpressAdView mAdView;
-    VideoController mVideoController;
+    private AdView mAdView;
+//    VideoController mVideoController;
 
 
     @Override
@@ -58,39 +63,46 @@ public class ExitDialog extends Dialog implements View.OnClickListener {
         findViewById(R.id.tv_exit_cancel).setOnClickListener(this);
 
         // native banner
-        mAdView = (NativeExpressAdView) findViewById(R.id.adView);
-        mAdView.setVideoOptions(new VideoOptions.Builder()
-                .setStartMuted(true)
-                .build());
+//        mAdView = findViewById(R.id.adView);
+        LinearLayout llAdview = findViewById(R.id.llAdview);
+        AdHelper adHelper = new AdHelper((Activity)context);
+        if(adHelper != null && llAdview != null){
+            Log.d("dev", "BottomView.addAdView() call adAdView()");
+            adHelper.addAdViewWithSize(llAdview, AdSize.MEDIUM_RECTANGLE);
+        }
 
-        mVideoController = mAdView.getVideoController();
-        mVideoController.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
-            @Override
-            public void onVideoEnd() {
-                Log.d(LOG_TAG, "Video playback is finished.");
-                super.onVideoEnd();
-            }
-        });
+//        mAdView.setVideoOptions(new VideoOptions.Builder()
+//                .setStartMuted(true)
+//                .build());
 
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                if (mVideoController.hasVideoContent()) {
-                    Log.d(LOG_TAG, "Received an ad that contains a video asset.");
-                } else {
-                    Log.d(LOG_TAG, "Received an ad that does not contain a video asset.");
-                }
-            }
-
-            @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
-                Log.d("onAdFailedToLoad", String.format("%d",  i));
-            }
-
-        });
-
-        mAdView.loadAd(new AdRequest.Builder().build());
+//        mVideoController = mAdView.getVideoController();
+//        mVideoController.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
+//            @Override
+//            public void onVideoEnd() {
+//                Log.d(LOG_TAG, "Video playback is finished.");
+//                super.onVideoEnd();
+//            }
+//        });
+//
+//        mAdView.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//                if (mVideoController.hasVideoContent()) {
+//                    Log.d(LOG_TAG, "Received an ad that contains a video asset.");
+//                } else {
+//                    Log.d(LOG_TAG, "Received an ad that does not contain a video asset.");
+//                }
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(int i) {
+//                super.onAdFailedToLoad(i);
+//                Log.d("onAdFailedToLoad", String.format("%d",  i));
+//            }
+//
+//        });
+//
+//        mAdView.loadAd(new AdRequest.Builder().build());
 
     }
 }

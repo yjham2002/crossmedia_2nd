@@ -12,6 +12,9 @@
     <color name="color_80000000">#80000000</color>
     <color name="thisgray">#555555</color>
     <color name="numberHighlight">#EC6D85</color>
+    <color name="selectedListSub">#ffbcca</color>
+    <color name="defRank">#a9afc0</color>
+    <color name="selectedListSub2">#f29cad</color>
     <color name="color_black">#000000</color>
     <color name="color_adadad">#adadad</color>
     <color name="colorPrimaryDark2">#111111</color>

@@ -13,13 +13,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -62,6 +65,8 @@ public class RankActivity extends Activity {
 	private int page = 1;
 	private int totalPage = 1;
 
+    private DrawerLayout mDrawer;
+
 	private CommonListviewAdapter adapter;
 	private ProgressDialog loadingDialog;
 	private BottomView bottomview;
@@ -69,6 +74,61 @@ public class RankActivity extends Activity {
 	private CenterViewListener centerviewlistener = new CenterViewListener();
 	private MyMusicDB myMusicDB;
 	private ExitDialog exitDialog;
+
+	private boolean isOpened = false;
+
+	@Override
+    public void onStart(){
+	    super.onStart();
+        mDrawer = findViewById(R.id.drawer);
+    }
+
+    public void closeDrawer() {
+        mDrawer.closeDrawer(Gravity.LEFT);
+        isOpened = false;
+    }
+
+    public void openDrawer(){
+        mDrawer.openDrawer(Gravity.LEFT);
+        isOpened = true;
+    }
+
+    private void setMenuButtons(final Context context){
+        ImageView menu_home = findViewById(R.id.menu_home);
+        ImageView menu_sleep = findViewById(R.id.menu_sleep);
+        ImageView menu_review = findViewById(R.id.menu_review);
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.menu_home:{
+                        Intent intent = new Intent(context, RankActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                        finish();
+                        break;
+                    }
+                    case R.id.menu_sleep:{
+                        Intent intent = new Intent(context, TimerActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.menu_review:{
+                        Uri uri = Uri.parse("market://details?id=com.tube.sample");
+                        Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(it);
+                        break;
+                    }
+                    default: break;
+                }
+            }
+        };
+
+        menu_home.setOnClickListener(onClickListener);
+        menu_sleep.setOnClickListener(onClickListener);
+        menu_review.setOnClickListener(onClickListener);
+    }
 
 	protected void onCreate(Bundle savedInstanceState) {
 		__act = this;
@@ -91,6 +151,8 @@ public class RankActivity extends Activity {
 		listviewLoadView = (ListviewLoadView) findViewById(R.id.listviewLoadView1);
 		centerView = (CenterView) findViewById(R.id.center_view);
 		centerView.InitButtonListener(centerviewlistener);
+
+        setMenuButtons(this);
 
 		adapter = new CommonListviewAdapter(this, list, listview, handler);
 		listview.setAdapter(adapter);
@@ -145,6 +207,12 @@ public class RankActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
 			case KeyEvent.KEYCODE_BACK: {
+
+			    if(isOpened){
+			        closeDrawer();
+			        return true;
+                }
+
 				LogoActivity.isStart = false;
 				if (exitDialog != null) {
 					exitDialog.dismiss();

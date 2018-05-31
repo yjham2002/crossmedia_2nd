@@ -2,15 +2,20 @@ package com.RKclassichaeven.tube;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.RKclassichaeven.tube.R;
 import com.ccmheaven.tube.adapter.CategoryGridViewAdapter;
@@ -35,16 +40,76 @@ public class CategoryActivity extends Activity {
     private TopMenuView topMenuView;
     private ExitDialog exitDialog;
 
+    private DrawerLayout mDrawer;
+
+    private boolean isOpened = false;
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mDrawer = findViewById(R.id.drawer);
+    }
+
+    public void closeDrawer() {
+        mDrawer.closeDrawer(Gravity.LEFT);
+        isOpened = false;
+    }
+
+    public void openDrawer(){
+        mDrawer.openDrawer(Gravity.LEFT);
+        isOpened = true;
+    }
+
+    private void setMenuButtons(final Context context){
+        ImageView menu_home = findViewById(R.id.menu_home);
+        ImageView menu_sleep = findViewById(R.id.menu_sleep);
+        ImageView menu_review = findViewById(R.id.menu_review);
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.menu_home:{
+                        Intent intent = new Intent(context, RankActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                        finish();
+                        break;
+                    }
+                    case R.id.menu_sleep:{
+                        Intent intent = new Intent(context, TimerActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.menu_review:{
+                        Uri uri = Uri.parse("market://details?id=com.tube.sample");
+                        Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(it);
+                        break;
+                    }
+                    default: break;
+                }
+            }
+        };
+
+        menu_home.setOnClickListener(onClickListener);
+        menu_sleep.setOnClickListener(onClickListener);
+        menu_review.setOnClickListener(onClickListener);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         
         ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
+        ((TopView) findViewById(R.id.topView1)).setViewVisibility(true, false);
 
         bottomview = (BottomView) findViewById(R.id.bottomView1);
         topMenuView = findViewById(R.id.topMenuView);
 		bottomview.setActivity(this);
 		bottomview.addAdView();
+
+		setMenuButtons(this);
 
         gridview = (GridView) findViewById(R.id.gv_category);
         adapter = new CategoryGridViewAdapter(this, list, gridview, handler);
@@ -53,8 +118,9 @@ public class CategoryActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Intent intent = new Intent(CategoryActivity.this, CategoryChildActivity.class);
                 intent.putExtra("cgid", list.get(arg2).getCgid());
+                intent.putExtra("title", list.get(arg2).getName());
+                intent.putExtra("img", list.get(arg2).getImageUrl());
                 startActivity(intent);
-                finish();
             }
         });
         topMenuView.buttonimg(2);
@@ -69,6 +135,11 @@ public class CategoryActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
 			case KeyEvent.KEYCODE_BACK: {
+                if(isOpened){
+                    closeDrawer();
+                    return true;
+                }
+
 				LogoActivity.isStart = false;
 //				new AdHelper(this).loadInterstitialAd();
                 if (exitDialog != null) {
