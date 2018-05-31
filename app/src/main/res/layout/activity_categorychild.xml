@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff0f5"
+    android:orientation="vertical"
+    tools:context=".CategoryChildActivity">
+
+    <com.ccmheaven.tube.view.TopView
+        android:id="@+id/topView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_tab1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#a9afc0"
+            android:textSize="15sp"
+            android:text="@string/popular"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@android:color/white" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#e5e8f1" />
+
+        <TextView
+            android:id="@+id/tv_tab2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#a9afc0"
+            android:textSize="15sp"
+            android:text="@string/abc"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#eff0f5" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tab_view"
+        android:background="#a9afc0" />
+
+    <RelativeLayout
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/listviewLoadView1"
+                    android:layout_alignParentLeft="true" >
+
+                    <ListView
+                        android:id="@+id/categorychild_listView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/listviewTextview"
+                        android:layout_alignParentLeft="true"
+                        android:cacheColorHint="#00000000"
+                        android:fadingEdge="none"
+                        android:overScrollMode="never" >
+                    </ListView>
+
+                    <Button
+                        android:id="@+id/listviewTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#ffffffff"
+                        android:visibility="gone" />
+                </RelativeLayout>
+        -->
+        <ListView
+            android:id="@+id/lv_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/listviewLoadView1"
+            android:layout_alignParentLeft="true"
+            android:cacheColorHint="#00000000"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:divider="#e5e8f1"
+            android:dividerHeight="1dp" />
+
+        <com.ccmheaven.tube.view.ListviewLoadView
+            android:id="@+id/listviewLoadView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <com.ccmheaven.tube.view.CenterView
+        android:id="@+id/center_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <com.ccmheaven.tube.view.BottomView
+        android:id="@+id/bottomView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

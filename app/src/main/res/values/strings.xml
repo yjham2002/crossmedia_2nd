@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">추억의 히트곡</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-4795715404763636/5807423901</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-4795715404763636/7284157108</string>
+    <string name="admob_native_app_id">ca-app-pub-4795715404763636/5807423901</string>
+
+    <string name="no_music">다음 곡은 서비스 중지 곡입니다</string>
+    <string name="Please_wait_for_the_time_being">잠시만 기다려주세요</string>
+    <string name="Free_children_songs">무료 트로트 듣기</string>
+    <string name="Are_you_sure_you_want_to_exit">프로그램을 종료하시겠습니까</string>
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
+    <string name="Haven_to">다운 상태가 100% 일 때 이용할수 있습니다</string>
+    <string name="Sing_a_song_in_the_regeneration">노래를 재생중입니다</string>
+    <string name="Children_nursery_rhymes">Gospel</string>
+    <string name="At_least_1_selected">노래를 1곡 이상 선택해주세요</string>
+    <string name="Please_select_a_song">노래를  선택해주세요</string>
+    <string name="Has_been_saved_to_mylist">마이 리스트에 저장되었습니다</string>
+    <string name="file_exists">파일 존재</string>
+    <string name="remove">삭제</string>
+    <string name="file_already_exists">노래가 이미 존재합니다</string>
+    <string name="Overwrite_the_original_file">해당 파일을 삭제하시겠습니까</string>
+    <string name="download_file">파일 다운</string>
+    <string name="download">다운</string>
+    <string name="Confirm_to_download">노래를 다운받으시겠습니까</string>
+    <string name="Download_the_traffic_would_be_used">다운 받은 곡은 로딩 없이(3G소모안함) 재생가능합니다</string>
+    <string name="save_path">저장경로</string>
+    <string name="Download_Complete">다운로드가 완료되었습니다</string>
+    <string name="download_failed">다운로드에 실패하였습니다</string>
+    <string name="Image_is_prohibited">다운 금지 영상입니다</string>
+    <string name="download_is_in_progress">파일을 다운 중입니다</string>
+    <string name="No_can_play_audio">재생중인 리스트가 없습니다</string>
+    <string name="Has_been_delete_the_selected_item">마이 리스트에서 삭제하였습니다</string>
+    <string name="The_playlist_is_empty">재생중인 리스트가 없습니다</string>
+    <string name="No_search_results">검색 결과가 없습니다</string>
+    <string name="rank">베스트</string>
+    <string name="category">장르</string>
+    <string name="search">검색</string>
+    <string name="my_list">보관함</string>
+    <string name="popular">POPULAR</string>
+    <string name="abc">ABC</string>
+    <string name="setting">설정</string>
+    <string name="etc">ETC</string>
+    <string name="recommend">RECOMMEND</string>
+    <string name="setting_etc_text1">부족한 자료가 있나요? 업데이트를 요청하세요.</string>
+    <string name="setting_etc_text2">별점 주러 가기</string>
+    <string name="exit_notice">어플을 종료할까요?</string>
+    <string name="exit_confirm">확인</string>
+    <string name="exit_cancel">취소</string>
+
+</resources>

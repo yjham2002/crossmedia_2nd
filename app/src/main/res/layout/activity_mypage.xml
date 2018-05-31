@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff0f5"
+    android:orientation="vertical"
+    tools:context=".MyPageActivity">
+
+    <com.ccmheaven.tube.view.TopView
+        android:id="@+id/topView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<com.ccmheaven.tube.view.TopMenuView-->
+        <!--android:id="@+id/topMenuView"-->
+        <!--android:layout_below="@+id/topView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <ListView
+        android:id="@+id/mypage_listView1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.ccmheaven.tube.view.CenterView
+        android:id="@+id/page_centerView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <com.ccmheaven.tube.view.BottomView
+        android:id="@+id/bottomView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

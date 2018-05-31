@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:minWidth="240.0dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/PopupTitle"
+            style="@style/DialogText.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="5.0dip"
+            android:paddingLeft="8.0dip"
+            android:paddingRight="8.0dip"
+            android:paddingTop="5.0dip"
+            android:text="알림" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/PopupContent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="5.0dip"
+        android:paddingLeft="5.0dip"
+        android:paddingRight="5.0dip"
+        android:paddingTop="10.0dip" >
+
+        <TextView
+            android:id="@+id/PopupMessage"
+            style="@style/DialogText.Body"
+            android:layout_width="185.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:gravity="left"
+            android:paddingBottom="5.0dip"
+            android:paddingLeft="5.0dip"
+            android:paddingTop="5.0dip"
+            android:text="test" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/footer"
+        android:orientation="horizontal"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip" >
+
+        <Button
+            android:id="@+id/PopupPosButton"
+            style="@style/DialogText.Button" />
+
+        <Button
+            android:id="@+id/PopupNegButton"
+            style="@style/DialogText.Button" />
+    </LinearLayout>
+
+</LinearLayout>

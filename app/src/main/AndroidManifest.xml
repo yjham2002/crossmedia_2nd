@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.RKclassichaeven.tube"
+    >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <application
+        android:name="com.RKclassichaeven.tube.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name="LogoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="ArtistCategoryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="SearchActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="MyPageActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="DownLoadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
+
+        <activity
+            android:name="RankActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="CategoryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="CategoryChildActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="SettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!--<activity-->
+            <!--android:name="VideoActivity"-->
+            <!--android:configChanges="orientation|screenSize"-->
+            <!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name="io.vov.vitamio.activity.InitActivity"-->
+            <!--android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"-->
+            <!--android:windowSoftInputMode="stateAlwaysHidden" />-->
+        <!--<activity-->
+            <!--android:name="com.google.ads.AdActivity"-->
+            <!--android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />-->
+        <activity
+            android:name="YoutubePlayerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="nosensor" >
+        </activity>
+        <activity android:name="ArtistCategoryChildActivity" ></activity>
+        
+        
+        <!-- parse -->
+        <!--<service android:name="com.parse.PushService" />-->
+        <!--<receiver android:name="com.parse.ParseBroadcastReceiver" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+                <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        
+        <!-- Google Play Services -->
+        <meta-data android:name="com.google.android.gms.version"
+        	android:value="@integer/google_play_services_version" />
+        
+        <!-- 1) Analytics -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="bases.utils.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+            <!--</intent-filter>-->
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+    
+        <!-- 2) Admob -->
+		<activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:theme="@android:style/Theme.Translucent"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <meta-data
+            tools:replace="android:value"
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+
+    </application>
+
+</manifest>
