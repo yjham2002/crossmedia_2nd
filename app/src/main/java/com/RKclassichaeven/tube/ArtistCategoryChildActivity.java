@@ -304,6 +304,7 @@ public class ArtistCategoryChildActivity extends Activity {
 						Intent intent = new Intent(intance, YoutubePlayerActivity.class);
 						intent.putExtra( "playlist", strJson );
 						intance.startActivity(intent);
+						overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
 					}
 
 					listview.clearChoices();

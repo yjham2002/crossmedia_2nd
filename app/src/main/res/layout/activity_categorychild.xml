@@ -83,8 +83,8 @@
             android:clickable="true"
             android:layout_margin="20dp"
             android:layout_gravity="right|bottom"
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
     </FrameLayout>
 

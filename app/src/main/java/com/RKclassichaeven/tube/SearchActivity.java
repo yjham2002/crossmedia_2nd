@@ -360,6 +360,7 @@ public class SearchActivity extends Activity {
                         Intent intent = new Intent(SearchActivity.this, YoutubePlayerActivity.class);
                         intent.putExtra( "playlist", strJson );
                         startActivity(intent);
+                        overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
                     }
                     centerview.setVisibility(View.GONE);
                     listview.clearChoices();

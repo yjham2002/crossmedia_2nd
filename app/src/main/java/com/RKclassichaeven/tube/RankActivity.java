@@ -304,6 +304,7 @@ public class RankActivity extends Activity {
 						Intent intent = new Intent(RankActivity.this, YoutubePlayerActivity.class);
 						intent.putExtra( "playlist", strJson );
 						startActivity(intent);
+                        overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
 					}
 					centerView.setVisibility(View.GONE);
 					listview.clearChoices();

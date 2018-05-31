@@ -292,6 +292,7 @@ public class MyPageActivity extends Activity {
                         Intent intent = new Intent(intance, YoutubePlayerActivity.class);
                         intent.putExtra( "playlist", strJson );
                         intance.startActivity(intent);
+                        overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
                     }
                     centerview.setVisibility(View.GONE);
                     listview.clearChoices();

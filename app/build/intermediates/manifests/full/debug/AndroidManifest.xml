@@ -97,7 +97,8 @@
         <activity
             android:name="com.RKclassichaeven.tube.YoutubePlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="nosensor" >
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppThemYT" >
         </activity>
         <activity android:name="com.RKclassichaeven.tube.ArtistCategoryChildActivity" />
 

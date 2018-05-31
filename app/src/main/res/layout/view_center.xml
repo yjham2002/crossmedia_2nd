@@ -16,6 +16,7 @@
         android:background="@drawable/background_play">
 
         <ImageButton
+            android:visibility="invisible"
             android:id="@+id/center_button1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -27,11 +28,14 @@
             android:id="@+id/center_button2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:src="@drawable/gospel_home2"
+            android:src="@drawable/ico_bottom_play"
             android:background="@android:color/transparent" />
 
         <ImageButton
+            android:visibility="invisible"
             android:id="@+id/center_button4"
             android:layout_width="0dp"
             android:layout_height="match_parent"

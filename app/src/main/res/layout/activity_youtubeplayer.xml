@@ -1,53 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.gw.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeBackLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:directionMode="top"
+    app:isSwipeFromEdge="true"
+    app:maskAlpha="125"
+    app:swipeBackFactor="0.5">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffffff"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#d41726" >
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-	            android:layout_toLeftOf="@+id/chkShuffle"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:singleLine="true"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-	
-	        <CheckBox
-	            android:id="@+id/chkShuffle"
-	            android:layout_width="60dp"
-	            android:layout_height="wrap_content"
-	            android:layout_alignParentRight="true"
-	            android:layout_marginRight="10dp"
-	            android:background="@drawable/chk_shuffle"
-	            android:button="@null"
-	            android:checked="false"
-	            android:textColor="#000000" />
-
-        </RelativeLayout>
+            android:layout_toEndOf="@+id/left_back"
+            android:layout_toLeftOf="@id/chkShuffle"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Playing"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#e5e8f1" />
-    </LinearLayout>
+            android:id="@+id/left_back"
+            android:layout_width="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_down"
+            android:scaleType="centerInside" />
+
+        <ImageView
+            android:id="@+id/chkShuffle"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/toggle_shuffle_normal"
+            android:button="@null"
+            android:checked="false"
+            android:scaleType="centerCrop"
+            android:textColor="#000000" />
+
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/frame"
@@ -105,3 +119,4 @@
         android:layout_alignParentLeft="true" />
 
 </RelativeLayout>
+</com.gw.swipeback.SwipeBackLayout>

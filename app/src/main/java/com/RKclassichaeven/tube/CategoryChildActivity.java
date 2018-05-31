@@ -66,7 +66,7 @@ public class CategoryChildActivity extends Activity {
     private String title;
     private String imgUrl;
 
-    private ImageView thm, left_back;
+    private ImageView thm, left_back, shufflePlay;
     private TextView cateName, cateNum;
     private String cgid;
     private ListviewLoadView listviewLoadView;
@@ -109,6 +109,13 @@ public class CategoryChildActivity extends Activity {
 //            topMenuView = findViewById(R.id.topMenuView);
             bottomview.setActivity(this);
             bottomview.addAdView();
+            shufflePlay = findViewById(R.id.shufflePlay);
+            shufflePlay.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    goShuffle();
+                }
+            });
 
             left_back = findViewById(R.id.left_back);
 
@@ -369,6 +376,30 @@ public class CategoryChildActivity extends Activity {
 
     private boolean isAllSelect;
 
+    private void goShuffle(){
+        for (int i = 0; i < listview.getCount(); i++) {
+            listview.setItemChecked(i, true);
+        }
+        List<ListInfo> templist = new ArrayList<ListInfo>();
+        for (int i = 0; i < listview.getCount(); i++) {
+            if (listview.isItemChecked(i)) {
+                templist.add(list.get(i));
+            }
+        }
+        if (!templist.isEmpty()) {
+            Gson gson = new Gson();
+            String strJson=gson.toJson(templist);
+            Intent intent = new Intent(CategoryChildActivity.this, YoutubePlayerActivity.class);
+            intent.putExtra( "playlist", strJson );
+            startActivity(intent);
+            overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
+        }
+
+        centerView.setVisibility(View.GONE);
+        listview.clearChoices();
+        listviewAdapter.notifyDataSetChanged();
+    }
+
     private class CenterViewListener implements OnClickListener {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -402,6 +433,7 @@ public class CategoryChildActivity extends Activity {
                         Intent intent = new Intent(CategoryChildActivity.this, YoutubePlayerActivity.class);
                         intent.putExtra( "playlist", strJson );
                         startActivity(intent);
+                        overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
                     }
 
                     centerView.setVisibility(View.GONE);

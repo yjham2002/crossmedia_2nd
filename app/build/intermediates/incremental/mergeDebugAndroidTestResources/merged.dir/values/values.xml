@@ -390,6 +390,12 @@
         </attr><attr format="reference" name="umanoScrollInterpolator"/></declare-styleable>
     <declare-styleable name="SpinKitView"><attr name="SpinKit_Style"><enum name="RotatingPlane" value="0"/><enum name="DoubleBounce" value="1"/><enum name="Wave" value="2"/><enum name="WanderingCubes" value="3"/><enum name="Pulse" value="4"/><enum name="ChasingDots" value="5"/><enum name="ThreeBounce" value="6"/><enum name="Circle" value="7"/><enum name="CubeGrid" value="8"/><enum name="FadingCircle" value="9"/><enum name="FoldingCube" value="10"/><enum name="RotatingCircle" value="11"/><enum name="MultiplePulse" value="12"/><enum name="PulseRing" value="13"/><enum name="MultiplePulseRing" value="14"/></attr><attr format="color" name="SpinKit_Color"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
+    <declare-styleable name="SwipeBackLayout"><attr format="float" name="swipeBackFactor"/><attr format="integer" name="maskAlpha"/><attr format="boolean" name="isSwipeFromEdge"/><attr name="directionMode">
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="top" value="4"/>
+            <enum name="bottom" value="8"/>
+        </attr></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">
             
             <enum name="src_over" value="3"/>
@@ -748,6 +754,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="app_name">library</string>
     <string name="cast_ad_label">Ad</string>
     <string name="cast_casting_to_device">Casting to %1$s</string>
     <string name="cast_closed_captions">Closed captions</string>
@@ -2416,6 +2423,10 @@
     </style>
     <style name="Theme.MediaRouter.LightControlPanel">
         <item name="mediaRouteControlPanelThemeOverlay">@style/ThemeOverlay.MediaRouter.Light</item>
+    </style>
+    <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>

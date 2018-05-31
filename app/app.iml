@@ -114,6 +114,7 @@
     <orderEntry type="library" name="com.google.android.gms:play-services-drive-11.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-auth-11.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-awareness-11.0.2" level="project" />
+    <orderEntry type="library" name="com.gongwen:swipeback-1.0.2" level="project" />
     <orderEntry type="library" name="com.squareup.picasso:picasso-2.71828" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-plus-11.0.2" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-appindexing-11.0.2" level="project" />
@@ -183,6 +184,7 @@
     <orderEntry type="library" name="com.android.support:exifinterface-27.1.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-messaging-11.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-26.1.0" level="project" />
+    <orderEntry type="library" name="com.github.ybq:Android-SpinKit-1.1.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-tagmanager-api-11.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-fitness-11.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-location-11.0.2" level="project" />

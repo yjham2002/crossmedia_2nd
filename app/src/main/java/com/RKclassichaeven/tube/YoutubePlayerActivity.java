@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.gw.swipeback.SwipeBackLayout;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -51,9 +54,11 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	private BottomView bottomview;
 	private TopMenuView topMenuView;
 	TextView tvTitle;
-	LinearLayout topView;
+	View topView;
 	public static int index;
 
+	private ImageView left_back, toggler;
+	private SwipeBackLayout mSwipeBackLayout;
 	private ListView listview;
 	private CommonListviewAdapter listviewadapter;
 	private MyPlaylistEventListener playlistEventListener;
@@ -62,8 +67,36 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	private List<Integer> playedList;
 	//private ListviewLoadView listviewLoadView;
 
-	private CheckBox chkShuffle;
-	private boolean doShuffle = false;
+	private ImageView chkShuffleMode;
+	private PLAY_MODE doShuffle = PLAY_MODE.SHUFFLE_NORMAL;
+
+	private enum PLAY_MODE{
+		SHUFFLE_NORMAL{
+			@Override
+			PLAY_MODE next() {
+				return PLAY_ALL;
+			}
+		},
+		PLAY_ALL{
+			@Override
+			PLAY_MODE next() {
+				return PLAY_ALL_REPEAT;
+			}
+		},
+		PLAY_ONE_REPEAT{
+			@Override
+			PLAY_MODE next() {
+				return SHUFFLE_NORMAL;
+			}
+		},
+		PLAY_ALL_REPEAT{
+			@Override
+			PLAY_MODE next() {
+				return PLAY_ONE_REPEAT;
+			}
+		};
+		abstract PLAY_MODE next();
+	}
 
 	private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 		@Override
@@ -96,6 +129,19 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		setContentView(R.layout.activity_youtubeplayer);
 		index = 0;
 
+		mSwipeBackLayout = new SwipeBackLayout(this);
+		mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_TOP);
+		mSwipeBackLayout.attachToActivity(this);
+
+		left_back = findViewById(R.id.left_back);
+
+		left_back.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View view) {
+				finish();
+				overridePendingTransition( R.anim.slide_up_rev, R.anim.slide_down_rev );
+			}
+		});
 
 		Bundle extras = getIntent().getExtras();
 
@@ -116,8 +162,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		bottomview.setActivity(this);
 		bottomview.addAdView();
 
-		topView = (LinearLayout) findViewById(R.id.topView1);
+		topView = findViewById(R.id.topView1);
 		tvTitle = (TextView) findViewById(R.id.tv_title);
+		tvTitle.setSelected(true);
 
 		listview = (ListView) findViewById(R.id.video_listView1);
 		listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -144,11 +191,13 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 //		topMenuView.buttonimg(FromActivity);
 
 		// CheckBox: Shuffle
-		chkShuffle = (CheckBox) findViewById(R.id.chkShuffle);
-		chkShuffle.setOnClickListener(new View.OnClickListener() {
+		chkShuffleMode = findViewById(R.id.chkShuffle);
+		setTogglerImage(doShuffle);
+		chkShuffleMode.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				doShuffle = ((CheckBox)v).isChecked();
+				doShuffle = doShuffle.next();
+				setTogglerImage(doShuffle);
 				//Log.d("dev", "chkShuffle.OnClick. isChecked: " + doShuffle);
 			}
 		});
@@ -170,6 +219,23 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	private int nowConfig;
 	private int newConfig;
+
+	private void setTogglerImage(PLAY_MODE play_mode){
+		switch (doShuffle){
+			case PLAY_ALL:
+				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_once);
+				break;
+			case PLAY_ALL_REPEAT:
+				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_all);
+				break;
+			case PLAY_ONE_REPEAT:
+				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_one);
+				break;
+			case SHUFFLE_NORMAL:
+				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_normal);
+				break;
+		}
+	}
 
 	public Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -297,6 +363,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		if (++index >= list.size()) {
 			index = 0;
+			if(doShuffle.equals(PLAY_MODE.PLAY_ALL)){
+				if(player != null) player.pause();
+			}
 		}
 		listviewadapter.notifyDataSetChanged();
 	}
@@ -507,9 +576,19 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		@Override
 		public void onVideoEnded() {
 			playerState = "VIDEO_ENDED";
-			if(doShuffle){
-				// get random index
-				index = random();
+			switch (doShuffle){
+				case PLAY_ALL:
+					// Processing on startPlay
+					break;
+				case PLAY_ALL_REPEAT:
+					// Do nothing
+					break;
+				case PLAY_ONE_REPEAT:
+					index = index - 1;
+					break;
+				case SHUFFLE_NORMAL:
+					index = random();
+					break;
 			}
 			//isVideoStart = false;
 			startPlay();
@@ -531,13 +610,40 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 					if (list.size() == 1) {
 						finish();
 					} else {
-						if(doShuffle){
-							index = random();
+						switch (doShuffle){
+							case PLAY_ALL:
+								// Processing on startPlay
+								break;
+							case PLAY_ALL_REPEAT:
+								// Do nothing
+								break;
+							case PLAY_ONE_REPEAT:
+								index = index - 1;
+								break;
+							case SHUFFLE_NORMAL:
+								index = random();
+								break;
 						}
+//						if(doShuffle.equals(PLAY_MODE.PLAY_ALL_REPEAT)){
+//							index = random();
+//						}
 						startPlay();
 					}
 				}
 			}
 		}
 	}
+
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK: {
+            	finish();
+				overridePendingTransition( R.anim.slide_up_rev, R.anim.slide_down_rev );
+			}
+            break;
+        }
+        return true;
+    }
+
 }

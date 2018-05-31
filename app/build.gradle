@@ -34,6 +34,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.ybq:Android-SpinKit:1.1.0'
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.gongwen:swipeback:1.0.2'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation files('libs/AdamPublisherSDK-2.3.4.jar')
 }
