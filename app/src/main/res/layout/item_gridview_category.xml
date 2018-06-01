@@ -14,9 +14,9 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_photo"
-            android:layout_margin="1dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:src="@drawable/no_image"
             android:scaleType="centerCrop" />
 
@@ -24,10 +24,9 @@
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center"
-            android:singleLine="true"
             android:text="TextView"
             android:textColor="#353b44" />
     </LinearLayout>

@@ -110,7 +110,7 @@
             android:id="@+id/iv_star"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="5dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/xml_btn_star_selector"
             android:padding="10dp" />

@@ -576,8 +576,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		@Override
 		public void onVideoEnded() {
 			playerState = "VIDEO_ENDED";
+			boolean once_flag = false;
 			switch (doShuffle){
 				case PLAY_ALL:
+					once_flag = true;
 					// Processing on startPlay
 					break;
 				case PLAY_ALL_REPEAT:
@@ -591,7 +593,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 					break;
 			}
 			//isVideoStart = false;
-			startPlay();
+			if(!once_flag) startPlay();
 			Log.d("dev", playerState);
 		}
 

@@ -1,6 +1,7 @@
 com/google/android/gms/common/api/Api$zzc.class
 android/support/v7/widget/RecyclerView$6.class
 android/support/v4/app/FrameMetricsAggregator$MetricType.class
+com/gw/swipeback/SwipeBackLayout$OnSwipeBackListener.class
 android/support/v7/view/menu/CascadingMenuPopup$3.class
 android/support/annotation/VisibleForTesting.class
 android/support/v4/media/session/MediaSessionCompatApi21.class
@@ -95,6 +96,7 @@ android/support/v4/view/TintableBackgroundView.class
 android/support/multidex/MultiDexExtractor$ExtractedDex.class
 com/google/android/gms/wallet/InstrumentInfo.class
 android/support/v7/app/ActionBar$OnNavigationListener.class
+com/gw/swipeback/R.class
 android/support/v4/view/accessibility/AccessibilityNodeProviderCompat.class
 com/google/android/gms/internal/zzcaf.class
 android/support/v7/appcompat/R.class
@@ -121,6 +123,7 @@ android/support/annotation/RequiresPermission$Read.class
 com/google/android/gms/nearby/messages/Distance$Accuracy.class
 android/support/annotation/ArrayRes.class
 android/support/v4/app/NotificationCompat$NotificationVisibility.class
+com/gw/swipeback/SwipeBackLayout$DirectionMode.class
 android/support/v7/app/AppCompatCallback.class
 android/support/v4/app/NotificationCompatBase$Action.class
 android/support/v7/widget/RecyclerView$Recycler.class
@@ -242,6 +245,7 @@ android/support/v7/widget/LinearLayoutCompat.class
 com/google/android/gms/ads/formats/NativeAdOptions$AdChoicesPlacement.class
 android/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18.class
 com/google/android/gms/nearby/connection/PayloadTransferUpdate$Status.class
+com/gw/swipeback/SwipeBackLayout.class
 android/support/v4/media/MediaBrowserCompat$ItemCallback.class
 com/google/android/gms/common/internal/zzd.class
 android/support/annotation/ColorRes.class
@@ -336,8 +340,10 @@ android/support/annotation/CheckResult.class
 android/support/v4/view/ViewCompat$ViewCompatApi18Impl.class
 android/support/v4/media/VolumeProviderCompat.class
 android/support/annotation/AnimRes.class
+com/gw/swipeback/R$styleable.class
 android/support/v7/widget/RecyclerView$State.class
 android/support/v4/view/ViewPropertyAnimatorCompat.class
+com/gw/swipeback/SwipeBackLayout$DragHelperCallback.class
 android/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl.class
 android/support/v7/widget/MenuItemHoverListener.class
 android/support/v4/view/ViewCompat$FocusRealDirection.class
@@ -353,6 +359,7 @@ com/google/android/gms/common/internal/ReflectedParcelable.class
 android/support/v4/app/NotificationCompatApi21.class
 com/google/android/gms/cast/CastRemoteDisplay$CastRemoteDisplayOptions.class
 android/support/annotation/GuardedBy.class
+android/support/v4/widget/ViewDragHelper.class
 android/support/v4/view/ViewPager$3.class
 android/support/v7/widget/RecyclerView$ItemDecoration.class
 android/support/v7/view/menu/MenuItemImpl.class
@@ -467,6 +474,7 @@ com/google/android/gms/internal/zzbaz.class
 android/support/v4/internal/view/SupportMenuItem.class
 com/google/android/gms/internal/zzajc.class
 com/google/android/gms/wallet/fragment/WalletFragmentStyle$BuyButtonAppearance.class
+com/gw/swipeback/tools/Util.class
 android/support/v4/view/ViewPager$OnAdapterChangeListener.class
 android/support/v4/text/util/LinkifyCompat$LinkifyMask.class
 android/support/v4/media/MediaMetadataCompat$LongKey.class
@@ -496,6 +504,7 @@ com/google/firebase/database/PropertyName.class
 android/support/v4/view/ViewConfigurationCompat.class
 android/support/v4/app/NotificationBuilderWithActions.class
 com/google/android/gms/internal/zzcab.class
+com/gw/swipeback/SwipeBackLayout$1.class
 android/support/media/ExifInterface$1.class
 android/support/v4/view/ViewCompat$FocusDirection.class
 android/support/v7/appcompat/R$dimen.class
@@ -540,6 +549,7 @@ com/google/firebase/auth/ActionCodeResult$Operation.class
 android/support/v4/app/NotificationCompat$InboxStyle.class
 android/support/v4/media/session/PlaybackStateCompat$CustomAction.class
 android/support/v4/view/ViewPager$ViewPositionComparator.class
+android/support/v4/widget/ViewDragHelper$Callback.class
 android/support/annotation/WorkerThread.class
 android/support/multidex/ZipUtil.class
 android/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl.class

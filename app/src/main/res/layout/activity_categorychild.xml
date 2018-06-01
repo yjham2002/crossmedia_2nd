@@ -26,6 +26,7 @@
                 android:id="@+id/left_back"
                 android:layout_width="30dp"
                 android:layout_marginLeft="10dp"
+                android:padding="2dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
@@ -63,14 +64,14 @@
                     android:text="Category Title"
                     android:textColor="@color/jet"
                     android:layout_marginBottom="10dp"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:textSize="20dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/cateNum"
                     android:text="0 Songs"
                     android:textColor="@color/selectedListSub2"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:textSize="14dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>

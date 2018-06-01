@@ -3,6 +3,7 @@ package com.ccmheaven.tube.adapter;
 import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,15 +78,17 @@ public class CategoryGridViewAdapter extends BaseAdapter {
          */
 //        imageLoader.DisplayImage(list.get(arg0).getImageUrl(), hostview.m_ivPhoto);
 
-        if(list.get(arg0).getImageUrl() != null && !list.get(arg0).getImageUrl().trim().equals("")){
-            Picasso
-                    .get()
-                    .load(list.get(arg0).getImageUrl())
-                    .centerCrop()
-                    .resize(100, 100)
-                    .placeholder(R.drawable.icon_hour_glass)
-                    .transform(new RoundedTransform(0, 0)).into(hostview.m_ivPhoto);
+        if(list.get(arg0).getImageUrl() == null || list.get(arg0).getImageUrl().trim().equals("")){
+            list.get(arg0).setImageUrl("http://null");
         }
+        Log.e("sizeInfo", hostview.m_ivPhoto.getHeight() + "/" + hostview.m_ivPhoto.getMeasuredHeight() + "/" + hostview.m_ivPhoto.getWidth() + "/" + hostview.m_ivPhoto.getMeasuredWidth());
+        Picasso
+                .get()
+                .load(list.get(arg0).getImageUrl())
+                .centerCrop()
+                .resize(100, 80)
+                .placeholder(R.drawable.icon_hour_glass_no_round)
+                .transform(new RoundedTransform(4, 0)).into(hostview.m_ivPhoto);
 
         return arg1;
     }
