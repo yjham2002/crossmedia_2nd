@@ -184,6 +184,11 @@ public class SearchActivity extends Activity {
                         listview.setSelection(lastItem);
                         listviewLoadView.setVisibility(View.GONE);
                     }
+
+                    if(list == null || list.size() == 0){
+                        Toast.makeText(getApplicationContext(), "검색결과가 없습니다.", Toast.LENGTH_LONG).show();
+                    }
+
                     listviewAdapter.notifyDataSetChanged();
                     loagindDialog.dismiss();
                 }

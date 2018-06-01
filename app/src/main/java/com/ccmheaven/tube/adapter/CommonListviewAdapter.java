@@ -133,16 +133,23 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
         }
 
         // "-"로 나눔
-        String txt_tmp = list.get(arg0).getVideoName();
-        index = txt_tmp.indexOf("-");
-        if (index > 0) {
-            String[] txt_tmp2 = txt_tmp.split("-");
-            hostview.m_tvName1.setText(txt_tmp2[0].trim());
-            hostview.m_tvCategory.setText(txt_tmp2[1].trim());
-        } else {
-            hostview.m_tvName1.setText(txt_tmp);
-            hostview.m_tvCategory.setText("");
-        }
+//        String txt_tmp = list.get(arg0).getVideoName();
+//        index = txt_tmp.indexOf("-");
+
+        /**
+         * PickleCode - Displaying Contents modified
+         */
+//        if (index > 0) {
+//            String[] txt_tmp2 = txt_tmp.split("-");
+//            hostview.m_tvName1.setText(txt_tmp2[0].trim());
+//            hostview.m_tvCategory.setText(txt_tmp2[1].trim());
+//        } else {
+//            hostview.m_tvName1.setText(txt_tmp);
+//            hostview.m_tvCategory.setText("");
+//        }
+        hostview.m_tvName1.setText(list.get(arg0).getArtistName());
+        hostview.m_tvCategory.setText(list.get(arg0).getVideoName());
+
 //        hostview.m_tvViews.setText(makeMoneyType(list.get(arg0).getViews()) + " VIEWS");
 
         hostview.m_tvRunTime.setText(list.get(arg0).getRuntime());

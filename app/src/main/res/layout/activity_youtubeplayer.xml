@@ -106,17 +106,26 @@
         android:id="@+id/video_listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomView1"
+        android:layout_above="@+id/llAdview"
         android:layout_below="@+id/frame"
         android:layout_centerHorizontal="true" >
     </ListView>
 
-    <com.ccmheaven.tube.view.BottomView
-        android:id="@+id/bottomView1"
+    <LinearLayout
+        android:id="@+id/llAdview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <!--<com.ccmheaven.tube.view.BottomView-->
+        <!--android:id="@+id/bottomView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true" />-->
 
 </RelativeLayout>
 </com.gw.swipeback.SwipeBackLayout>

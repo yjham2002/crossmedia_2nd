@@ -79,6 +79,8 @@ public class CategoryChildDataThread extends Thread {
                 listinfo.setImageUrl(json.getString("vd_thum_url"));
                 listinfo.setVideoId(json.getString("vd_id"));
                 listinfo.setArtistName(json.getString("vd_name"));
+                listinfo.setPureArtist(json.getString("vd_name"));
+                listinfo.setPureTitle(json.getString("vd_title"));
                 listinfo.setVideoUrl(json.getString("vd_url"));
                 listinfo.setRuntime(json.getString("vd_runtime"));
                 listinfo.setViews(json.getString("views"));

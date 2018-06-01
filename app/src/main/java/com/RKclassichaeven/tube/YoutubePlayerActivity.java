@@ -6,23 +6,29 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Point;
 import android.os.Bundle;
 //import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.RKclassichaeven.tube.R;
 import com.ccmheaven.tube.adapter.CommonListviewAdapter;
+import com.ccmheaven.tube.ads.AdHelper;
 import com.ccmheaven.tube.pub.Constants;
 import com.ccmheaven.tube.pub.ListInfo;
 import com.ccmheaven.tube.view.BottomView;
@@ -51,7 +57,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	public  List<ListInfo> list = new ArrayList<ListInfo>();
 
 	public static int FromActivity;
-	private BottomView bottomview;
+//	private BottomView bottomview;
 	private TopMenuView topMenuView;
 	TextView tvTitle;
 	View topView;
@@ -124,6 +130,8 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		unregisterReceiver(broadcastReceiver);
 	}
 
+	LinearLayout llAdview;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_youtubeplayer);
@@ -134,6 +142,33 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		mSwipeBackLayout.attachToActivity(this);
 
 		left_back = findViewById(R.id.left_back);
+		llAdview = findViewById(R.id.llAdview);
+		AdHelper adHelper = new AdHelper(this);
+		if(adHelper != null && llAdview != null){
+			Log.d("dev", "BottomView.addAdView() call adAdView()");
+			adHelper.addAdView(llAdview);
+		}
+
+		/**
+		 * PickleCode 2018-06-01
+		 * get Actual Screen size and revise the position of ad view.
+		 */
+		Display display = getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		Point size2 = new Point();
+		display.getSize(size);
+		display.getRealSize(size2);
+		int width = size.x;
+		int height = size.y;
+		int width2 = size2.x;
+		int height2 = size2.y;
+
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)llAdview.getLayoutParams();
+
+		params.setMargins(0, 0, 0, height2 - height);
+		if(height2 - height > 0) llAdview.setLayoutParams(params);
+
+		Log.e("screenInfo", width + ":" + height + " // " + width2 + ":" + height2);
 
 		left_back.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -157,10 +192,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		playedList = new ArrayList<Integer>();
 		youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-		bottomview = (BottomView) findViewById(R.id.bottomView1);
+//		bottomview = (BottomView) findViewById(R.id.bottomView1);
 //		topMenuView = findViewById(R.id.topMenuView);
-		bottomview.setActivity(this);
-		bottomview.addAdView();
+//		bottomview.setActivity(this);
+//		bottomview.addAdView();
 
 		topView = findViewById(R.id.topView1);
 		tvTitle = (TextView) findViewById(R.id.tv_title);
@@ -504,12 +539,12 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		//seekto = player.getCurrentTimeMillis();
 		if (newConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
 			topView.setVisibility(View.VISIBLE);
-			bottomview.setVisibility(View.VISIBLE);
+//			bottomview.setVisibility(View.VISIBLE);
 			listview.setVisibility(View.VISIBLE);
 			newConfig = Configuration.ORIENTATION_PORTRAIT;
 		} else if (newConfiguration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 			topView.setVisibility(View.GONE);
-			bottomview.setVisibility(View.GONE);
+//			bottomview.setVisibility(View.GONE);
 			listview.setVisibility(View.GONE);
 			newConfig = Configuration.ORIENTATION_LANDSCAPE;
 		}

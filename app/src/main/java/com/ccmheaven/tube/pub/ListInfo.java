@@ -10,6 +10,24 @@ public class ListInfo {
     private String artistName;
     private String runTime;
     private String views;
+    private String pureTitle;
+    private String pureArtist;
+
+    public String getPureTitle() {
+        return pureTitle;
+    }
+
+    public void setPureTitle(String pureTitle) {
+        this.pureTitle = pureTitle;
+    }
+
+    public String getPureArtist() {
+        return pureArtist;
+    }
+
+    public void setPureArtist(String pureArtist) {
+        this.pureArtist = pureArtist;
+    }
 
     public int getTotal() {
         return total;
