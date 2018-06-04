@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -39,6 +40,7 @@ public class CategoryActivity extends Activity {
     private BottomView bottomview;
     private TopMenuView topMenuView;
     private ExitDialog exitDialog;
+    private Activity context;
 
     private DrawerLayout mDrawer;
 
@@ -100,6 +102,8 @@ public class CategoryActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+
+        this.context = this;
         
         ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
         ((TopView) findViewById(R.id.topView1)).setViewVisibility(true, false);
@@ -151,7 +155,9 @@ public class CategoryActivity extends Activity {
                         public void onConfirm() {
                             exitDialog.dismiss();
                             exitDialog = null;
-                            finish();
+                            ActivityCompat.finishAffinity(context);
+
+                            System.exit(0);
                         }
 
                         @Override

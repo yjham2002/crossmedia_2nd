@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -112,6 +113,7 @@ public class TopMenuView extends LinearLayout {
                     Intent intent = new Intent(getContext(), RankActivity.class);
                     getContext().startActivity(intent);
                     overrideTransition();
+                    ActivityCompat.finishAffinity((Activity) getContext());
                     ((Activity) getContext()).finish();
                 }
                 break;
@@ -119,6 +121,7 @@ public class TopMenuView extends LinearLayout {
                     Intent intent = new Intent(getContext(), CategoryActivity.class);
                     getContext().startActivity(intent);
                     overrideTransition();
+                    ActivityCompat.finishAffinity((Activity) getContext());
                     ((Activity) getContext()).finish();
                 }
                 break;

@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
@@ -64,6 +65,8 @@ public class RankActivity extends Activity {
 	private boolean isLockListView = false;
 	private int page = 1;
 	private int totalPage = 1;
+
+	private Activity activity;
 
     private DrawerLayout mDrawer;
 
@@ -140,6 +143,8 @@ public class RankActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rank);
 		myMusicDB = new MyMusicDB(this);
+
+		this.activity = this;
 
         ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
         ((TopView) findViewById(R.id.topView1)).setViewVisibility(true, false);
@@ -223,7 +228,9 @@ public class RankActivity extends Activity {
 						public void onConfirm() {
 							exitDialog.dismiss();
 							exitDialog = null;
-							finish();
+							ActivityCompat.finishAffinity(activity);
+
+							System.exit(0);
 						}
 
 						@Override
