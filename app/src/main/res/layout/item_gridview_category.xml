@@ -8,7 +8,6 @@
 
     <LinearLayout
         android:background="@drawable/rounded_rect_thin"
-        android:layout_margin="1dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,8 +15,9 @@
             android:id="@+id/iv_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/no_image"
+            android:src="@drawable/icon_hour_glass_no_round"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -26,6 +26,8 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:maxLines="2"
+            android:lines="2"
             android:gravity="center"
             android:text="TextView"
             android:textColor="#353b44" />

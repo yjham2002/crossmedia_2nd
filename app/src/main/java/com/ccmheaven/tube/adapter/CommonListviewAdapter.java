@@ -106,7 +106,7 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
         } else {
             arg1.setBackgroundColor(Color.WHITE);
         }
-        File file = new File(path + "/gospel/down/" + list.get(arg0).getArtistName() + "_" + list.get(arg0).getVideoName() + ".mp4");
+//        File file = new File(path + "/gospel/down/" + list.get(arg0).getArtistName() + "_" + list.get(arg0).getVideoName() + ".mp4");
 
         if (listview.isItemChecked(arg0)) {
 //            arg1.findViewById(R.id.rly_back).setBackgroundColor(Color.parseColor("#eff0f5"));

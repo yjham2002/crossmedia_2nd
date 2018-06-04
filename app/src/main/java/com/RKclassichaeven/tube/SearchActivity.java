@@ -47,6 +47,10 @@ import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -138,9 +142,14 @@ public class SearchActivity extends Activity {
                 "Connecting", "Loading. Please wait...", true, false);
     }
 
-    private boolean isSearch;
+    private volatile boolean nowSearching = false;
 
     private void startSearch() {
+        if(nowSearching){
+            return;
+        }
+        nowSearching = true;
+
         ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
                 .hideSoftInputFromWindow(getCurrentFocus()
                         .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
@@ -153,9 +162,7 @@ public class SearchActivity extends Activity {
             if (edit.equals("")) {
                 page = 1;
                 InitDataThread.startInitDataThread(handler, list, page);
-                isSearch = false;
             } else {
-                isSearch = true;
                 SearchDataThread.startSearchDataThread(handler, list, edit);
             }
         } else {
@@ -168,6 +175,7 @@ public class SearchActivity extends Activity {
 
     public Handler handler = new Handler() {
         public void handleMessage(Message msg) {
+            nowSearching = false;
             switch (msg.what) {
                 case CategoryChildActivity.LOADINGBACK: {
                     int top = Integer.parseInt(msg.obj.toString());
@@ -185,11 +193,41 @@ public class SearchActivity extends Activity {
                         listviewLoadView.setVisibility(View.GONE);
                     }
 
-                    if(list == null || list.size() == 0){
-                        Toast.makeText(getApplicationContext(), "검색결과가 없습니다.", Toast.LENGTH_LONG).show();
+                    final String passedObj = (String)msg.obj;
+
+                    try {
+                        JSONObject jsonobject = new JSONObject(passedObj);
+                        JSONArray jsonarray = jsonobject.getJSONObject("result")
+                                .getJSONArray("list");
+
+                        List<ListInfo> newList = new ArrayList<>();
+
+                        for (int i = 0; i < jsonarray.length(); i++) {
+                            JSONObject json = jsonarray.getJSONObject(i);
+                            ListInfo listinfo = new ListInfo();
+                            listinfo.setVideoName(json.getString("vd_title"));
+                            listinfo.setVideoCode(json.getString("vd_code"));
+                            listinfo.setImageUrl(json.getString("vd_thum_url"));
+                            listinfo.setVideoId(json.getString("vd_id"));
+                            listinfo.setArtistName(json.getString("vd_name"));
+                            listinfo.setVideoUrl(json.getString("vd_url"));
+                            listinfo.setRuntime(json.getString("vd_runtime"));
+                            listinfo.setViews(json.getString("views"));
+                            newList.add(listinfo);
+                        }
+
+                        if(newList == null || newList.size() == 0){
+                            Toast.makeText(getApplicationContext(), "검색결과가 없습니다.", Toast.LENGTH_LONG).show();
+                        }
+
+                        list.clear();
+                        list.addAll(newList);
+
+                        listviewAdapter.notifyDataSetChanged();
+                    }catch (JSONException e){
+                        e.printStackTrace();
                     }
 
-                    listviewAdapter.notifyDataSetChanged();
                     loagindDialog.dismiss();
                 }
                 break;
@@ -198,11 +236,16 @@ public class SearchActivity extends Activity {
                     if (page > 1) {
                         page--;
                     }
-                    Log.d("zpf", page + "");
                     if (listviewLoadView.isShown()) {
                         listview.setSelection(lastItem);
                         listviewLoadView.setVisibility(View.GONE);
                     }
+
+                    list.clear();
+                    listviewAdapter.notifyDataSetChanged();
+
+                    Toast.makeText(getApplicationContext(), "네트워크 연결이 원활하지 않습니다 다시 시도해주세요.", Toast.LENGTH_LONG).show();
+
                     loagindDialog.dismiss();
                     // Toast.makeText(SearchActivity.this.getApplicationContext(),
                     // "Data load fail!", Toast.LENGTH_SHORT).show();

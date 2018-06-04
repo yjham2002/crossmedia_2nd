@@ -1,23 +1,14 @@
 package com.RKclassichaeven.tube;
 
-import com.RKclassichaeven.tube.R;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
-import com.parse.Parse;
-import com.parse.ParseInstallation;
-import com.parse.PushService;
-
 import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import bases.BaseApp;
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 	
-	public static GoogleAnalytics analytics;
-	public static Tracker tracker;
+//	public static GoogleAnalytics analytics;
+//	public static Tracker tracker;
 
 	/*
 	@Override
@@ -40,12 +31,12 @@ public class MyApplication extends Application {
 //		ParseInstallation.getCurrentInstallation().saveInBackground();
 		
 		// Google Analytics
-		analytics = GoogleAnalytics.getInstance(this);
-	    analytics.setLocalDispatchPeriod(1800);
-	    tracker = analytics.newTracker(getString(R.string.ga_trackingId)); // Replace with actual tracker/property Id
-	    tracker.enableExceptionReporting(true);
-	    tracker.enableAdvertisingIdCollection(true);
-	    tracker.enableAutoActivityTracking(true);
+//		analytics = GoogleAnalytics.getInstance(this);
+//	    analytics.setLocalDispatchPeriod(1800);
+//	    tracker = analytics.newTracker(getString(R.string.ga_trackingId)); // Replace with actual tracker/property Id
+//	    tracker.enableExceptionReporting(true);
+//	    tracker.enableAdvertisingIdCollection(true);
+//	    tracker.enableAutoActivityTracking(true);
 	}
 
 }

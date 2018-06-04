@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchDataThread extends Thread {
@@ -59,24 +60,9 @@ public class SearchDataThread extends Thread {
 			}
 			datastr = new String(data.toByteArray(), "utf-8");
 			/* json */
-			JSONObject jsonobject = new JSONObject(datastr);
-			JSONArray jsonarray = jsonobject.getJSONObject("result")
-					.getJSONArray("list");
-			list.clear();
-			for (int i = 0; i < jsonarray.length(); i++) {
-				JSONObject json = jsonarray.getJSONObject(i);
-				ListInfo listinfo = new ListInfo();
-				listinfo.setVideoName(json.getString("vd_title"));
-				listinfo.setVideoCode(json.getString("vd_code"));
-				listinfo.setImageUrl(json.getString("vd_thum_url"));
-				listinfo.setVideoId(json.getString("vd_id"));
-				listinfo.setArtistName(json.getString("vd_name"));
-				listinfo.setVideoUrl(json.getString("vd_url"));
-				listinfo.setRuntime(json.getString("vd_runtime"));
-                listinfo.setViews(json.getString("views"));
-				list.add(listinfo);
-			}
+
 			Message msg = Message.obtain();
+			msg.obj = datastr;
 			msg.what = Constants.INITDATA;
 			handler.sendMessage(msg);
 			InitDataThread.isConnect = true;
