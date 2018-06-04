@@ -677,10 +677,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
             case KeyEvent.KEYCODE_BACK: {
             	finish();
 				overridePendingTransition( R.anim.slide_up_rev, R.anim.slide_down_rev );
+				return true;
 			}
-            break;
         }
-        return true;
+        return false;
     }
 
 }

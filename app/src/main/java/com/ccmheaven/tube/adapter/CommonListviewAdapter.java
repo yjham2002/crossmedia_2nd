@@ -147,8 +147,8 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
 //            hostview.m_tvName1.setText(txt_tmp);
 //            hostview.m_tvCategory.setText("");
 //        }
-        hostview.m_tvName1.setText(list.get(arg0).getArtistName());
-        hostview.m_tvCategory.setText(list.get(arg0).getVideoName());
+        hostview.m_tvName1.setText(list.get(arg0).getVideoName());
+        hostview.m_tvCategory.setText(list.get(arg0).getArtistName());
 
 //        hostview.m_tvViews.setText(makeMoneyType(list.get(arg0).getViews()) + " VIEWS");
 
