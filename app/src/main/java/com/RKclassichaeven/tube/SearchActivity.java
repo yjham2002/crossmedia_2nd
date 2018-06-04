@@ -11,10 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
@@ -26,10 +24,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
-import com.RKclassichaeven.tube.R;
 import com.ccmheaven.tube.adapter.CommonListviewAdapter;
-import com.ccmheaven.tube.ads.AdHelper;
-import com.ccmheaven.tube.ads.AdmobHelper;
 import com.ccmheaven.tube.db.MyMusicDB;
 import com.ccmheaven.tube.db.MyMusicDownDB;
 import com.ccmheaven.tube.pub.Constants;
@@ -43,7 +38,6 @@ import com.ccmheaven.tube.view.BottomView;
 import com.ccmheaven.tube.view.CenterView;
 import com.ccmheaven.tube.view.ListviewLoadView;
 import com.ccmheaven.tube.view.SearchButton;
-import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.gson.Gson;
 
@@ -143,12 +137,14 @@ public class SearchActivity extends Activity {
     }
 
     private volatile boolean nowSearching = false;
+    private volatile boolean nowInitializing = false;
 
     private void startSearch() {
         if(nowSearching){
             return;
         }
         nowSearching = true;
+
 
         ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
                 .hideSoftInputFromWindow(getCurrentFocus()
@@ -159,23 +155,28 @@ public class SearchActivity extends Activity {
         if (InitDataThread.isConnect) {
             lastItem = 0;
             listview.setAdapter(listviewAdapter);
+            page = 1;
+            total_page = 1;
             if (edit.equals("")) {
-                page = 1;
+                nowInitializing = true;
                 InitDataThread.startInitDataThread(handler, list, page);
             } else {
-                SearchDataThread.startSearchDataThread(handler, list, edit);
+                nowInitializing = false;
+                SearchDataThread.startSearchDataThread(handler, list, edit, page);
             }
         } else {
             page = 0;
-            InitDataFromDBThread.startInitDataFromDBThread(this, handler,
-                    list, edit);
+            InitDataFromDBThread.startInitDataFromDBThread(this, handler, list, edit);
         }
 
     }
 
+    private int total_page = 1;
+
     public Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             nowSearching = false;
+
             switch (msg.what) {
                 case CategoryChildActivity.LOADINGBACK: {
                     int top = Integer.parseInt(msg.obj.toString());
@@ -200,6 +201,8 @@ public class SearchActivity extends Activity {
                         JSONArray jsonarray = jsonobject.getJSONObject("result")
                                 .getJSONArray("list");
 
+                        total_page = jsonobject.getJSONObject("result").getInt("total_page");
+
                         List<ListInfo> newList = new ArrayList<>();
 
                         for (int i = 0; i < jsonarray.length(); i++) {
@@ -218,9 +221,10 @@ public class SearchActivity extends Activity {
 
                         if(newList == null || newList.size() == 0){
                             Toast.makeText(getApplicationContext(), "검색결과가 없습니다.", Toast.LENGTH_LONG).show();
+                            if(!nowInitializing) list.clear();
                         }
 
-                        list.clear();
+                        if(page == 1) list.clear();
                         list.addAll(newList);
 
                         listviewAdapter.notifyDataSetChanged();
@@ -249,7 +253,7 @@ public class SearchActivity extends Activity {
                     loagindDialog.dismiss();
                     // Toast.makeText(SearchActivity.this.getApplicationContext(),
                     // "Data load fail!", Toast.LENGTH_SHORT).show();
-                    // InitDataFromDBThread.startInitDataFromDBThread(intance,
+                    // InitDataFromDBThread.startInitDataFromDBThread(instance,
                     // handler, list, InitDataFromDBThread.FROM_DOWNDB);
                 }
                 break;
@@ -272,6 +276,7 @@ public class SearchActivity extends Activity {
                 }
                 break;
             }
+
         }
     };
 
@@ -483,13 +488,27 @@ public class SearchActivity extends Activity {
 
     private class ScrollListener implements OnScrollListener {
 
-        public void onScroll(AbsListView view, int firstVisibleItem,
-                             int visibleItemCount, int totalItemCount) {
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            if(!nowInitializing){
+                if(total_page > page){
+                }else{
+                    return;
+                }
+            }
+
             lastItem = firstVisibleItem + visibleItemCount;
             if (lastItem == totalItemCount && mPullRefreshState > 0) {
                 listviewLoadView.setVisibility(View.VISIBLE);
-                if (InitDataThread.intance == null)
-                    InitDataThread.startInitDataThread(handler, list, ++page);
+                if(nowInitializing) {
+                    if (InitDataThread.intance == null) InitDataThread.startInitDataThread(handler, list, ++page);
+                }else{
+                    String edit = search.getEditText();
+                    if (SearchDataThread.instance == null) {
+                        if(total_page > page) {
+                            SearchDataThread.startSearchDataThread(handler, list, edit, ++page);
+                        }
+                    }
+                }
             }
         }
 

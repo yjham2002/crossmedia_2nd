@@ -171,7 +171,7 @@ public class ListviewAdapter extends BaseAdapter implements OnScrollListener {
         }
 
         //유튜브 플레이어일 경우엔 재생버튼 안보이게하고 x 버튼 보이게 함. 리스트를 클릭하면 재생되게 함 - 20150127
-//        if (YoutubePlayerActivity.intance == null) {
+//        if (YoutubePlayerActivity.instance == null) {
 //            hostview.play.setVisibility(View.VISIBLE);
 //            //hostview.remove.setVisibility(View.GONE);
 //        } else {
@@ -188,12 +188,12 @@ public class ListviewAdapter extends BaseAdapter implements OnScrollListener {
         hostview.remove.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 Log.v("remove", "here : 클릭");
-//                if (YoutubePlayerActivity.intance != null) {
+//                if (YoutubePlayerActivity.instance != null) {
 //                    Message msg = Message.obtain();
 //                    msg.what = YoutubePlayerActivity.REMOVE_ITEM;
 //                    msg.obj = arg0;
 //                    handler.sendMessage(msg);
-//                } else if (MyPageActivity.intance != null) {
+//                } else if (MyPageActivity.instance != null) {
 //                    Message msg = Message.obtain();
 //                    msg.what = MyPageActivity.REMOVE_ITEM;
 //                    msg.obj = arg0;
@@ -213,7 +213,7 @@ public class ListviewAdapter extends BaseAdapter implements OnScrollListener {
         });
         hostview.play.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
-//                if (YoutubePlayerActivity.intance == null) {
+//                if (YoutubePlayerActivity.instance == null) {
 //                    if (YoutubePlayerActivity.list == null) {
 //                        YoutubePlayerActivity.list = new ArrayList<ListInfo>();
 //                    } else {
@@ -230,7 +230,7 @@ public class ListviewAdapter extends BaseAdapter implements OnScrollListener {
 //                    //msg.obj = arg0;
 //                    //handler.sendMessage(msg);
 //                }
-                // if (VideoActivity.intance == null) {
+                // if (VideoActivity.instance == null) {
                 // if (VideoActivity.list == null) {
                 // VideoActivity.list = new ArrayList<ListInfo>();
                 // } else {

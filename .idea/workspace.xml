@@ -6,14 +6,16 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="SearchT" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java" line="16" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="824a14a3-05a1-482c-86e7-d7bafba93d63" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug_crossmedia_2_20180604_hotfix.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug_crossmedia_2_additional.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -22,24 +24,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/CategoryActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$CenterViewListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$CenterViewListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity$ConfigThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/RankActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/TopMenuView$ButtonListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/TopMenuView$ButtonListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/TopMenuView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/TopMenuView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$CenterViewListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$CenterViewListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$ScrollListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity$ScrollListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/SearchActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/thread/InitDataThread.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/thread/InitDataThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/thread/SearchDataThread.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/thread/SearchDataThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/tOiDNEHDnkU6znQJR96GFN4FXic=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/tOiDNEHDnkU6znQJR96GFN4FXic=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/multi-dex/debug/componentClasses.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/multi-dex/debug/componentClasses.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0.jar" />
@@ -52,24 +49,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$1.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$2.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$3.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$4.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity$4.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/CategoryActivity.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$1.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$2.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$3.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$4.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$4.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$5.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$5.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$CenterViewListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$CenterViewListener.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$1.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$2.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread$3.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity$ConfigThread.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/RankActivity.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/view/TopMenuView$ButtonListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/view/TopMenuView$ButtonListener.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/view/TopMenuView.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/view/TopMenuView.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$1.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$2.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$3.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$4.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$4.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$5.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$5.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$6.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$6.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$7.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$7.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$8.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$8.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$CenterViewListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$CenterViewListener.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$ScrollListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity$ScrollListener.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/RKclassichaeven/tube/SearchActivity.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/thread/InitDataThread.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/thread/InitDataThread.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/thread/SearchDataThread.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/46/com/ccmheaven/tube/thread/SearchDataThread.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" />
@@ -83,9 +75,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/CategoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/CategoryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/multi-dex/debug/maindexlist.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/multi-dex/debug/maindexlist.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/adapter/ListviewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/adapter/ListviewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataThread.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,22 +106,18 @@
       <file leaf-file-name="YoutubePlayerActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="11799">
               <caret line="676" column="41" lean-forward="false" selection-start-line="676" selection-start-column="41" selection-end-line="676" selection-end-column="41" />
               <folding>
-                <element signature="e#2169#2179#0" expanded="true" />
-                <element signature="e#3312#3617#0" expanded="true" />
-                <element signature="e#3616#3617#0" expanded="true" />
-                <element signature="e#5178#5354#0" expanded="true" />
-                <element signature="e#5353#5354#0" expanded="true" />
-                <element signature="e#6249#6490#0" expanded="true" />
-                <element signature="e#6489#6490#0" expanded="true" />
-                <element signature="e#7174#7390#0" expanded="true" />
-                <element signature="e#7389#7390#0" expanded="true" />
-                <element signature="e#8521#10081#0" expanded="true" />
-                <element signature="e#10080#10081#0" expanded="true" />
-                <element signature="e#16352#16654#0" expanded="true" />
-                <element signature="e#16653#16654#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2931#2932#0" expanded="false" />
+                <element signature="e#2957#2958#0" expanded="false" />
+                <element signature="e#3009#3010#0" expanded="false" />
+                <element signature="e#3042#3043#0" expanded="false" />
+                <element signature="e#3101#3102#0" expanded="false" />
+                <element signature="e#3133#3134#0" expanded="false" />
+                <element signature="e#3192#3193#0" expanded="false" />
+                <element signature="e#3225#3226#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -136,9 +126,11 @@
       <file leaf-file-name="ExitDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/ExitDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="342">
               <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,9 +138,13 @@
       <file leaf-file-name="CategoryActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/CategoryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="2375">
               <caret line="156" column="46" lean-forward="false" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#4776#4777#0" expanded="false" />
+                <element signature="e#4809#4810#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,12 +162,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RankActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RankActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="227" column="49" lean-forward="false" selection-start-line="227" selection-start-column="49" selection-end-line="227" selection-end-column="49" />
-              <folding />
+            <state relative-caret-position="209">
+              <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#6777#6778#0" expanded="false" />
+                <element signature="e#6801#6802#0" expanded="false" />
+                <element signature="e#14057#14058#0" expanded="false" />
+                <element signature="e#14092#14093#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,48 +181,52 @@
       <file leaf-file-name="TopMenuView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="117" column="17" lean-forward="false" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommonListviewAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1900">
-              <caret line="145" column="18" lean-forward="false" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
-              <folding />
+              <caret line="117" column="17" lean-forward="false" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3895">
-              <caret line="260" column="22" lean-forward="false" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
+            <state relative-caret-position="118">
+              <caret line="493" column="22" lean-forward="false" selection-start-line="493" selection-start-column="22" selection-end-line="493" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchDataThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-156">
+              <caret line="70" column="57" lean-forward="false" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="InitDataFromDBThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataFromDBThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="-836">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="InitDataThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="342">
+              <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -230,16 +236,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>firebas</find>
-      <find>firebase</find>
-      <find>A</find>
-      <find>Anal</find>
-      <find>Analy</find>
-      <find>Analyt</find>
-      <find>Analyti</find>
-      <find>Analytic</find>
-      <find>FirebaseInitProvider</find>
-      <find>gospel/down</find>
       <find>list =</find>
       <find>ㅣㅑㄴ</find>
       <find>ㅣㅑ</find>
@@ -260,6 +256,16 @@
       <find>ExitDia</find>
       <find>new ExitD</find>
       <find>new ExitDialog(</find>
+      <find>nowS</find>
+      <find>onSc</find>
+      <find>nowIni</find>
+      <find>onScroll</find>
+      <find>SearchDataT</find>
+      <find>nowI</find>
+      <find>page</find>
+      <find>SearchData</find>
+      <find>edit</find>
+      <find>total_p</find>
     </findStrings>
     <replaceStrings>
       <replace>@color/black</replace>
@@ -1994,7 +2000,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/ads/AdmobHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/ads/AdHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/ExitDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_exit.xml" />
@@ -2038,13 +2043,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/CategoryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java" />
       </list>
     </option>
   </component>
@@ -2072,8 +2078,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -2087,103 +2091,11 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RKhitsong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RKhitsong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RKhitsong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RKhitsong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RKhitsong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2192,7 +2104,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
     <property name="device.picker.selection" value="1cd269012d027ece" />
-    <property name="SearchEverywhereHistoryKey" value="MyA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java&#10;SearchA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java&#10;Search&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.SearchDataThread&#10;Thr&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Thread&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Common&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java&#10;AlarmR&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java" />
+    <property name="SearchEverywhereHistoryKey" value="Ini&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataThread&#10;InitD&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataFromDBThread&#10;MyA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java&#10;SearchA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java&#10;Search&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.SearchDataThread&#10;Thr&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Thread&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Common&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java&#10;AlarmR&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -2294,7 +2206,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528101283745" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528116922640" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2342,7 +2254,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528101283745" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528116922641" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2374,6 +2286,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2504,7 +2437,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528101283746" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528116922642" />
       </method>
     </configuration>
     <list size="1">
@@ -2592,20 +2525,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/utils/PreferenceUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="94" column="95" lean-forward="false" selection-start-line="94" selection-start-column="95" selection-end-line="94" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/BaseApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -2803,7 +2722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1026">
           <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2814,7 +2732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2860,7 +2777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2883,10 +2799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1528092938360" expanded="false" signature="934:967" ph="&quot;UA-74072406-3&quot;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2905,7 +2817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2920,22 +2831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3952">
           <caret line="257" column="53" lean-forward="false" selection-start-line="257" selection-start-column="53" selection-end-line="257" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="64" column="30" lean-forward="false" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3895">
-          <caret line="260" column="22" lean-forward="false" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -2966,39 +2861,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="11799">
           <caret line="676" column="41" lean-forward="false" selection-start-line="676" selection-start-column="41" selection-end-line="676" selection-end-column="41" />
           <folding>
-            <element signature="e#2169#2179#0" expanded="true" />
-            <element signature="e#3312#3617#0" expanded="true" />
-            <element signature="e#3616#3617#0" expanded="true" />
-            <element signature="e#5178#5354#0" expanded="true" />
-            <element signature="e#5353#5354#0" expanded="true" />
-            <element signature="e#6249#6490#0" expanded="true" />
-            <element signature="e#6489#6490#0" expanded="true" />
-            <element signature="e#7174#7390#0" expanded="true" />
-            <element signature="e#7389#7390#0" expanded="true" />
-            <element signature="e#8521#10081#0" expanded="true" />
-            <element signature="e#10080#10081#0" expanded="true" />
-            <element signature="e#16352#16654#0" expanded="true" />
-            <element signature="e#16653#16654#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#2957#2958#0" expanded="false" />
+            <element signature="e#3009#3010#0" expanded="false" />
+            <element signature="e#3042#3043#0" expanded="false" />
+            <element signature="e#3101#3102#0" expanded="false" />
+            <element signature="e#3133#3134#0" expanded="false" />
+            <element signature="e#3192#3193#0" expanded="false" />
+            <element signature="e#3225#3226#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/ExitDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="342">
           <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="1900">
           <caret line="117" column="17" lean-forward="false" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3015,17 +2910,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/CategoryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="2375">
           <caret line="156" column="46" lean-forward="false" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4776#4777#0" expanded="false" />
+            <element signature="e#4809#4810#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="227" column="49" lean-forward="false" selection-start-line="227" selection-start-column="49" selection-end-line="227" selection-end-column="49" />
+        <state relative-caret-position="209">
+          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6777#6778#0" expanded="false" />
+            <element signature="e#6801#6802#0" expanded="false" />
+            <element signature="e#14057#14058#0" expanded="false" />
+            <element signature="e#14092#14093#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataFromDBThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-836">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/InitDataThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/thread/SearchDataThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-156">
+          <caret line="70" column="57" lean-forward="false" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="493" column="22" lean-forward="false" selection-start-line="493" selection-start-column="22" selection-end-line="493" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
