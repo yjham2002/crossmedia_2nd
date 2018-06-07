@@ -86,7 +86,7 @@ public class CategoryGridViewAdapter extends BaseAdapter {
                 .get()
                 .load(list.get(arg0).getImageUrl())
                 .centerCrop()
-                .resize(100, 80)
+                .resize(400, 320)
                 .placeholder(R.drawable.icon_hour_glass_no_round)
                 .transform(new RoundedTransform(4, 0)).into(hostview.m_ivPhoto);
 
