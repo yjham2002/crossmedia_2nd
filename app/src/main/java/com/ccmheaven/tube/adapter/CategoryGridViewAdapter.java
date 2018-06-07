@@ -88,7 +88,7 @@ public class CategoryGridViewAdapter extends BaseAdapter {
                 .centerCrop()
                 .resize(400, 320)
                 .placeholder(R.drawable.icon_hour_glass_no_round)
-                .transform(new RoundedTransform(4, 0)).into(hostview.m_ivPhoto);
+                .transform(new RoundedTransform(17, 0)).into(hostview.m_ivPhoto);
 
         return arg1;
     }

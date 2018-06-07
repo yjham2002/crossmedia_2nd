@@ -138,9 +138,9 @@ public class CategoryChildActivity extends Activity {
                         .get()
                         .load(imgUrl)
                         .centerCrop()
-                        .resize(100, 100)
+                        .resize(400, 400)
                         .placeholder(R.drawable.icon_hour_glass)
-                        .transform(new RoundedTransform(10, 0)).into(thm);
+                        .transform(new RoundedTransform(40, 0)).into(thm);
             }
 
             centerView = (CenterView) findViewById(R.id.center_view);

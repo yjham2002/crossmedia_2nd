@@ -179,7 +179,7 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
                     .get()
                     .load(list.get(arg0).getImageUrl())
                     .centerCrop()
-                    .resize(100, 100)
+                    .resize(200, 200)
                     .placeholder(R.drawable.icon_hour_glass)
                     .transform(new RoundedTransform(0, 0)).into(hostview.m_ivPhoto);
         }
