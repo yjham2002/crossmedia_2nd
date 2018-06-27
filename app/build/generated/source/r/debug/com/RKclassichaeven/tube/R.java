@@ -4468,21 +4468,22 @@ public final class R {
     public static final int tv_tab1=0x7f080124;
     public static final int tv_tab2=0x7f080125;
     public static final int tv_title=0x7f080126;
-    public static final int uniform=0x7f080127;
-    public static final int up=0x7f080128;
-    public static final int useLogo=0x7f080129;
-    public static final int videoView1=0x7f08012a;
-    public static final int video_listView1=0x7f08012b;
-    public static final int video_progressBar1=0x7f08012c;
-    public static final int video_textView1=0x7f08012d;
-    public static final int view=0x7f08012e;
-    public static final int view_offset_helper=0x7f08012f;
-    public static final int visible=0x7f080130;
-    public static final int wide=0x7f080131;
-    public static final int withText=0x7f080132;
-    public static final int wrap=0x7f080133;
-    public static final int wrap_content=0x7f080134;
-    public static final int youtube_view=0x7f080135;
+    public static final int tv_title_img=0x7f080127;
+    public static final int uniform=0x7f080128;
+    public static final int up=0x7f080129;
+    public static final int useLogo=0x7f08012a;
+    public static final int videoView1=0x7f08012b;
+    public static final int video_listView1=0x7f08012c;
+    public static final int video_progressBar1=0x7f08012d;
+    public static final int video_textView1=0x7f08012e;
+    public static final int view=0x7f08012f;
+    public static final int view_offset_helper=0x7f080130;
+    public static final int visible=0x7f080131;
+    public static final int wide=0x7f080132;
+    public static final int withText=0x7f080133;
+    public static final int wrap=0x7f080134;
+    public static final int wrap_content=0x7f080135;
+    public static final int youtube_view=0x7f080136;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f090000;

@@ -77,7 +77,7 @@ public class TimerAdapter extends RecyclerView.Adapter<TimerAdapter.ViewHolder> 
                 )){
             holder._title.setTextColor(mContext.getResources().getColor(R.color.red));
         }else {
-            holder._title.setTextColor(mContext.getResources().getColor(R.color.black));
+            holder._title.setTextColor(mContext.getResources().getColor(R.color.white));
         }
 
         holder.view.setOnClickListener(new View.OnClickListener() {

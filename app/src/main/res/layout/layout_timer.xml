@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/view"
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <TextView
@@ -15,12 +16,12 @@
         android:ellipsize="marquee"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@color/jet"
+        android:textColor="@color/white"
         android:layout_margin="15dp"
         android:textSize="18dp" />
 
     <View
-        android:background="@color/grayline"
+        android:background="@color/thisgrayDiv"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 </LinearLayout>

@@ -11,7 +11,8 @@
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:id="@+id/tv_title"
+            android:visibility="invisible"
+            android:id="@+id/tv_title_img"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingTop="5dp"
@@ -21,19 +22,19 @@
             android:src="@drawable/app_name_img"
             android:layout_toRightOf="@id/left_space"
             android:gravity="center" />
-        <!--<TextView-->
-            <!--android:id="@+id/tv_title"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginRight="50dp"-->
-            <!--android:layout_toRightOf="@id/left_space"-->
-            <!--android:gravity="center"-->
-            <!--android:text="Title"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textSize="25sp"-->
-            <!--android:textStyle="bold"-->
-            <!--android:singleLine="true" />-->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@id/left_space"
+            android:gravity="center"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:singleLine="true" />
 
         <View
             android:id="@+id/left_space"

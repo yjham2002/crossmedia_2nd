@@ -21,7 +21,8 @@ import android.widget.TextView;
 public class TopView extends RelativeLayout {
 
     private View view;
-    private ImageView m_tvTitle;
+    private TextView m_tvTitle;
+    private ImageView tv_title_img;
     private ImageView share;
     private ImageView left_menu;
     private ImageView left_back;
@@ -32,6 +33,7 @@ public class TopView extends RelativeLayout {
         super(context, attrs);
         view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.view_top, this);
         m_tvTitle = findViewById(R.id.tv_title);
+        tv_title_img = findViewById(R.id.tv_title_img);
         share = (ImageView) findViewById(R.id.right_my);
 
         /**
@@ -52,7 +54,14 @@ public class TopView extends RelativeLayout {
     }
 
     public void setTitleName(String title) {
-//        m_tvTitle.setText(title);
+        m_tvTitle.setText(title);
+        if(title.equals(getResources().getString(R.string.app_name))){
+            tv_title_img.setVisibility(View.VISIBLE);
+            m_tvTitle.setVisibility(View.INVISIBLE);
+        }else{
+            tv_title_img.setVisibility(View.INVISIBLE);
+            m_tvTitle.setVisibility(View.VISIBLE);
+        }
     }
 
     public void setViewVisibility(boolean showMenu, boolean showBack){
