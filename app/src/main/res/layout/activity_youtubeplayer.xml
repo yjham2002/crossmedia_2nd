@@ -11,7 +11,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffffff"
+    android:background="@color/colorPrimary"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -47,20 +47,6 @@
             android:src="@drawable/ico_down"
             android:scaleType="centerInside" />
 
-        <ImageView
-            android:id="@+id/chkShuffle"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/toggle_shuffle_normal"
-            android:button="@null"
-            android:checked="false"
-            android:scaleType="centerCrop"
-            android:textColor="#000000" />
-
     </RelativeLayout>
 
     <FrameLayout
@@ -69,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/topView1"
-        android:background="#ff000000" >
+        android:background="@color/colorPrimary" >
 
         <!--
         <LinearLayout
@@ -102,14 +88,79 @@
 
     </FrameLayout>
 
-    <ListView
-        android:id="@+id/video_listView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_above="@+id/llAdview"
         android:layout_below="@+id/frame"
-        android:layout_centerHorizontal="true" >
-    </ListView>
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/toolbar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_above="@+id/video_listView1"
+            android:layout_below="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_gravity="left|center_vertical"
+                android:id="@+id/chkShuffle"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="20dp"
+                android:clickable="true"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/toggle_shuffle_all"
+                android:layout_marginRight="15dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:button="@null"
+                android:checked="false"
+                android:scaleType="centerCrop"
+                android:textColor="#000000" />
+            <LinearLayout
+                android:layout_gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp">
+                <ImageView
+                    android:layout_gravity="left|center_vertical"
+                    android:id="@+id/btn_prev"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/btn_prev"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:button="@null"
+                    android:clickable="true"
+                    android:checked="false"
+                    android:scaleType="centerCrop"
+                    android:textColor="#000000" />
+                <ImageView
+                    android:layout_gravity="left|center_vertical"
+                    android:id="@+id/btn_next"
+                    android:layout_width="20dp"
+                    android:clickable="true"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/btn_next"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:button="@null"
+                    android:checked="false"
+                    android:scaleType="centerCrop"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </FrameLayout>
+        <ListView
+            android:id="@+id/video_listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/thisgrayDiv"
+            android:dividerHeight="1dp"
+            android:layout_centerHorizontal="true" >
+        </ListView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llAdview"

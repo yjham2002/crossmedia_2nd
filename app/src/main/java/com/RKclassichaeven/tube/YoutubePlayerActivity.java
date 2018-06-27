@@ -64,6 +64,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	public static int index;
 
 	private ImageView left_back, toggler;
+
+	private ImageView btn_prev, btn_next;
+
 	private SwipeBackLayout mSwipeBackLayout;
 	private ListView listview;
 	private CommonListviewAdapter listviewadapter;
@@ -74,7 +77,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	//private ListviewLoadView listviewLoadView;
 
 	private ImageView chkShuffleMode;
-	private PLAY_MODE doShuffle = PLAY_MODE.SHUFFLE_NORMAL;
+	private PLAY_MODE doShuffle = PLAY_MODE.PLAY_ALL_REPEAT;
 
 	private enum PLAY_MODE{
 		SHUFFLE_NORMAL{
@@ -140,6 +143,32 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		mSwipeBackLayout = new SwipeBackLayout(this);
 		mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_TOP);
 		mSwipeBackLayout.attachToActivity(this);
+
+		btn_next = findViewById(R.id.btn_next);
+		btn_prev = findViewById(R.id.btn_prev);
+
+		btn_next.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View view) {
+				startPlay();
+			}
+		});
+
+		btn_prev.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View view) {
+				Log.e("controllerButton", "PREV - PRE : " + index);
+				int next_num = index - 2;
+				if(next_num < 0) {
+					Log.e("controllerButton", "Broken");
+					next_num = list.size() - 1;
+				}
+				index = next_num;
+				startPlayWithoutRounding();
+				index++;
+				Log.e("controllerButton", "PREV - POST : " + index);
+			}
+		});
 
 		left_back = findViewById(R.id.left_back);
 		llAdview = findViewById(R.id.llAdview);
@@ -258,16 +287,16 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	private void setTogglerImage(PLAY_MODE play_mode){
 		switch (doShuffle){
 			case PLAY_ALL:
-				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_once);
+				chkShuffleMode.setImageResource(R.drawable.toggle_shuffle_once);
 				break;
 			case PLAY_ALL_REPEAT:
-				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_all);
+				chkShuffleMode.setImageResource(R.drawable.toggle_shuffle_all);
 				break;
 			case PLAY_ONE_REPEAT:
-				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_one);
+				chkShuffleMode.setImageResource(R.drawable.toggle_shuffle_one);
 				break;
 			case SHUFFLE_NORMAL:
-				chkShuffleMode.setBackgroundResource(R.drawable.toggle_shuffle_normal);
+				chkShuffleMode.setImageResource(R.drawable.toggle_shuffle_normal);
 				break;
 		}
 	}
@@ -405,6 +434,48 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		listviewadapter.notifyDataSetChanged();
 	}
 
+	private void startPlayWithoutRounding() {
+		if (!list.isEmpty()) {
+			if (ad_fix.equals("Y")) {
+
+				if (playedList.isEmpty()) {
+					tvTitle.setText(list.get(index).getVideoName());
+					player.cueVideo(list.get(index).getVideoCode());
+					playedList.add(index);
+				} else {
+
+					boolean isFirst = true;
+					for (int i = 0; i < playedList.size(); i++) {
+						if (playedList.get(i) == index) {
+							isFirst = false;
+							break;
+						}
+					}
+					if (isFirst) {
+						tvTitle.setText(list.get(index).getVideoName());
+						player.cueVideo(list.get(index).getVideoCode());
+						playedList.add(index);
+					} else {
+						tvTitle.setText(list.get(index).getVideoName());
+						player.loadVideo(list.get(index).getVideoCode());
+					}
+
+				}
+			} else {
+				tvTitle.setText(list.get(index).getVideoName());
+				player.loadVideo(list.get(index).getVideoCode());
+			}
+
+			// select & scroll the item of listview
+			listview.clearChoices();
+			listview.setSelection(index);
+			listview.setItemChecked(index, true);
+			listview.smoothScrollToPosition(index);
+		}
+
+		listviewadapter.notifyDataSetChanged();
+	}
+
 	private void startPlay(int num) {
 		index = num;
 		if (!list.isEmpty()) {
@@ -453,11 +524,21 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		index = 0;
 	}
 
+	private boolean isFullscreen = false;
+
 	// 놓迦뺏돨쀼딧변鑒
 	public void onInitializationSuccess(YouTubePlayer.Provider Provider,
 										YouTubePlayer player, boolean wasRestored) {
 		Log.d("dev", "InitializationSuccess");
 		this.player = player;
+		this.player.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
+			@Override
+			public void onFullscreen(boolean b) {
+				isFullscreen = b;
+				Log.e("isFull", "state : " + isFullscreen);
+			}
+		});
+
 		player.setPlaylistEventListener(playlistEventListener);
 		player.setPlayerStateChangeListener(playerStateChangeListener);
 		player.setPlaybackEventListener(playbackEventListener);
@@ -675,8 +756,13 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK: {
-            	finish();
-				overridePendingTransition( R.anim.slide_up_rev, R.anim.slide_down_rev );
+            	Log.e("keyback", "full : " + isFullscreen);
+				if(isFullscreen){
+					player.setFullscreen(false);
+				}else{
+					finish();
+					overridePendingTransition( R.anim.slide_up_rev, R.anim.slide_down_rev );
+				}
 				return true;
 			}
         }

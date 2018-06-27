@@ -138,7 +138,7 @@ public class RankActivity extends Activity {
 						String shareBody = getResources().getString(R.string.store_prefix);
 						Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
 						sharingIntent.setType("text/plain");
-						sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "친구 초대하기 링크 공유");
+						sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.invite_prefix));
 						sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 						startActivity(Intent.createChooser(sharingIntent, "친구 초대하기"));
 						break;
