@@ -1,4 +1,4 @@
-#Wed Jun 27 16:23:39 KST 2018
+#Wed Jun 27 17:22:05 KST 2018
 base.0=C\:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
 path.1=classes.dex
 renamed.1=classes2.dex

@@ -1,44 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/left_drawer"
     android:layout_width="300dp"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="@color/white"
-    android:gravity="center_horizontal"
-    >
+    android:gravity="center_horizontal">
 
-    <ImageView
-        android:layout_margin="35dp"
-        android:id="@+id/menu_img"
-        android:src="@drawable/menu_img"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="30dp"
+        app:cardElevation="10dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/menu_img"
+            android:elevation="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_menu_bar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+    </android.support.v7.widget.CardView>
 
-    <ImageView
-        android:id="@+id/menu_home"
-        android:src="@drawable/menu_home"
-        android:layout_width="wrap_content"
-        android:clickable="true"
-        android:layout_marginBottom="20dp"
-        android:layout_height="25dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/menu_new_home"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_home"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="홈으로 가기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/thisgrayLight"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
 
-    <ImageView
-        android:id="@+id/menu_sleep"
-        android:src="@drawable/menu_sleep"
-        android:layout_width="wrap_content"
-        android:clickable="true"
-        android:layout_marginBottom="20dp"
-        android:layout_height="25dp" />
+            <LinearLayout
+                android:id="@+id/menu_new_favor"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_favor"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="즐겨찾기 보관함"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/thisgrayLight"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
 
-    <ImageView
-        android:id="@+id/menu_review"
-        android:src="@drawable/menu_review"
-        android:layout_width="wrap_content"
-        android:clickable="true"
-        android:layout_marginBottom="20dp"
-        android:layout_height="25dp" />
+            <LinearLayout
+                android:id="@+id/menu_new_timer"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_timer"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="타이머 설정하기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/thisgrayLight"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/menu_new_invite"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_invite"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="친구 초대하기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/thisgrayLight"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/menu_new_review"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_review"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="리뷰 남기기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/thisgrayLight"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/menu_new_query"
+                android:paddingTop="20dp"
+                android:clickable="true"
+                android:theme="@style/SelectableItemTheme"
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/menu_new_query"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="문의하기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/thisgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <!-- Old Version -->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/menu_home"-->
+        <!--android:src="@drawable/menu_home"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:clickable="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_height="25dp" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/menu_sleep"-->
+        <!--android:src="@drawable/menu_sleep"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:clickable="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_height="25dp" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/menu_review"-->
+        <!--android:src="@drawable/menu_review"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:clickable="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_height="25dp" />-->
 
 </LinearLayout>

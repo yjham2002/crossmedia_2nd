@@ -11,6 +11,7 @@
     <color name="item_on">#ffe2fffa</color>
     <color name="listNewCheck">#1f2535</color>
     <color name="color_80000000">#80000000</color>
+    <color name="thisgrayLight">#dadada</color>
     <color name="thisgray">#555555</color>
     <color name="thisgrayDiv">#3d3d3d</color>
     <color name="tabHighlight">#e74765</color>
