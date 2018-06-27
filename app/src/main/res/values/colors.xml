@@ -8,6 +8,7 @@
     <color name="selectedTop">#FFF799</color>
     <color name="selectedList">#fdf8b7</color>
     <color name="superLightGray">#ffececec</color>
+    <color name="botBg">#F8405F</color>
     <color name="item_on">#ffe2fffa</color>
     <color name="listNewCheck">#1f2535</color>
     <color name="color_80000000">#80000000</color>

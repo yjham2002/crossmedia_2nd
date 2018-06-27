@@ -263,22 +263,21 @@ public class MyPageActivity extends Activity {
     private class CenterViewListener implements OnClickListener {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.center_button1: {
-                    if (!isAllSelect) {
-                        for (int i = 0; i < listview.getCount(); i++) {
-                            listview.setItemChecked(i, true);
-                        }
-                        isAllSelect = true;
-                    } else {
-                        for (int i = 0; i < listview.getCount(); i++) {
-                            listview.setItemChecked(i, false);
-                        }
-                        isAllSelect = false;
-                        centerview.setVisibility(View.GONE);
-                    }
-                    listviewadapter.notifyDataSetChanged();
-                }
-                break;
+//				case R.id.center_button1: {
+//					if (!isAllSelect) {
+//						for (int i = 0; i < listview.getCount(); i++) {
+//							listview.setItemChecked(i, true);
+//						}
+//						isAllSelect = true;
+//					} else {
+//						for (int i = 0; i < listview.getCount(); i++) {
+//							listview.setItemChecked(i, false);
+//						}
+//						isAllSelect = false;
+//					}
+//					listviewAdapter.notifyDataSetChanged();
+//				}
+//				break;
                 case R.id.center_button2: {
                     List<ListInfo> templist = new ArrayList<ListInfo>();
                     for (int i = 0; i < listview.getCount(); i++) {
@@ -294,28 +293,29 @@ public class MyPageActivity extends Activity {
                         intance.startActivity(intent);
                         overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
                     }
-                    centerview.setVisibility(View.GONE);
+
                     listview.clearChoices();
                     listviewadapter.notifyDataSetChanged();
                 }
                 break;
-                case R.id.center_button4: {
-                    loagindDialog = ProgressDialog.show(MyPageActivity.intance,
-                            "Connecting", "Loading. Please wait...", true, false);
-                    int i = 0;
-                    for (i = 0; i < listview.getCount(); i++) {
+                case R.id.center_button5: {
+                    List<ListInfo> templist = new ArrayList<ListInfo>();
+
+                    boolean empty = true;
+                    for (int i = 0; i < listview.getCount(); i++) {
                         if (listview.isItemChecked(i)) {
-                            myMusicDB.deleteContact(list.get(i));
+                            empty = false;
+                            myMusicDB.addContact(list.get(i));
                         }
                     }
-                    for (i = 0; i < listview.getCount(); i++) {
-                        listview.setItemChecked(i, false);
+                    if(empty){
+                        Toast.makeText(getApplicationContext(), "보관함에 추가할 곡을 선택하세요.", Toast.LENGTH_LONG).show();
+                    }else{
+                        listview.clearChoices();
+                        listviewadapter.notifyDataSetChanged();
+
+                        Toast.makeText(getApplicationContext(), "보관함에 추가되었습니다.", Toast.LENGTH_LONG).show();
                     }
-                    centerview.setVisibility(View.GONE);
-                    listviewadapter.notifyDataSetChanged();
-                    InitDataFromDBThread.startInitDataFromDBThread(
-                            MyPageActivity.intance, handler, list,
-                            InitDataFromDBThread.FROM_PAGEDB);
                 }
                 break;
             }

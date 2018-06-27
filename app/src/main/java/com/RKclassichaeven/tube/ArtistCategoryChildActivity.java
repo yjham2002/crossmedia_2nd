@@ -274,24 +274,22 @@ public class ArtistCategoryChildActivity extends Activity {
 	private class CenterViewListener implements OnClickListener {
 		public void onClick(View v) {
 			switch (v.getId()) {
-				case R.id.center_button1: {
-					if (!isAllSelect) {
-						for (int i = 0; i < listview.getCount(); i++) {
-							listview.setItemChecked(i, true);
-						}
-						isAllSelect = true;
-					} else {
-						for (int i = 0; i < listview.getCount(); i++) {
-							listview.setItemChecked(i, false);
-						}
-						isAllSelect = false;
-					}
-					listviewAdapter.notifyDataSetChanged();
-				}
-				break;
+//				case R.id.center_button1: {
+//					if (!isAllSelect) {
+//						for (int i = 0; i < listview.getCount(); i++) {
+//							listview.setItemChecked(i, true);
+//						}
+//						isAllSelect = true;
+//					} else {
+//						for (int i = 0; i < listview.getCount(); i++) {
+//							listview.setItemChecked(i, false);
+//						}
+//						isAllSelect = false;
+//					}
+//					listviewAdapter.notifyDataSetChanged();
+//				}
+//				break;
 				case R.id.center_button2: {
-
-
 					List<ListInfo> templist = new ArrayList<ListInfo>();
 					for (int i = 0; i < listview.getCount(); i++) {
 						if (listview.isItemChecked(i)) {
@@ -311,29 +309,23 @@ public class ArtistCategoryChildActivity extends Activity {
 					listviewAdapter.notifyDataSetChanged();
 				}
 				break;
-				case R.id.center_button4: {
-					boolean unhaveSelect = false;
-					for (int i = 0; i < list.size(); i++) {
+				case R.id.center_button5: {
+					List<ListInfo> templist = new ArrayList<ListInfo>();
+
+					boolean empty = true;
+					for (int i = 0; i < listview.getCount(); i++) {
 						if (listview.isItemChecked(i)) {
-							unhaveSelect = true;
+							empty = false;
 							myMusicDB.addContact(list.get(i));
 						}
 					}
-					if (!unhaveSelect) {
-						Toast.makeText(
-								ArtistCategoryChildActivity.this,
-								getResources()
-										.getText(R.string.At_least_1_selected)
-										.toString(), Toast.LENGTH_SHORT).show();
-					} else {
-						Toast.makeText(
-								ArtistCategoryChildActivity.this,
-								getResources().getText(
-										R.string.Has_been_saved_to_mylist)
-										.toString(), Toast.LENGTH_SHORT).show();
-						for (int i = 0; i < listview.getCount(); i++) {
-							listview.setItemChecked(i, false);
-						}
+					if(empty){
+						Toast.makeText(getApplicationContext(), "보관함에 추가할 곡을 선택하세요.", Toast.LENGTH_LONG).show();
+					}else{
+						listview.clearChoices();
+						listviewAdapter.notifyDataSetChanged();
+
+						Toast.makeText(getApplicationContext(), "보관함에 추가되었습니다.", Toast.LENGTH_LONG).show();
 					}
 				}
 				break;

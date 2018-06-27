@@ -12,6 +12,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import bases.SimpleCallback;
+import comm.SimpleCall;
+
 public class AdmobHelper {
 	
 	public InterstitialAd interstitial;
@@ -67,10 +70,6 @@ public class AdmobHelper {
 		layout.addView(adview);
 	}
 
-	/**
-	 * @param context
-	 * @param interstitial
-	 */
 	public void loadInterstitialAd(){
 
     	// Create the interstitial AD
@@ -98,10 +97,36 @@ public class AdmobHelper {
         interstitial.loadAd(adRequest);
 
 	}
-	
-	/**
-	 * @param interstitial
-	 */
+
+	public void loadInterstitialAd(final SimpleCallback callback){
+
+		// Create the interstitial AD
+		interstitial = new InterstitialAd(context);
+		interstitial.setAdUnitId(Constants.ADMOB_KEY_INTERSTITIAL);
+
+		// Set the AdListener.
+		interstitial.setAdListener(new AdListener() {
+			public void onAdLoaded() {
+				// Call displayInterstitial() function
+				displayInterstitial();
+			}
+			@Override
+			public void onAdClosed() {
+				LogoActivity.isStart = false;
+				super.onAdClosed();
+				if(callback != null) callback.callback();
+			}
+		});
+
+		// Request the AD
+		AdRequest adRequest = new AdRequest.Builder()
+				//.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+				//.addTestDevice("1BC5DF7052976BDA26A695A6EA80308F")
+				.build();
+		interstitial.loadAd(adRequest);
+
+	}
+
 	public void displayInterstitial(){
 		// If Ads are loaded, show Interstitial else show nothing.
 		if (interstitial != null && interstitial.isLoaded()) {

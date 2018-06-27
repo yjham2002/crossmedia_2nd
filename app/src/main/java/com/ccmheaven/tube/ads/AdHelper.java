@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import bases.SimpleCallback;
+
 /**
  * @author Barnabas
  *
@@ -71,6 +73,17 @@ public class AdHelper {
         		new AdfitHelper(activity).loadInterstitialAd();
         	}
         }
+//		activity.finish();
+	}
+
+	public void loadInterstitialAd(SimpleCallback callback){
+		if ("Y".equals(ad_interstital)) {
+			if("admob".equals(ad_type)){
+				new AdmobHelper(activity).loadInterstitialAd(callback);
+			}else if("adfit".equals(ad_type)){
+				new AdfitHelper(activity).loadInterstitialAd();
+			}
+		}
 //		activity.finish();
 	}
 }

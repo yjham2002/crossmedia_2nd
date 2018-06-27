@@ -24,50 +24,36 @@
         <activity
             android:name="com.RKclassichaeven.tube.LogoActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.RKclassichaeven.tube.ArtistCategoryActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.SearchActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.MyPageActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.DownLoadActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name="com.RKclassichaeven.tube.RankActivity"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.RKclassichaeven.tube.CategoryActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.CategoryChildActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.TimerActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.RKclassichaeven.tube.SettingActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name="VideoActivity" -->
         <!-- android:configChanges="orientation|screenSize" -->
@@ -84,8 +70,7 @@
             android:name="com.RKclassichaeven.tube.YoutubePlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="nosensor"
-            android:theme="@style/AppThemYT" >
-        </activity>
+            android:theme="@style/AppThemYT" />
         <activity android:name="com.RKclassichaeven.tube.ArtistCategoryChildActivity" />
 
         <!-- parse -->
@@ -143,6 +128,16 @@
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
+
+        <activity
+            android:name="com.RKclassichaeven.tube.IntroActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:name="com.squareup.picasso.PicassoProvider"

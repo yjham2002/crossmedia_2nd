@@ -10,19 +10,30 @@
         android:layout_height="50dp"
         android:background="@color/colorPrimary">
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:scaleType="centerInside"
             android:layout_marginRight="50dp"
+            android:src="@drawable/app_name_img"
             android:layout_toRightOf="@id/left_space"
-            android:gravity="center"
-            android:text="Title"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:singleLine="true" />
+            android:gravity="center" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="50dp"-->
+            <!--android:layout_toRightOf="@id/left_space"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Title"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="25sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:singleLine="true" />-->
 
         <View
             android:id="@+id/left_space"
