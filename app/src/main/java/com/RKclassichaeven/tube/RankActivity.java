@@ -176,12 +176,6 @@ public class RankActivity extends Activity {
 
 		this.activity = this;
 
-		TabLayout tab = findViewById(R.id.tabs);
-		tab.addTab(tab.newTab().setText("Tab 1"));
-		tab.addTab(tab.newTab().setText("Tab 2"));
-		tab.addTab(tab.newTab().setText("Tab 3"));
-		tab.addTab(tab.newTab().setText("Tab 4"));
-
         ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
         ((TopView) findViewById(R.id.topView1)).setViewVisibility(true, false);
 

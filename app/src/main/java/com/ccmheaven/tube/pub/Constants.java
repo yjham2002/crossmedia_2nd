@@ -23,4 +23,6 @@ public interface Constants {
     public static final String API_VIDEO_LIST	= "http://zacchaeus151.cafe24.com/api/video_list.php?ap_id=974";
     public static final String API_CATEGORY_2012= "http://zacchaeus151.cafe24.com/api/category.php?ap_id=974&cg_id=8521";
     public static final String API_CATEGORY_2013= "http://zacchaeus151.cafe24.com/api/category.php?ap_id=974&cg_id=8522";
+
+    String API_CATEGORY_HIER = "http://zacchaeus151.cafe24.com/api/category.php?ap_id=974";
 }
