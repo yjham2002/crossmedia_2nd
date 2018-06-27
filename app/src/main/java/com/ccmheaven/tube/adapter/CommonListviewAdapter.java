@@ -112,15 +112,15 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
 //            arg1.findViewById(R.id.rly_back).setBackgroundColor(Color.parseColor("#eff0f5"));
 //            arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedList));
             if(context instanceof CategoryChildActivity){
-                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedListSub));
+                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.listNewCheck));
             }else{
-                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.selectedList));
+                arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.listNewCheck));
             }
             if(context instanceof YoutubePlayerActivity){
                 hostview.spin.setVisibility(View.VISIBLE);
             }
         } else {
-            arg1.findViewById(R.id.rly_back).setBackgroundColor(Color.WHITE);
+            arg1.findViewById(R.id.rly_back).setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
             hostview.spin.setVisibility(View.INVISIBLE);
         }
 

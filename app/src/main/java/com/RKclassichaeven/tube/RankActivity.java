@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -145,6 +146,12 @@ public class RankActivity extends Activity {
 		myMusicDB = new MyMusicDB(this);
 
 		this.activity = this;
+
+		TabLayout tab = findViewById(R.id.tabs);
+		tab.addTab(tab.newTab().setText("Tab 1"));
+		tab.addTab(tab.newTab().setText("Tab 2"));
+		tab.addTab(tab.newTab().setText("Tab 3"));
+		tab.addTab(tab.newTab().setText("Tab 4"));
 
         ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
         ((TopView) findViewById(R.id.topView1)).setViewVisibility(true, false);

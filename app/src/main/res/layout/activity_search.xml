@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eff0f5"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".SearchActivity">
 
@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#a9afc0" />
+        android:background="@color/thisgray" />
 
     <RelativeLayout
         android:id="@+id/relativelayout"
@@ -62,7 +62,7 @@
             android:cacheColorHint="#00000000"
             android:fadingEdge="none"
             android:overScrollMode="never"
-            android:divider="#e5e8f1"
+            android:divider="@color/thisgrayDiv"
             android:dividerHeight="1dp" />
 
         <com.ccmheaven.tube.view.ListviewLoadView

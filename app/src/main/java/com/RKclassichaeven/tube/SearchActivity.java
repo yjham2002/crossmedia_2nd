@@ -131,9 +131,9 @@ public class SearchActivity extends Activity {
             }
         });
 //        topMenuView.buttonimg(3);
-        InitDataThread.startInitDataThread(handler, list, page);
-        loagindDialog = ProgressDialog.show(this,
-                "Connecting", "Loading. Please wait...", true, false);
+//        InitDataThread.startInitDataThread(handler, list, page);
+//        loagindDialog = ProgressDialog.show(this,
+//                "Connecting", "Loading. Please wait...", true, false);
     }
 
     private volatile boolean nowSearching = false;

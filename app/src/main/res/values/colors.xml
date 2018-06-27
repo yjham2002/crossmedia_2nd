@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#474553</color>
-    <color name="colorPrimaryDark">#474553</color>
+    <color name="colorPrimary">#1E1E1E</color>
+    <color name="colorPrimaryDark">#1E1E1E</color>
     <color name="dialogBodyTextColor">#ffaaaaaa</color>
     <color name="white">#ffffffff</color>
     <color name="selectedTop">#FFF799</color>
     <color name="selectedList">#fdf8b7</color>
     <color name="superLightGray">#ffececec</color>
     <color name="item_on">#ffe2fffa</color>
+    <color name="listNewCheck">#1f2535</color>
     <color name="color_80000000">#80000000</color>
     <color name="thisgray">#555555</color>
+    <color name="thisgrayDiv">#3d3d3d</color>
+    <color name="tabHighlight">#e74765</color>
     <color name="numberHighlight">#EC6D85</color>
     <color name="selectedListSub">#ffbcca</color>
     <color name="defRank">#a9afc0</color>
