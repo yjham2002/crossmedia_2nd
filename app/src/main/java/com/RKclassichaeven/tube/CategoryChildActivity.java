@@ -66,7 +66,7 @@ public class CategoryChildActivity extends Activity {
     private String title;
     private String imgUrl;
 
-    private ImageView thm, left_back, shufflePlay;
+    private ImageView thm, left_back, shufflePlay, normalPlay;
     private TextView cateName, cateNum;
     private String cgid;
     private ListviewLoadView listviewLoadView;
@@ -102,6 +102,8 @@ public class CategoryChildActivity extends Activity {
 //                }
 //            });
 
+            View header = getLayoutInflater().inflate(R.layout.layout_header_sub, null, false) ;
+
             listview = (ListView) findViewById(R.id.lv_category);
 //            ((TopView) findViewById(R.id.topView1)).setTitleName(getResources().getString(R.string.app_name));
 
@@ -109,7 +111,15 @@ public class CategoryChildActivity extends Activity {
 //            topMenuView = findViewById(R.id.topMenuView);
             bottomview.setActivity(this);
             bottomview.addAdView();
-            shufflePlay = findViewById(R.id.shufflePlay);
+            shufflePlay = header.findViewById(R.id.shufflePlay);
+            normalPlay = header.findViewById(R.id.normalPlay);
+
+            normalPlay.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    goNormal();
+                }
+            });
             shufflePlay.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
@@ -127,9 +137,10 @@ public class CategoryChildActivity extends Activity {
             });
 
             cateName = findViewById(R.id.cateName);
-            cateNum = findViewById(R.id.cateNum);
+            cateName.setSelected(true);
+            cateNum = header.findViewById(R.id.cateNum);
 
-            thm = findViewById(R.id.thm);
+            thm = header.findViewById(R.id.thm);
 
             cateName.setText(title);
 
@@ -138,15 +149,18 @@ public class CategoryChildActivity extends Activity {
                         .get()
                         .load(imgUrl)
                         .centerCrop()
-                        .resize(400, 400)
+                        .resize(400, 170)
                         .placeholder(R.drawable.icon_hour_glass)
-                        .transform(new RoundedTransform(40, 0)).into(thm);
+                        .transform(new RoundedTransform(12, 0)).into(thm);
             }
 
             centerView = (CenterView) findViewById(R.id.center_view);
             centerView.InitButtonListener(centerviewlistener);
             listviewAdapter = new CommonListviewAdapter(this, list, listview,
                     handler);
+
+            listview.addHeaderView(header, null, false);
+
             listview.setAdapter(listviewAdapter);
             listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
             listview.setItemsCanFocus(false);
@@ -156,7 +170,12 @@ public class CategoryChildActivity extends Activity {
                 public void onItemClick(AdapterView<?> arg0, View arg1,
                                         int arg2, long arg3) {
                     boolean haveSelect = false;
-                    for (int i = 0; i < listview.getCount(); i++) {
+
+                    int realPos = arg2 - listview.getHeaderViewsCount();
+                    listview.setItemChecked(realPos, !listview.isItemChecked(realPos));
+                    listview.setItemChecked(arg2, !listview.isItemChecked(arg2));
+
+                    for (int i = 0; i < listview.getCount() - 1; i++) {
                         if (listview.isItemChecked(i)) {
                             haveSelect = true;
                             break;
@@ -376,12 +395,12 @@ public class CategoryChildActivity extends Activity {
 
     private boolean isAllSelect;
 
-    private void goShuffle(){
-        for (int i = 0; i < listview.getCount(); i++) {
+    private void goNormal(){
+        for (int i = 0; i < listview.getCount() - 1; i++) {
             listview.setItemChecked(i, true);
         }
         List<ListInfo> templist = new ArrayList<ListInfo>();
-        for (int i = 0; i < listview.getCount(); i++) {
+        for (int i = 0; i < listview.getCount() - 1; i++) {
             if (listview.isItemChecked(i)) {
                 templist.add(list.get(i));
             }
@@ -391,6 +410,32 @@ public class CategoryChildActivity extends Activity {
             String strJson=gson.toJson(templist);
             Intent intent = new Intent(CategoryChildActivity.this, YoutubePlayerActivity.class);
             intent.putExtra( "playlist", strJson );
+            intent.putExtra("mode", 0);
+            startActivity(intent);
+            overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
+        }
+
+        centerView.setVisibility(View.GONE);
+        listview.clearChoices();
+        listviewAdapter.notifyDataSetChanged();
+    }
+
+    private void goShuffle(){
+        for (int i = 0; i < listview.getCount() - 1; i++) {
+            listview.setItemChecked(i, true);
+        }
+        List<ListInfo> templist = new ArrayList<ListInfo>();
+        for (int i = 0; i < listview.getCount() - 1; i++) {
+            if (listview.isItemChecked(i)) {
+                templist.add(list.get(i));
+            }
+        }
+        if (!templist.isEmpty()) {
+            Gson gson = new Gson();
+            String strJson=gson.toJson(templist);
+            Intent intent = new Intent(CategoryChildActivity.this, YoutubePlayerActivity.class);
+            intent.putExtra( "playlist", strJson );
+            intent.putExtra("mode", 1);
             startActivity(intent);
             overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
         }

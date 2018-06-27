@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,7 @@ public class CommonListviewAdapter extends BaseAdapter implements OnScrollListen
     }
 
     public long getItemId(int arg0) {
+        Log.e("CMAdapter", "getItemId : " + arg0);
         return arg0;
     }
 

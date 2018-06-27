@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".CategoryChildActivity">
 
@@ -16,85 +16,46 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:id="@+id/RelativeLayout1"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@color/colorPrimary">
 
             <ImageView
                 android:id="@+id/left_back"
                 android:layout_width="30dp"
                 android:layout_marginLeft="10dp"
                 android:padding="2dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ico_top_back_black"
+                android:src="@drawable/ico_top_back_white"
                 android:scaleType="centerInside" />
 
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/tab_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/thm"
-                android:src="@drawable/icon_hour_glass"
-                android:layout_width="120dp"
-                android:layout_height="120dp" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp"
+            <TextView
+                android:id="@+id/cateName"
+                android:text="Category Title"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/cateName"
-                    android:text="Category Title"
-                    android:textColor="@color/jet"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:textSize="20dp"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/cateNum"
-                    android:text="0 Songs"
-                    android:textColor="@color/selectedListSub2"
-                    android:layout_width="match_parent"
-                    android:textSize="14dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:textSize="20dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
-        <ImageView
-            android:src="@drawable/toggle_shuffle_sub_on"
-            android:id="@+id/shufflePlay"
-            android:clickable="true"
-            android:layout_margin="20dp"
-            android:layout_gravity="right|bottom"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-    </FrameLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/iv_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/tab_view"
-        android:background="#a9afc0" />
+        android:background="#00FFFFFF" />
 
     <RelativeLayout
         android:id="@+id/list_view"

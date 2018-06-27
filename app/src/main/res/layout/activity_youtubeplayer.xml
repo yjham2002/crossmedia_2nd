@@ -27,7 +27,6 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:layout_toEndOf="@+id/left_back"
-            android:layout_toLeftOf="@id/chkShuffle"
             android:ellipsize="marquee"
             android:gravity="center"
             android:singleLine="true"

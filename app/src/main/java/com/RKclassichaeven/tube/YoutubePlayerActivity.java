@@ -157,6 +157,11 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		btn_prev.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View view) {
+				if(list.size() == 1){
+					startPlay();
+					return;
+				}
+
 				Log.e("controllerButton", "PREV - PRE : " + index);
 				int next_num = index - 2;
 				if(next_num < 0) {
@@ -208,6 +213,15 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		});
 
 		Bundle extras = getIntent().getExtras();
+
+		if(extras.containsKey("mode")){
+			int modeNum = extras.getInt("mode");
+			if(modeNum == 0){
+				doShuffle = PLAY_MODE.PLAY_ALL_REPEAT;
+			}else{
+				doShuffle = PLAY_MODE.SHUFFLE_NORMAL;
+			}
+		}
 
 		Gson gson = new Gson();
 		String strJson = (String) extras.get("playlist");
