@@ -305,6 +305,8 @@ public class ArtistCategoryChildActivity extends Activity {
 						overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
 					}
 
+					centerView.setVisibility(View.GONE);
+
 					listview.clearChoices();
 					listviewAdapter.notifyDataSetChanged();
 				}
@@ -327,6 +329,8 @@ public class ArtistCategoryChildActivity extends Activity {
 
 						Toast.makeText(getApplicationContext(), "보관함에 추가되었습니다.", Toast.LENGTH_LONG).show();
 					}
+
+					centerView.setVisibility(View.GONE);
 				}
 				break;
 			}

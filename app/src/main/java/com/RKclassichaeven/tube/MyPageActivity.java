@@ -294,6 +294,8 @@ public class MyPageActivity extends Activity {
                         overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
                     }
 
+                    centerview.setVisibility(View.GONE);
+
                     listview.clearChoices();
                     listviewadapter.notifyDataSetChanged();
                 }
@@ -316,6 +318,8 @@ public class MyPageActivity extends Activity {
 
                         Toast.makeText(getApplicationContext(), "보관함에 추가되었습니다.", Toast.LENGTH_LONG).show();
                     }
+
+                    centerview.setVisibility(View.GONE);
                 }
                 break;
             }
