@@ -428,6 +428,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 				}
 			} else {
+				if(index >= list.size()){
+					index = 0;
+				}
 				tvTitle.setText(list.get(index).getVideoName());
 				player.loadVideo(list.get(index).getVideoCode());
 			}
