@@ -33,7 +33,7 @@
             android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name=".RankActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CategoryActivity"
             android:screenOrientation="portrait" />
@@ -131,7 +131,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MultiCategoryActivity"></activity>
+        <activity android:name=".MultiCategoryActivity" />
+        <activity android:name=".CategoryDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -138,6 +138,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.RKclassichaeven.tube.MultiCategoryActivity" />
+        <activity android:name="com.RKclassichaeven.tube.CategoryDetailActivity" />
 
         <provider
             android:name="com.squareup.picasso.PicassoProvider"

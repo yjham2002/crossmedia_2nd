@@ -145,7 +145,7 @@ public class CategoryActivity extends Activity {
 		setMenuButtons(this);
 
         gridview = (GridView) findViewById(R.id.gv_category);
-        adapter = new CategoryGridViewAdapter(this, list, gridview, handler);
+        adapter = new CategoryGridViewAdapter(this, list, gridview, handler, true);
         gridview.setAdapter(adapter);
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {

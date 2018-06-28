@@ -20,9 +20,10 @@
     <ImageView
         android:clickable="true"
         android:id="@+id/btn_caption"
-        android:src="@drawable/btn_bottom_next"
+        android:src="@drawable/btn_category_in"
         android:layout_gravity="right|center_vertical"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="25dp"
+        android:layout_height="25dp" />
 
 </FrameLayout>

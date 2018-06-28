@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
+ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\c32218ecf26c3c6fa71c3d4a639e0098\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ea346117378e9b5daa73f2fa943cdf2\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9840015ef6fd75d56f751678a7d54c1e\AndroidManifest.xml:17:1-31:12
@@ -33,22 +33,22 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\HP\.gradl
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\cd79df8574e13645fe6da5f26a4fa5ff\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\07512d7f9329ad821683b27a44d519dd\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\f22c481796a96c5e0ba567ca056d6d94\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
-INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
+INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
 	package
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:4:5-39
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
+		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-137:12
+		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:1-138:12
 		INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:2:11-69
@@ -73,7 +73,7 @@ ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:9:22-81
 application
-ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:11:5-135:19
+ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:11:5-136:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ea346117378e9b5daa73f2fa943cdf2\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ea346117378e9b5daa73f2fa943cdf2\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\HP\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9840015ef6fd75d56f751678a7d54c1e\AndroidManifest.xml:25:5-29:19
@@ -167,7 +167,7 @@ ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:31:13-45
 activity#com.RKclassichaeven.tube.RankActivity
-ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:34:9-36:61
+ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:34:9-36:52
 	android:screenOrientation
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:36:13-49
 	android:name
@@ -300,9 +300,13 @@ ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:131:27-74
 activity#com.RKclassichaeven.tube.MultiCategoryActivity
-ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:134:9-68
+ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:134:9-59
 	android:name
 		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:134:19-56
+activity#com.RKclassichaeven.tube.CategoryDetailActivity
+ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:135:9-69
+	android:name
+		ADDED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml:135:19-57
 uses-sdk
 INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\HP\AndroidStudioProjects\RKhitsong\app\src\main\AndroidManifest.xml

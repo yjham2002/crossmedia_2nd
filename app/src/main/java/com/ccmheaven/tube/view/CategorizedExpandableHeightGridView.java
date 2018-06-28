@@ -56,16 +56,28 @@ public class CategorizedExpandableHeightGridView extends GridView {
         setCategoryBox(categoryBox);
 
         LinearLayout linearLayout = new LinearLayout(getContext());
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
-        this.setLayoutParams(new GridView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        this.setLayoutParams(new GridView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         this.setNumColumns(numOfColumn);
+        this.setHorizontalSpacing(8);
+        this.setVerticalSpacing(8);
+        this.setSelector(R.color.transparent);
         this.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
+        this.setExpanded(true);
 
         View view = ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.unit_grid_header_layout, null);
         TextView caption = view.findViewById(R.id.caption);
         ImageView btn_caption = view.findViewById(R.id.btn_caption);
+
+        btn_caption.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         caption.setText(categoryBox.getAlias());
 

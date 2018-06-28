@@ -284,8 +284,6 @@ public class CategoryChildActivity extends Activity {
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(this, CategoryActivity.class);
-            startActivity(intent);
             finish();
         }
         return true;
@@ -604,4 +602,5 @@ public class CategoryChildActivity extends Activity {
             mPullRefreshState = scrollState;
         }
     }
+
 }

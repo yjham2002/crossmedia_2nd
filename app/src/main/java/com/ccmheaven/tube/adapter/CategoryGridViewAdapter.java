@@ -30,6 +30,7 @@ public class CategoryGridViewAdapter extends BaseAdapter {
     private ImageLoader imageLoader;
     private GridView gridview;
     private Handler handler;
+    private boolean isSlim = false;
 
     public CategoryGridViewAdapter(Context context,
                                    List<CategoryListInfo> list, GridView gridview, Handler handler) {
@@ -38,6 +39,25 @@ public class CategoryGridViewAdapter extends BaseAdapter {
         this.gridview = gridview;
         this.handler = handler;
         imageLoader = new ImageLoader(context);
+        this.isSlim = false;
+    }
+
+    public CategoryGridViewAdapter(Context context,
+                                   List<CategoryListInfo> list, GridView gridview, Handler handler, boolean isSlim) {
+        this.list = list;
+        this.context = context;
+        this.gridview = gridview;
+        this.handler = handler;
+        imageLoader = new ImageLoader(context);
+        this.isSlim = isSlim;
+    }
+
+    public boolean isSlim() {
+        return isSlim;
+    }
+
+    public void setSlim(boolean slim) {
+        isSlim = slim;
     }
 
     public int getCount() {
@@ -82,13 +102,21 @@ public class CategoryGridViewAdapter extends BaseAdapter {
             list.get(arg0).setImageUrl("http://null");
         }
         Log.e("sizeInfo", hostview.m_ivPhoto.getHeight() + "/" + hostview.m_ivPhoto.getMeasuredHeight() + "/" + hostview.m_ivPhoto.getWidth() + "/" + hostview.m_ivPhoto.getMeasuredWidth());
+
+        int ht = 320;
+        int rad = 17;
+        if(isSlim) {
+            ht = 190;
+            rad = 12;
+        }
+
         Picasso
                 .get()
                 .load(list.get(arg0).getImageUrl())
                 .centerCrop()
-                .resize(400, 320)
+                .resize(400, ht)
                 .placeholder(R.drawable.icon_hour_glass_no_round)
-                .transform(new RoundedTransform(17, 0)).into(hostview.m_ivPhoto);
+                .transform(new RoundedTransform(rad, 0, true, true, false, false)).into(hostview.m_ivPhoto);
 
         return arg1;
     }

@@ -42,7 +42,7 @@ public class TopMenuView extends LinearLayout {
     private TextView tvRank, tvCategory, tvSearch, tvMyList;
     private ButtonListener buttonListener = new ButtonListener();
 
-    private static CategoryBox categoryCurrent;
+    public static CategoryBox categoryCurrent;
     private static HashMap<Integer, CategoryBox> cateMap = new HashMap<>();
     private static boolean isLoaded = false;
     private static int length = 0;

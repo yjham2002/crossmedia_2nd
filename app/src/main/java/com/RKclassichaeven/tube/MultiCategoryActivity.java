@@ -26,14 +26,21 @@ import com.ccmheaven.tube.ads.AdHelper;
 import com.ccmheaven.tube.pub.CategoryListInfo;
 import com.ccmheaven.tube.pub.Constants;
 import com.ccmheaven.tube.thread.CategoryDataThread;
+import com.ccmheaven.tube.thread.CategoryDataUnitThread;
 import com.ccmheaven.tube.view.BottomView;
 import com.ccmheaven.tube.view.CategorizedExpandableHeightGridView;
 import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
+
+import comm.SimpleCall;
 
 public class MultiCategoryActivity extends AppCompatActivity {
 
@@ -154,41 +161,90 @@ public class MultiCategoryActivity extends AppCompatActivity {
         /**
          * Custom View Begin
          */
-        LinearLayout linearLayout = new LinearLayout(this);
+        final LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
         gridviews = new Vector<>();
 
-        for(int e = 0; e < 3; e++){
-            CategorizedExpandableHeightGridView gridview = new CategorizedExpandableHeightGridView(this);
+        SimpleCall.getHttpJson(Constants.API_CATEGORY_HIER + "&cg_id=" + TopMenuView.categoryCurrent.getCg_id(), new HashMap<String, Object>(), new SimpleCall.CallBack(){
+            @Override
+            public void handle(JSONObject jsonObject) {
+                try{
+                    JSONArray result = jsonObject.getJSONArray("result");
+                    for(int e = 0; e < result.length(); e++){
+                        JSONObject item = result.getJSONObject(e);
+                        CategoryBox categoryBox = new CategoryBox();
+                        categoryBox.setCg_id(item.getInt("cg_id"));
+                        categoryBox.setCg_name(item.getString("cg_name"));
+                        categoryBox.setAlias(item.getString("cg_name"));
+                        categoryBox.setCg_image_url(item.getString("cg_image_url"));
+                        categoryBox.setCg_order(item.getInt("cg_order"));
+                        categoryBox.setCg_parent(item.getInt("cg_parent"));
+                        categoryBox.setCg_subname(item.getString("cg_subname"));
+                        categoryBox.setCg_depth(item.getInt("cg_depth"));
+                        CategorizedExpandableHeightGridView gridview = new CategorizedExpandableHeightGridView(MultiCategoryActivity.this);
 
-            adapter = new CategoryGridViewAdapter(this, list, gridview, handler);
-            gridview.setAdapter(adapter);
-            gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                    Intent intent = new Intent(MultiCategoryActivity.this, CategoryChildActivity.class);
-                    intent.putExtra("cgid", list.get(arg2).getCgid());
-                    intent.putExtra("title", list.get(arg2).getName());
-                    intent.putExtra("img", list.get(arg2).getImageUrl());
-                    startActivity(intent);
+                        final List<CategoryListInfo> tempList = new Vector<>();
+
+                        final CategoryGridViewAdapter tempAdapter = new CategoryGridViewAdapter(MultiCategoryActivity.this, tempList, gridview, null);
+                        Handler tempHandler = new Handler() {
+                            public void handleMessage(Message msg) {
+                                switch (msg.what) {
+                                    case Constants.INITDATA: {
+                                        tempAdapter.notifyDataSetChanged();
+//                            loagindDialog.dismiss();
+                                    }
+                                    break;
+                                    case Constants.INITDATA_LOSE: {
+//                            loagindDialog.dismiss();
+                                        // Toast.makeText(CategoryActivity.this.getApplicationContext(),
+                                        // "Data load fail!", Toast.LENGTH_SHORT).show();
+                                    }
+                                    break;
+                                }
+                            }
+
+                        };
+
+                        gridview.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        gridview.setAdapter(tempAdapter);
+                        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                                Intent intent = new Intent(MultiCategoryActivity.this, CategoryChildActivity.class);
+                                intent.putExtra("cgid", tempList.get(arg2).getCgid());
+                                intent.putExtra("title", tempList.get(arg2).getName());
+                                intent.putExtra("img", tempList.get(arg2).getImageUrl());
+                                startActivity(intent);
+                            }
+                        });
+
+                        int loadLimit = 4;
+                        int numOfColumn = 2;
+                        if(e == 0) {
+                            tempAdapter.setSlim(true);
+                            numOfColumn = 1;
+                            loadLimit = 1;
+                        }
+
+                        new CategoryDataUnitThread(tempHandler, tempList, categoryBox.getCg_id(), loadLimit).startCategoryDataThread();
+
+                        linearLayout.addView(gridview.getUnitView(categoryBox,numOfColumn));
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
-            });
-
-            CategoryBox categoryBox = new CategoryBox();
-            categoryBox.setAlias("test");
-            linearLayout.addView(gridview.getUnitView(categoryBox,4));
-        }
+            }
+        });
 
         scrollView.addView(linearLayout);
-
         /**
          * Custom View End
          */
 
         topMenuView.buttonimg(2);
 
-        loadCategoryData();
+//        loadCategoryData();
     }
 
     protected void onDestroy() {
@@ -256,7 +312,6 @@ public class MultiCategoryActivity extends AppCompatActivity {
 
     private void loadCategoryData() {
         CategoryDataThread.startCategoryDataThread(handler, list);
-        loagindDialog = ProgressDialog.show(this,
-                "Connecting", "Loading. Please wait...", true, true);
+        loagindDialog = ProgressDialog.show(this,"Connecting", "Loading. Please wait...", true, true);
     }
 }
