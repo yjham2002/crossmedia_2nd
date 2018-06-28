@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RKclassichaeven.tube.CategoryActivity;
+import com.RKclassichaeven.tube.MultiCategoryActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
 import com.RKclassichaeven.tube.SearchActivity;
@@ -141,8 +142,8 @@ public class TopMenuView extends LinearLayout {
                         ((Activity) getContext()).finish();
                         break;
                     }
-                    case 2:{
-                        Intent intent = new Intent(getContext(), CategoryActivity.class);
+                    default:{
+                        Intent intent = new Intent(getContext(), MultiCategoryActivity.class);
                         getContext().startActivity(intent);
                         overrideTransition();
                         ActivityCompat.finishAffinity((Activity) getContext());
