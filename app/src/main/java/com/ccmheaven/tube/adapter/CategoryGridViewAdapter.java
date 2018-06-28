@@ -80,8 +80,12 @@ public class CategoryGridViewAdapter extends BaseAdapter {
         if (arg1 == null) {
             hostview = new HostView();
 
-            arg1 = LayoutInflater.from(context).inflate(
-                    R.layout.item_gridview_category, null, true);
+            if(isSlim){
+                arg1 = LayoutInflater.from(context).inflate(R.layout.item_gridview_category_slim, null, true);
+            }else{
+                arg1 = LayoutInflater.from(context).inflate(R.layout.item_gridview_category, null, true);
+            }
+
             hostview.m_tvName = (TextView) arg1.findViewById(R.id.tv_name);
             hostview.m_ivPhoto = (ImageView) arg1.findViewById(R.id.iv_photo);
 
@@ -98,6 +102,10 @@ public class CategoryGridViewAdapter extends BaseAdapter {
          */
 //        imageLoader.DisplayImage(list.get(arg0).getImageUrl(), hostview.m_ivPhoto);
 
+        if(isSlim){
+            hostview.m_ivPhoto.setImageResource(R.drawable.ico_hour_thin);
+        }
+
         if(list.get(arg0).getImageUrl() == null || list.get(arg0).getImageUrl().trim().equals("")){
             list.get(arg0).setImageUrl("http://null");
         }
@@ -105,9 +113,11 @@ public class CategoryGridViewAdapter extends BaseAdapter {
 
         int ht = 320;
         int rad = 17;
+        int placeHolder = R.drawable.icon_hour_glass_no_round;
         if(isSlim) {
             ht = 190;
             rad = 12;
+            placeHolder = R.drawable.ico_hour_thin;
         }
 
         Picasso
@@ -115,7 +125,7 @@ public class CategoryGridViewAdapter extends BaseAdapter {
                 .load(list.get(arg0).getImageUrl())
                 .centerCrop()
                 .resize(400, ht)
-                .placeholder(R.drawable.icon_hour_glass_no_round)
+                .placeholder(placeHolder)
                 .transform(new RoundedTransform(rad, 0, true, true, false, false)).into(hostview.m_ivPhoto);
 
         return arg1;

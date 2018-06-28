@@ -2,6 +2,7 @@ package com.ccmheaven.tube.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.RKclassichaeven.tube.CategoryDetailActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.models.CategoryBox;
 
@@ -52,8 +54,7 @@ public class CategorizedExpandableHeightGridView extends GridView {
         return expanded;
     }
 
-    public LinearLayout getUnitView(CategoryBox categoryBox, int numOfColumn){
-        setCategoryBox(categoryBox);
+    public LinearLayout getUnitView(int numOfColumn){
 
         LinearLayout linearLayout = new LinearLayout(getContext());
         linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -75,7 +76,10 @@ public class CategorizedExpandableHeightGridView extends GridView {
         btn_caption.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra("cgid", categoryBox.getCg_id());
+                intent.putExtra("cgname", categoryBox.getAlias());
+                context.startActivity(intent);
             }
         });
 

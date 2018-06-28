@@ -22,6 +22,7 @@ public class CategoryDataUnitThread extends Thread {
 	private List<CategoryListInfo> list;
 	private int cgId;
 	private int loadLimit;
+	public static final int LOAD_INFINITE = -1;
 
 	public CategoryDataUnitThread(Handler handler, List<CategoryListInfo> list, int parentId, int loadLimit) {
 		this.handler = handler;
@@ -58,7 +59,9 @@ public class CategoryDataUnitThread extends Thread {
 			JSONArray jsonarray = jsonobject.getJSONArray("result");
 			list.clear();
 			int toLoad = jsonarray.length();
-			if(toLoad > loadLimit) toLoad = loadLimit;
+			if(loadLimit != -1) {
+				if(toLoad > loadLimit) toLoad = loadLimit;
+			}
 			for (int i = 0; i < toLoad; i++) {
 				JSONObject json = jsonarray.getJSONObject(i);
 				CategoryListInfo listinfo = new CategoryListInfo();

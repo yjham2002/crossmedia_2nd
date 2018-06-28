@@ -12,6 +12,7 @@
         <ImageView
             android:id="@+id/thm"
             android:layout_width="match_parent"
+            android:src="@drawable/ico_hour_thin_all"
             android:background="@drawable/rounded_corner"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"

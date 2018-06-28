@@ -44,6 +44,10 @@
         "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_gridview_category_slim.xml.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\item_gridview_category_slim.xml"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9840015ef6fd75d56f751678a7d54c1e\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
@@ -1280,6 +1284,10 @@
         "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable-xhdpi\\ic_setting.png"
     },
     {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ico_hour_thin.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\ico_hour_thin.png"
+    },
+    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\5ea346117378e9b5daa73f2fa943cdf2\\res\\drawable\\navigation_empty_icon.xml"
     },
@@ -2446,6 +2454,10 @@
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_design_ic_visibility.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\5ea346117378e9b5daa73f2fa943cdf2\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ico_hour_thin_all.png.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\drawable\\ico_hour_thin_all.png"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",

@@ -45,7 +45,6 @@ import comm.SimpleCall;
 public class MultiCategoryActivity extends AppCompatActivity {
 
     private ScrollView scrollView;
-    private List<CategorizedExpandableHeightGridView> gridviews;
     private List<CategoryListInfo> list = new ArrayList<CategoryListInfo>();
     private CategoryGridViewAdapter adapter;
     private ProgressDialog loagindDialog;
@@ -165,8 +164,6 @@ public class MultiCategoryActivity extends AppCompatActivity {
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
-        gridviews = new Vector<>();
-
         SimpleCall.getHttpJson(Constants.API_CATEGORY_HIER + "&cg_id=" + TopMenuView.categoryCurrent.getCg_id(), new HashMap<String, Object>(), new SimpleCall.CallBack(){
             @Override
             public void handle(JSONObject jsonObject) {
@@ -185,9 +182,11 @@ public class MultiCategoryActivity extends AppCompatActivity {
                         categoryBox.setCg_depth(item.getInt("cg_depth"));
                         CategorizedExpandableHeightGridView gridview = new CategorizedExpandableHeightGridView(MultiCategoryActivity.this);
 
+                        gridview.setCategoryBox(categoryBox);
+
                         final List<CategoryListInfo> tempList = new Vector<>();
 
-                        final CategoryGridViewAdapter tempAdapter = new CategoryGridViewAdapter(MultiCategoryActivity.this, tempList, gridview, null);
+                        final CategoryGridViewAdapter tempAdapter = new CategoryGridViewAdapter(MultiCategoryActivity.this, tempList, gridview, null, e == 0);
                         Handler tempHandler = new Handler() {
                             public void handleMessage(Message msg) {
                                 switch (msg.what) {
@@ -222,14 +221,13 @@ public class MultiCategoryActivity extends AppCompatActivity {
                         int loadLimit = 4;
                         int numOfColumn = 2;
                         if(e == 0) {
-                            tempAdapter.setSlim(true);
                             numOfColumn = 1;
                             loadLimit = 1;
                         }
 
                         new CategoryDataUnitThread(tempHandler, tempList, categoryBox.getCg_id(), loadLimit).startCategoryDataThread();
 
-                        linearLayout.addView(gridview.getUnitView(categoryBox,numOfColumn));
+                        linearLayout.addView(gridview.getUnitView(numOfColumn));
                     }
                 }catch (Exception e){
                     e.printStackTrace();

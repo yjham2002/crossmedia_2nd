@@ -150,7 +150,7 @@ public class CategoryChildActivity extends Activity {
                         .load(imgUrl)
                         .centerCrop()
                         .resize(400, 170)
-                        .placeholder(R.drawable.icon_hour_glass)
+                        .placeholder(R.drawable.ico_hour_thin_all)
                         .transform(new RoundedTransform(12, 0)).into(thm);
             }
 
