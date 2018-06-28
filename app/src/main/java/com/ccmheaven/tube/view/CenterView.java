@@ -1,5 +1,6 @@
 package com.ccmheaven.tube.view;
 
+import com.RKclassichaeven.tube.MyPageActivity;
 import com.RKclassichaeven.tube.R;
 
 import android.content.Context;
@@ -21,6 +22,12 @@ public class CenterView extends LinearLayout {
 //		select = (ImageButton) view.findViewById(R.id.center_button1);
 		play = (ImageButton) view.findViewById(R.id.center_button2);
 		favor = (ImageButton) view.findViewById(R.id.center_button5);
+		View div = view.findViewById(R.id.divLine);
+
+		if(context instanceof MyPageActivity){
+			favor.setVisibility(View.GONE);
+			div.setVisibility(View.GONE);
+		}
 
 	}
 

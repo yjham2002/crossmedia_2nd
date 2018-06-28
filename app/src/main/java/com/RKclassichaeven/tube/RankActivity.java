@@ -336,7 +336,9 @@ public class RankActivity extends Activity {
 					if (!templist.isEmpty()) {
 						Gson gson = new Gson();
 						String strJson=gson.toJson(templist);
-						Intent intent = new Intent(RankActivity.this, YoutubePlayerActivity.class);
+//						Intent intent = new Intent(RankActivity.this, YoutubePlayerActivity.class);
+						Intent intent = new Intent(RankActivity.this, FloatingMovieActivity.class);
+
 						intent.putExtra( "playlist", strJson );
 						startActivity(intent);
 						overridePendingTransition( R.anim.slide_up, R.anim.slide_down );

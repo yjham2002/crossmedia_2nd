@@ -41,6 +41,7 @@
             android:background="@android:color/transparent" />
 
         <View
+            android:id="@+id/divLine"
             android:background="@color/white"
             android:layout_width="1dp"
             android:layout_height="match_parent" />

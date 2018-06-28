@@ -1,9 +1,17 @@
 package com.RKclassichaeven.tube;
 
 import android.app.Application;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.multidex.MultiDexApplication;
 
+import com.RKclassichaeven.tube.services.MediaService;
+
 import bases.BaseApp;
+import bases.Constants;
 
 public class MyApplication extends MultiDexApplication {
 	
@@ -21,6 +29,8 @@ public class MyApplication extends MultiDexApplication {
 		super.onCreate();
 
 		BaseApp.context = this;
+		final Intent backgroundIntentCall = new Intent(getBaseContext(), MediaService.class);
+		bindService(backgroundIntentCall, mConnection, BIND_AUTO_CREATE);
 		// Parse?
 //		Parse.initialize(
 //			this,
@@ -37,6 +47,31 @@ public class MyApplication extends MultiDexApplication {
 //	    tracker.enableExceptionReporting(true);
 //	    tracker.enableAdvertisingIdCollection(true);
 //	    tracker.enableAutoActivityTracking(true);
+	}
+
+	private boolean mBounded = false;
+
+
+	private ServiceConnection mConnection = new ServiceConnection() {
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			mBounded = false;
+		}
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			mBounded = true;
+			MediaService.LocalBinder mLocalBinder = (MediaService.LocalBinder)service;
+			final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+			activityIntent1.putExtra("action", "refresh");
+			sendBroadcast(activityIntent1);
+		}
+	};
+
+	@Override
+	public void onTerminate(){
+//        unbindService(mConnection);
+		super.onTerminate();
 	}
 
 }

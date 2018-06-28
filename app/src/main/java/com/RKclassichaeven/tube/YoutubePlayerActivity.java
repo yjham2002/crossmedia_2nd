@@ -214,12 +214,16 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		Bundle extras = getIntent().getExtras();
 
-		if(extras.containsKey("mode")){
-			int modeNum = extras.getInt("mode");
-			if(modeNum == 0){
-				doShuffle = PLAY_MODE.PLAY_ALL_REPEAT;
-			}else{
-				doShuffle = PLAY_MODE.SHUFFLE_NORMAL;
+		if(extras == null){
+			doShuffle = PLAY_MODE.PLAY_ALL_REPEAT;
+		}else {
+			if (extras.containsKey("mode")) {
+				int modeNum = extras.getInt("mode");
+				if (modeNum == 0) {
+					doShuffle = PLAY_MODE.PLAY_ALL_REPEAT;
+				} else {
+					doShuffle = PLAY_MODE.SHUFFLE_NORMAL;
+				}
 			}
 		}
 
@@ -571,7 +575,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		return (YouTubePlayerView) findViewById(R.id.youtube_view);
 	}
 
-	private final class MyPlaylistEventListener implements
+	protected final class MyPlaylistEventListener implements
 			PlaylistEventListener {
 		public void onNext() {
 			// log("NEXT VIDEO");
@@ -589,7 +593,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		}
 	}
 
-	private final class MyPlaybackEventListener implements
+	protected final class MyPlaybackEventListener implements
 			PlaybackEventListener {
 		String playbackState = "NOT_PLAYING";
 		String bufferingState = "";
@@ -657,7 +661,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 //		return (hours == 0 ? "" : hours + ":") + String.format("%02d:%02d", minutes % 60, seconds % 60);
 //	}
 
-	private final class MyPlayerStateChangeListener implements
+	protected final class MyPlayerStateChangeListener implements
 			PlayerStateChangeListener {
 		String playerState = "UNINITIALIZED";
 

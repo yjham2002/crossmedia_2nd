@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainLayout"
+        android:layout_gravity="center_vertical|left"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/noti_img"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:src="@color/jet"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/noti_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:scrollHorizontally="false"
+                android:focusableInTouchMode="true"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:text="Play Music"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/white"
+                android:textSize="18sp" ><requestFocus/></TextView>
+
+            <TextView
+                android:id="@+id/noti_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:scrollHorizontally="false"
+                android:focusableInTouchMode="true"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:gravity="left|center_vertical"
+                android:textColor="#a9afc0"
+                android:text=""
+                android:textSize="14sp" ><requestFocus/></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/bot_prev"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:clickable="true"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/btn_bottom_prev"
+                />
+            <ImageView
+                android:id="@+id/bot_play"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerInside"
+                android:clickable="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/btn_toggle_bottom_play"
+                />
+            <ImageView
+                android:id="@+id/bot_next"
+                android:layout_width="30dp"
+                android:scaleType="centerInside"
+                android:layout_height="30dp"
+                android:clickable="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/btn_bottom_next"
+                />
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/noti_close"
+                android:clickable="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/noti_close_new"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
