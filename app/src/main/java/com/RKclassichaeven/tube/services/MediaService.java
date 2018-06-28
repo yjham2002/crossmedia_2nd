@@ -26,11 +26,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.RKclassichaeven.tube.FloatingMovieActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
+import com.ccmheaven.tube.view.PlayerYouTubeFrag;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -53,7 +55,6 @@ import utils.PreferenceUtil;
  */
 public class MediaService extends Service implements View.OnClickListener{
 
-    private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
 
     private NotificationManager mNotificationManager;
@@ -152,15 +153,19 @@ public class MediaService extends Service implements View.OnClickListener{
 
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = mInflater.inflate(R.layout.always_on_display_layout, null);
+        mView = mInflater.inflate(R.layout.empty_layout, null);
 
         int versionDependedType = WindowManager.LayoutParams.TYPE_PHONE;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             versionDependedType = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
 
-        mediaPlayer = new MediaPlayer();
+        PlayerYouTubeFrag myFragment =  PlayerYouTubeFrag.newInstance("");
+        myFragment.init();
 
+//        ((LinearLayout)mView).addView(myFragment);
+//
+//
 //        WindowManager.LayoutParams mParams = new WindowManager.LayoutParams(
 //                WindowManager.LayoutParams.WRAP_CONTENT,
 //                WindowManager.LayoutParams.WRAP_CONTENT,
@@ -332,7 +337,6 @@ public class MediaService extends Service implements View.OnClickListener{
     public void onDestroy() {
         unregisterReceiver(broadcastReceiver);
         unregisterReceiver(notificationListener);
-        mediaPlayer.stop();
         isPlaying = false;
     }
 
