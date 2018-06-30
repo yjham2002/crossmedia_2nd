@@ -1453,8 +1453,9 @@ int id wide 0x7f08014e
 int id withText 0x7f08014f
 int id wrap 0x7f080150
 int id wrap_content 0x7f080151
-int id youtube_button 0x7f080152
-int id youtube_view 0x7f080153
+int id wrapper 0x7f080152
+int id youtube_button 0x7f080153
+int id youtube_view 0x7f080154
 int integer abc_config_activityDefaultDur 0x7f090000
 int integer abc_config_activityShortDur 0x7f090001
 int integer app_bar_elevation_anim_duration 0x7f090002

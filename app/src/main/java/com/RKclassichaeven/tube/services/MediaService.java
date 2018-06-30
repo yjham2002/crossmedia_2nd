@@ -22,10 +22,13 @@ import android.os.Message;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
@@ -58,12 +61,16 @@ public class MediaService extends Service implements View.OnClickListener{
     private NotificationManager mNotificationManager;
     private static final int notiId = 20180319;
     private View mView;
+    private View wrap;
     private List<ListInfo> tracks = new Vector<>();
     private WebView webView;
     private WindowManager mManager;
     private YouTubePlayerView player;
     private YouTubePlayer actualPlayer;
     private IBinder mBinder = new LocalBinder();
+
+    private float dX = 0;
+    private float dY = 0;
 
     Foreground.Listener foregroundListener;
 
@@ -146,6 +153,8 @@ public class MediaService extends Service implements View.OnClickListener{
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         mView = mInflater.inflate(R.layout.always_on_display_layout, null);
+        player = mView.findViewById(R.id.player);
+        wrap = mView.findViewById(R.id.wrapper);
 
         int versionDependedType = WindowManager.LayoutParams.TYPE_PHONE;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -162,7 +171,32 @@ public class MediaService extends Service implements View.OnClickListener{
 
         mManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
-        player = mView.findViewById(R.id.player);
+        wrap.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                WindowManager.LayoutParams p = (WindowManager.LayoutParams)mView.getLayoutParams();
+                Log.e("fore", p + " ///// " + event.toString());
+
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        dX = event.getRawX();
+                        dY = event.getRawY();
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:
+                        p.x = (int)(p.x + (event.getRawX() - dX));
+                        p.y = (int)(p.y + (event.getRawY() - dY));
+                        mManager.updateViewLayout(mView, p);
+                        break;
+
+                    default:
+                        return false;
+                }
+                return true;
+            }
+
+        });
+
         player.initialize(new YouTubePlayerInitListener() {
             @Override
             public void onInitSuccess(final YouTubePlayer initializedYouTubePlayer) {
@@ -192,8 +226,9 @@ public class MediaService extends Service implements View.OnClickListener{
                 Log.e("Foreground", "Go to background");
                 player.setVisibility(View.VISIBLE);
                 if(actualPlayer != null){
-                    String videoId = "6JYIGclVQdw";
+                    String videoId = "wowAOdTYqw8";
                     actualPlayer.loadVideo(videoId, 0);
+
                 }
 
                 mManager.addView(mView, mParams);

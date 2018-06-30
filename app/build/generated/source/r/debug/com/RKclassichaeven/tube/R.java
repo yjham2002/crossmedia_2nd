@@ -4534,8 +4534,9 @@ public final class R {
     public static final int withText=0x7f08014f;
     public static final int wrap=0x7f080150;
     public static final int wrap_content=0x7f080151;
-    public static final int youtube_button=0x7f080152;
-    public static final int youtube_view=0x7f080153;
+    public static final int wrapper=0x7f080152;
+    public static final int youtube_button=0x7f080153;
+    public static final int youtube_view=0x7f080154;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f090000;

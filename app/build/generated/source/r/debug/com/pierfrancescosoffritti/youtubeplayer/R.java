@@ -741,7 +741,7 @@ public final class R {
         public static final int video_duration = 0x7f080146;
         public static final int video_title = 0x7f08014a;
         public static final int wrap_content = 0x7f080151;
-        public static final int youtube_button = 0x7f080152;
+        public static final int youtube_button = 0x7f080153;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f090000;
