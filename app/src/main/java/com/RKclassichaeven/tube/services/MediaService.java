@@ -257,6 +257,11 @@ public class MediaService extends Service implements View.OnClickListener{
 
                             @Override
                             public void onStateChange(int state) {
+                                if(state == PlayerConstants.PlayerState.ENDED){
+                                    if(syncInfo.getState() == SyncInfo.STATE_PLAY){
+
+                                    }
+                                }
                             }
 
                             @Override

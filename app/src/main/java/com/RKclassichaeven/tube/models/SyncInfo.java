@@ -1,5 +1,6 @@
 package com.RKclassichaeven.tube.models;
 
+import com.ccmheaven.tube.pub.ListInfo;
 import com.pierfrancescosoffritti.youtubeplayer.player.PlayerConstants;
 
 /**
@@ -16,16 +17,22 @@ public class SyncInfo {
     private float currentTime;
     private String thumbnail;
     private String title;
+    private int currentIndex;
     private String author;
     private int state = STATE_RELEASE;
 
     {
+        this.currentIndex = 0;
         this.title = "Play Music";
         this.author = "";
         this.currentTime = 0;
     }
 
     public SyncInfo(){}
+
+    public void setBySong(ListInfo info){
+
+    }
 
     public String getThumbnail() {
         return thumbnail;
@@ -83,7 +90,16 @@ public class SyncInfo {
         this.state = STATE_RELEASE;
         this.currentTime = 0;
         this.title = "Play Music";
+        this.currentIndex = 0;
         this.author = "";
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+
+    public void setCurrentIndex(int currentIndex) {
+        this.currentIndex = currentIndex;
     }
 
     public void setStateByAPIState(int apiState){
