@@ -77,16 +77,31 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/btn_bottom_prev"
                 />
-            <ImageView
-                android:id="@+id/bot_play"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="centerInside"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
+            <FrameLayout
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/btn_toggle_bottom_play"
-                 />
+                android:layout_width="30dp"
+                android:layout_height="30dp">
+                <ImageView
+                    android:id="@+id/bot_play"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:src="@drawable/btn_bottom_play"
+                    />
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/bot_pause"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/btn_bottom_pause"
+                    />
+            </FrameLayout>
             <ImageView
                 android:id="@+id/bot_next"
                 android:layout_width="30dp"

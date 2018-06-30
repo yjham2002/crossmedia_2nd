@@ -15,16 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.RKclassichaeven.tube.CategoryActivity;
+import com.RKclassichaeven.tube.MyApplication;
 import com.RKclassichaeven.tube.MyPageActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
 import com.RKclassichaeven.tube.SearchActivity;
 import com.RKclassichaeven.tube.YoutubePlayerActivity;
+import com.RKclassichaeven.tube.models.SyncInfo;
 import com.ccmheaven.tube.ads.AdHelper;
 import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.PlayerConstants;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
+import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView;
 
 public class BottomView extends LinearLayout {
@@ -38,8 +41,12 @@ public class BottomView extends LinearLayout {
     private TextView tvRank, tvCategory, tvSearch, tvMyList;
 	private Activity activity;
 	private YouTubePlayerView youTubePlayerView;
+	private YouTubePlayer actualPlayer;
 	AdHelper adHelper;
-	
+
+	private TextView title, sub;
+	private ImageView next, prev, play, pause;
+
 	/**
 	 * @param activity
 	 */
@@ -49,7 +56,72 @@ public class BottomView extends LinearLayout {
 			adHelper = new AdHelper(this.activity);
 		}
 	}
-	
+
+	private void refreshPlayer(){
+		SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
+		displayPlaybar();
+		if(actualPlayer != null){
+			if(syncInfo.getState() != SyncInfo.STATE_RELEASE){
+				hider.setBackgroundColor(getResources().getColor(R.color.transparent));
+				if(syncInfo.getState() == SyncInfo.STATE_PLAY) {
+					actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+				} else {
+					actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+				}
+			}else{
+				hider.setBackgroundColor(getResources().getColor(R.color.jet));
+			}
+
+		}
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasWindowFocus) {
+		super.onWindowFocusChanged(hasWindowFocus);
+		if (hasWindowFocus) {
+			//onresume() called
+			refreshPlayer();
+		} else {
+			// onPause() called
+		}
+	}
+
+	private void displayPlaybar(){
+		SyncInfo s = MyApplication.getMediaService().getSyncInfo();
+		title.setText(s.getTitle());
+		sub.setText(s.getAuthor());
+		if(s.getState() == SyncInfo.STATE_PLAY){
+			play.setVisibility(View.INVISIBLE);
+			pause.setVisibility(View.VISIBLE);
+		}else{
+			play.setVisibility(View.VISIBLE);
+			pause.setVisibility(View.INVISIBLE);
+		}
+	}
+
+	private View.OnClickListener onClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			switch (view.getId()){
+				case R.id.bot_next:
+					break;
+				case R.id.bot_prev:
+					break;
+				case R.id.bot_play:
+					break;
+				case R.id.bot_pause:
+					break;
+				default: break;
+			}
+		}
+	};
+
+	private void setOnClickListener(View.OnClickListener onClickListener, View... views){
+		for(View view : views) {
+			if(view != null) view.setOnClickListener(onClickListener);
+		}
+	}
+
     /**
      * @param context
      * @param attrs
@@ -59,6 +131,16 @@ public class BottomView extends LinearLayout {
         view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.view_bottom, this);
         hider = view.findViewById(R.id.hider);
         youTubePlayerView = view.findViewById(R.id.iv_photo);
+
+		title = view.findViewById(R.id.tv_name);
+		sub = view.findViewById(R.id.tv_category);
+		play = view.findViewById(R.id.bot_play);
+		next = view.findViewById(R.id.bot_next);
+		prev = view.findViewById(R.id.bot_prev);
+		pause = view.findViewById(R.id.bot_pause);
+
+		setOnClickListener(onClickListener, play, next, prev, pause);
+
         youTubePlayerView.setEnabled(false);
 		youTubePlayerView.initialize(new YouTubePlayerInitListener() {
 			@Override
@@ -66,17 +148,63 @@ public class BottomView extends LinearLayout {
 				initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
 					@Override
 					public void onReady() {
-						String videoId = "xRbPAVnqtcs";
-						initializedYouTubePlayer.loadVideo(videoId, 0);
+						actualPlayer = initializedYouTubePlayer;
+						actualPlayer.addListener(new YouTubePlayerListener() {
+							@Override
+							public void onReady() {
+
+							}
+
+							@Override
+							public void onStateChange(int state) {
+
+							}
+
+							@Override
+							public void onPlaybackQualityChange(@NonNull String playbackQuality) {
+
+							}
+
+							@Override
+							public void onPlaybackRateChange(@NonNull String playbackRate) {
+
+							}
+
+							@Override
+							public void onError(int error) {
+
+							}
+
+							@Override
+							public void onApiChange() {
+
+							}
+
+							@Override
+							public void onCurrentSecond(float second) {
+								MyApplication.getMediaService().getSyncInfo().setCurrentTime(second);
+							}
+
+							@Override
+							public void onVideoDuration(float duration) {
+								Log.e("YTime", "onVideoDuration : " + duration);
+							}
+
+							@Override
+							public void onVideoLoadedFraction(float loadedFraction) {
+
+							}
+
+							@Override
+							public void onVideoId(@NonNull String videoId) {
+
+							}
+						});
+						refreshPlayer();
 					}
 
 					@Override
 					public void onStateChange(int state) {
-						if(state == PlayerConstants.PlayerState.PLAYING || state == PlayerConstants.PlayerState.PAUSED){
-							hider.setBackgroundColor(getResources().getColor(R.color.transparent));
-						}else{
-							hider.setBackgroundColor(getResources().getColor(R.color.jet));
-						}
 						super.onStateChange(state);
 					}
 				});

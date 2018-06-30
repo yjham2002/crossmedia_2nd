@@ -13,7 +13,7 @@
             android:layout_height="match_parent"></com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView>
         <Button
             android:id="@+id/wrapper"
-            android:background="@color/transparent_gray"
+            android:background="@color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>

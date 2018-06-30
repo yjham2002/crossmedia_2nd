@@ -1,5 +1,7 @@
 package com.RKclassichaeven.tube.models;
 
+import com.pierfrancescosoffritti.youtubeplayer.player.PlayerConstants;
+
 /**
  * Created by HP on 2018-06-30.
  */
@@ -82,6 +84,31 @@ public class SyncInfo {
         this.currentTime = 0;
         this.title = "Play Music";
         this.author = "";
+    }
+
+    public void setStateByAPIState(int apiState){
+        switch (apiState){
+            case PlayerConstants.PlayerState.PAUSED: case PlayerConstants.PlayerState.VIDEO_CUED:
+                this.state = STATE_PAUSE;
+                break;
+            case PlayerConstants.PlayerState.PLAYING:
+                this.state = STATE_PLAY;
+                break;
+            case PlayerConstants.PlayerState.BUFFERING:
+                this.state = STATE_PAUSE;
+                break;
+            case PlayerConstants.PlayerState.ENDED:
+                this.state = STATE_PAUSE;
+                break;
+            case PlayerConstants.PlayerState.UNKNOWN:
+                release();
+                break;
+            case PlayerConstants.PlayerState.UNSTARTED:
+                this.state = STATE_PAUSE;
+                break;
+            default:
+                break;
+        }
     }
 
 }

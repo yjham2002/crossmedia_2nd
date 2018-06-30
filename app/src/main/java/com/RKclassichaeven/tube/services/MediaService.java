@@ -41,6 +41,7 @@ import com.RKclassichaeven.tube.models.SyncInfo;
 import com.ccmheaven.tube.pub.ListInfo;
 import com.ccmheaven.tube.view.PlayerYouTubeFrag;
 import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.youtubeplayer.player.PlayerConstants;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerListener;
@@ -256,7 +257,6 @@ public class MediaService extends Service implements View.OnClickListener{
 
                             @Override
                             public void onStateChange(int state) {
-
                             }
 
                             @Override
@@ -325,19 +325,7 @@ public class MediaService extends Service implements View.OnClickListener{
             @Override
             public void background() {
                 Log.e("Foreground", "Go to background");
-                if(actualPlayer != null){
-                    if(syncInfo.getState() != SyncInfo.STATE_RELEASE){
-                        activate(true);
-                        if(syncInfo.getState() == SyncInfo.STATE_PLAY) {
-                            actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
-                        } else {
-                            actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
-                        }
-                    }else{
-                        activate(false);
-                    }
-
-                }
+                refreshPlayer();
             }
         };
 
@@ -347,6 +335,21 @@ public class MediaService extends Service implements View.OnClickListener{
 
 //        mManager.addView(mView, mParams);
 
+    }
+
+    private void refreshPlayer(){
+        if(actualPlayer != null) {
+            if (syncInfo.getState() != SyncInfo.STATE_RELEASE) {
+                activate(true);
+                if (syncInfo.getState() == SyncInfo.STATE_PLAY) {
+                    actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+                } else {
+                    actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+                }
+            } else {
+                activate(false);
+            }
+        }
     }
 
     private void activate(boolean active){
