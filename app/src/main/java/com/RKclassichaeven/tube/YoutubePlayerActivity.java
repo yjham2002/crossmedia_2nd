@@ -27,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.RKclassichaeven.tube.R;
+import com.RKclassichaeven.tube.models.SyncInfo;
 import com.ccmheaven.tube.adapter.CommonListviewAdapter;
 import com.ccmheaven.tube.ads.AdHelper;
 import com.ccmheaven.tube.pub.Constants;
@@ -228,6 +229,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		Gson gson = new Gson();
 		String strJson = (String) extras.get("playlist");
+//		Log.e("devY", strJson);
 		if(strJson != null) {
 			Type listType = new TypeToken<List<ListInfo>>() {
 			}.getType();
@@ -408,6 +410,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	private void startPlay() {
 		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
+			SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
+			syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+			syncInfo.setPlayState();
+			MyApplication.getMediaService().refreshPlayer();
 			if (ad_fix.equals("Y")) {
 
 				if (playedList.isEmpty()) {
@@ -503,6 +509,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	private void startPlay(int num) {
 		index = num;
 		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
+			SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
+			syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+			syncInfo.setPlayState();
+			MyApplication.getMediaService().refreshPlayer();
 			if (ad_fix.equals("Y")) {
 				if (playedList.isEmpty()) {
 					tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
@@ -566,6 +576,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		player.setPlaylistEventListener(playlistEventListener);
 		player.setPlayerStateChangeListener(playerStateChangeListener);
 		player.setPlaybackEventListener(playbackEventListener);
+
 		if (!wasRestored && !MyApplication.getMediaService().getTracks().isEmpty()) {
 			listview.setItemChecked(index, true);
 			listviewadapter.notifyDataSetChanged();
@@ -602,6 +613,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		String bufferingState = "";
 
 		public void onPlaying() {
+			Log.e("PlayBack", "onPlaying" + YoutubePlayerActivity.this.player.getCurrentTimeMillis());
+			MyApplication.getMediaService().getSyncInfo().setPlayState();
+			MyApplication.getMediaService().refreshPlayer();
 			newConfig = -1;
 			playbackState = "PLAYING";
 			Log.d("dev", playbackState);
@@ -616,6 +630,8 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		}
 
 		public void onStopped() {
+			MyApplication.getMediaService().getSyncInfo().setPauseState();
+			MyApplication.getMediaService().refreshPlayer();
 			playbackState = "STOPPED";
 			Log.d("dev", playbackState);
 			if (nowConfig == newConfig) {
@@ -628,6 +644,8 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		@Override
 		public void onPaused() {
+			MyApplication.getMediaService().getSyncInfo().setPauseState();
+			MyApplication.getMediaService().refreshPlayer();
 			newConfig = -1;
 			playbackState = "PAUSED";
 			Log.d("dev", playbackState);

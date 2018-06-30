@@ -31,6 +31,11 @@ public class SyncInfo {
     public SyncInfo(){}
 
     public void setBySong(ListInfo info){
+        this.videoId = info.getVideoCode();
+        this.currentTime = 0;
+        this.thumbnail = info.getImageUrl();
+        this.title = info.getVideoName();
+        this.author = info.getArtistName();
 
     }
 

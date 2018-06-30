@@ -157,7 +157,19 @@ public class BottomView extends LinearLayout {
 
 							@Override
 							public void onStateChange(int state) {
-
+								if(MyApplication.getMediaService().getTracks().size() == 0) {
+									MyApplication.getMediaService().getSyncInfo().release();
+									refreshPlayer();
+									return;
+								}
+								if(state == PlayerConstants.PlayerState.ENDED){
+									if(MyApplication.getMediaService().getSyncInfo().getState() == SyncInfo.STATE_PLAY){
+										final int nextIndex = MyApplication.getMediaService().getSyncInfo().getCurrentIndex() + 1 >= MyApplication.getMediaService().getTracks().size() - 1
+												?  0 : MyApplication.getMediaService().getSyncInfo().getCurrentIndex() + 1;
+										MyApplication.getMediaService().getSyncInfo().setBySong(MyApplication.getMediaService().getTracks().get(nextIndex));
+										refreshPlayer();
+									}
+								}
 							}
 
 							@Override

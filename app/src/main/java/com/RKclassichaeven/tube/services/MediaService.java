@@ -35,6 +35,7 @@ import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.RKclassichaeven.tube.FloatingMovieActivity;
+import com.RKclassichaeven.tube.MyApplication;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
 import com.RKclassichaeven.tube.models.SyncInfo;
@@ -257,9 +258,16 @@ public class MediaService extends Service implements View.OnClickListener{
 
                             @Override
                             public void onStateChange(int state) {
+                                if(tracks.size() == 0) {
+                                    syncInfo.release();
+                                    refreshPlayer();
+                                    return;
+                                }
                                 if(state == PlayerConstants.PlayerState.ENDED){
                                     if(syncInfo.getState() == SyncInfo.STATE_PLAY){
-
+                                        final int nextIndex = syncInfo.getCurrentIndex() + 1 >= tracks.size() - 1 ?  0 : syncInfo.getCurrentIndex() + 1;
+                                        syncInfo.setBySong(tracks.get(nextIndex));
+                                        refreshPlayer();
                                     }
                                 }
                             }
@@ -315,11 +323,11 @@ public class MediaService extends Service implements View.OnClickListener{
         }, true);
 
         syncInfo.release();
-        syncInfo.setPlayState();
-        syncInfo.setTitle("X Song");
-        syncInfo.setAuthor("볼빨간 사춘기");
-        syncInfo.setCurrentTime(10);
-        syncInfo.setVideoId("ZD9jqLNN_V4");
+//        syncInfo.setPlayState();
+//        syncInfo.setTitle("X Song");
+//        syncInfo.setAuthor("볼빨간 사춘기");
+//        syncInfo.setCurrentTime(10);
+//        syncInfo.setVideoId("ZD9jqLNN_V4");
 
         foregroundListener = new Foreground.Listener() {
             @Override
@@ -342,8 +350,9 @@ public class MediaService extends Service implements View.OnClickListener{
 
     }
 
-    private void refreshPlayer(){
-        if(actualPlayer != null) {
+    public void refreshPlayer(){
+        showPlayerNotification();
+        if(actualPlayer != null && Foreground.Companion.isBackground()) {
             if (syncInfo.getState() != SyncInfo.STATE_RELEASE) {
                 activate(true);
                 if (syncInfo.getState() == SyncInfo.STATE_PLAY) {
@@ -358,9 +367,13 @@ public class MediaService extends Service implements View.OnClickListener{
     }
 
     private void activate(boolean active){
-        if(active){
+        if(active && Foreground.Companion.isBackground()){
             player.setVisibility(View.VISIBLE);
-            mManager.addView(mView, mParams);
+            try {
+                mManager.addView(mView, mParams);
+            }catch (Exception e){
+                Log.e("MediaService", "view already attached");
+            }
         }else{
             player.setVisibility(View.INVISIBLE);
             try{
