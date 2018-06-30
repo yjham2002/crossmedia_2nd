@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -36,11 +37,13 @@ import android.widget.RemoteViews;
 import com.RKclassichaeven.tube.FloatingMovieActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
+import com.RKclassichaeven.tube.models.SyncInfo;
 import com.ccmheaven.tube.pub.ListInfo;
 import com.ccmheaven.tube.view.PlayerYouTubeFrag;
 import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
+import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView;
 import com.squareup.picasso.Picasso;
 
@@ -69,6 +72,8 @@ public class MediaService extends Service implements View.OnClickListener{
     private YouTubePlayerView player;
     private YouTubePlayer actualPlayer;
     private IBinder mBinder = new LocalBinder();
+    private WindowManager.LayoutParams mParamsBot;
+    private WindowManager.LayoutParams mParams;
 
     private float dX = 0;
     private float dY = 0;
@@ -150,6 +155,12 @@ public class MediaService extends Service implements View.OnClickListener{
         }
     }
 
+    private SyncInfo syncInfo = new SyncInfo();
+
+    public SyncInfo getSyncInfo() {
+        return syncInfo;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -168,7 +179,7 @@ public class MediaService extends Service implements View.OnClickListener{
             versionDependedType = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
 
-        final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams(
+        mParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 versionDependedType,
@@ -176,7 +187,7 @@ public class MediaService extends Service implements View.OnClickListener{
 //                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
 
-        final WindowManager.LayoutParams mParamsBot = new WindowManager.LayoutParams(
+        mParamsBot = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 versionDependedType,
@@ -237,6 +248,57 @@ public class MediaService extends Service implements View.OnClickListener{
                     @Override
                     public void onReady() {
                         actualPlayer = initializedYouTubePlayer;
+                        actualPlayer.addListener(new YouTubePlayerListener() {
+                            @Override
+                            public void onReady() {
+
+                            }
+
+                            @Override
+                            public void onStateChange(int state) {
+
+                            }
+
+                            @Override
+                            public void onPlaybackQualityChange(@NonNull String playbackQuality) {
+
+                            }
+
+                            @Override
+                            public void onPlaybackRateChange(@NonNull String playbackRate) {
+
+                            }
+
+                            @Override
+                            public void onError(int error) {
+
+                            }
+
+                            @Override
+                            public void onApiChange() {
+
+                            }
+
+                            @Override
+                            public void onCurrentSecond(float second) {
+                                syncInfo.setCurrentTime(second);
+                            }
+
+                            @Override
+                            public void onVideoDuration(float duration) {
+                                Log.e("YTime", "onVideoDuration : " + duration);
+                            }
+
+                            @Override
+                            public void onVideoLoadedFraction(float loadedFraction) {
+
+                            }
+
+                            @Override
+                            public void onVideoId(@NonNull String videoId) {
+
+                            }
+                        });
                     }
 
                     @Override
@@ -247,24 +309,35 @@ public class MediaService extends Service implements View.OnClickListener{
             }
         }, true);
 
+        syncInfo.release();
+        syncInfo.setPlayState();
+        syncInfo.setTitle("X Song");
+        syncInfo.setAuthor("볼빨간 사춘기");
+        syncInfo.setCurrentTime(10);
+        syncInfo.setVideoId("ZD9jqLNN_V4");
+
         foregroundListener = new Foreground.Listener() {
             @Override
             public void foreground() {
                 Log.e("Foreground", "Go to foreground");
-                player.setVisibility(View.INVISIBLE);
-                mManager.removeView(mView);
+                activate(false);
             }
             @Override
             public void background() {
                 Log.e("Foreground", "Go to background");
-                player.setVisibility(View.VISIBLE);
                 if(actualPlayer != null){
-                    String videoId = "wowAOdTYqw8";
-                    actualPlayer.loadVideo(videoId, 0);
+                    if(syncInfo.getState() != SyncInfo.STATE_RELEASE){
+                        activate(true);
+                        if(syncInfo.getState() == SyncInfo.STATE_PLAY) {
+                            actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+                        } else {
+                            actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+                        }
+                    }else{
+                        activate(false);
+                    }
 
                 }
-
-                mManager.addView(mView, mParams);
             }
         };
 
@@ -276,8 +349,18 @@ public class MediaService extends Service implements View.OnClickListener{
 
     }
 
-    public void startVideo(String videoId){
-        actualPlayer.loadVideo(videoId, 0);
+    private void activate(boolean active){
+        if(active){
+            player.setVisibility(View.VISIBLE);
+            mManager.addView(mView, mParams);
+        }else{
+            player.setVisibility(View.INVISIBLE);
+            try{
+                mManager.removeView(mView);
+            }catch(IllegalArgumentException e){
+                Log.e("MediaService", "view not found");
+            }
+        }
     }
 
     protected void showPlayerNotification(){
@@ -326,35 +409,29 @@ public class MediaService extends Service implements View.OnClickListener{
 
         final Notification notification = mBuilder.build();
 
+        remoteViews.setTextViewText(R.id.noti_title, syncInfo.getTitle());
+        remoteViews.setTextViewText(R.id.noti_sub, syncInfo.getAuthor());
+        remoteViews.setImageViewResource(R.id.noti_img, R.color.jet);
 
+        if(syncInfo.getState() == SyncInfo.STATE_RELEASE) {
 
-        if(1 == 1) {
-            remoteViews.setImageViewResource(R.id.noti_img, R.drawable.icon_hour_glass);
-            remoteViews.setTextViewText(R.id.noti_title, "재생중인 채널이 없습니다.");
-            remoteViews.setTextViewText(R.id.noti_sub, "");
         }else{
-            remoteViews.setImageViewResource(R.id.noti_img, R.drawable.icon_hour_glass);
-            if(1 != 1) {
+            if(syncInfo.getThumbnail() != null && syncInfo.getThumbnail().trim().equals("")) {
                 try {
                     Picasso
                             .get()
-                            .load("")
-                            .centerCrop()
-                            .resize(50, 50)
-                            .transform(new RoundedTransform(5, 0)).into(remoteViews, R.id.noti_img, notiId, notification);
+                            .load(syncInfo.getThumbnail())
+                            .centerCrop().resize(60, 50).into(remoteViews, R.id.noti_img, notiId, notification);
                 }catch (Exception e){
                     e.printStackTrace();
                     remoteViews.setImageViewResource(R.id.noti_img, R.drawable.icon_hour_glass);
                 }
             }
-            remoteViews.setTextViewText(R.id.noti_title, "zz");
-            remoteViews.setTextViewText(R.id.noti_sub, "dfdf");
         }
-//        setNotificationPlaying(remoteViews, R.id.noti_play, R.id.noti_pause, isPlaying);
 
-        Log.e("MediaService", "Notification showed");
+        setNotificationPlaying(remoteViews, R.id.bot_play, R.id.bot_pause, syncInfo.getState() == SyncInfo.STATE_PLAY);
 
-        if(true) startForeground(notiId, notification);
+        startForeground(notiId, notification);
     }
 
     private void setNotificationPlaying(RemoteViews remoteViews, int playId, int stopId, boolean isPlaying){
