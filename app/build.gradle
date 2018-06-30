@@ -29,6 +29,8 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.github.PierfrancescoSoffritti:AndroidYouTubePlayer:7.0.1'
+    compile 'com.github.khirr:Android-Foreground-Detection:1.0.1'
     implementation 'com.google.android.gms:play-services-ads:11.0.2'
     //compile files('libs/Parse-1.3.5.jar')
     implementation 'com.android.support:multidex:1.0.1'

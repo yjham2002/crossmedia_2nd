@@ -32,22 +32,22 @@ import android.widget.RemoteViews;
 import com.RKclassichaeven.tube.FloatingMovieActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
+import com.ccmheaven.tube.pub.ListInfo;
 import com.ccmheaven.tube.view.PlayerYouTubeFrag;
+import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
+import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
+import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import net.khirr.library.foreground.Foreground;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
+
 import bases.Constants;
-import bases.SimpleCallback;
-import bases.SimpleStringCallback;
 import bases.imageTransform.RoundedTransform;
 import bases.utils.AlarmUtils;
-import comm.SimpleCall;
 import utils.PreferenceUtil;
 
 /**
@@ -55,14 +55,25 @@ import utils.PreferenceUtil;
  */
 public class MediaService extends Service implements View.OnClickListener{
 
-    private boolean isPlaying = false;
-
     private NotificationManager mNotificationManager;
     private static final int notiId = 20180319;
     private View mView;
+    private List<ListInfo> tracks = new Vector<>();
     private WebView webView;
     private WindowManager mManager;
+    private YouTubePlayerView player;
+    private YouTubePlayer actualPlayer;
     private IBinder mBinder = new LocalBinder();
+
+    Foreground.Listener foregroundListener;
+
+    public List<ListInfo> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<ListInfo> tracks) {
+        this.tracks = tracks;
+    }
 
     private BroadcastReceiver notificationListener = new BroadcastReceiver() {
         @Override
@@ -108,10 +119,6 @@ public class MediaService extends Service implements View.OnClickListener{
         }
     };
 
-    public interface VideoCallBack{
-        void onCall();
-    }
-
     @Override
     public boolean onUnbind(Intent intent) {
         stopSelf();
@@ -131,55 +138,78 @@ public class MediaService extends Service implements View.OnClickListener{
         }
     }
 
-    private boolean repeatFlag = false;
-    private Handler intervalStateCheckHandler = new Handler();
-    private Runnable stateCheck = new Runnable() {
-        @Override
-        public void run() {
-            checkState();
-        }
-    };
-
-    private void checkState(){
-        if(repeatFlag) webView.loadUrl("javascript:currentStatus();");
-        intervalStateCheckHandler.postDelayed(stateCheck, 1000);
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = mInflater.inflate(R.layout.empty_layout, null);
+        mView = mInflater.inflate(R.layout.always_on_display_layout, null);
 
         int versionDependedType = WindowManager.LayoutParams.TYPE_PHONE;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             versionDependedType = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
 
-        PlayerYouTubeFrag myFragment =  PlayerYouTubeFrag.newInstance("");
-        myFragment.init();
-
-//        ((LinearLayout)mView).addView(myFragment);
-//
-//
-//        WindowManager.LayoutParams mParams = new WindowManager.LayoutParams(
-//                WindowManager.LayoutParams.WRAP_CONTENT,
-//                WindowManager.LayoutParams.WRAP_CONTENT,
-//                versionDependedType,
+        final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                versionDependedType,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
 //                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-////                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-//                PixelFormat.TRANSLUCENT);
-//
-//        mManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-//
-//        Log.e("MediaService", "onCreate : webView initialized.");
-//
+                PixelFormat.TRANSLUCENT);
+
+        mManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
+        player = mView.findViewById(R.id.player);
+        player.initialize(new YouTubePlayerInitListener() {
+            @Override
+            public void onInitSuccess(final YouTubePlayer initializedYouTubePlayer) {
+                initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
+                    @Override
+                    public void onReady() {
+                        actualPlayer = initializedYouTubePlayer;
+                    }
+
+                    @Override
+                    public void onStateChange(int state) {
+                        super.onStateChange(state);
+                    }
+                });
+            }
+        }, true);
+
+        foregroundListener = new Foreground.Listener() {
+            @Override
+            public void foreground() {
+                Log.e("Foreground", "Go to foreground");
+                player.setVisibility(View.INVISIBLE);
+                mManager.removeView(mView);
+            }
+            @Override
+            public void background() {
+                Log.e("Foreground", "Go to background");
+                player.setVisibility(View.VISIBLE);
+                if(actualPlayer != null){
+                    String videoId = "6JYIGclVQdw";
+                    actualPlayer.loadVideo(videoId, 0);
+                }
+
+                mManager.addView(mView, mParams);
+            }
+        };
+
+        Foreground.Companion.addListener(foregroundListener);
+
+        Log.e("MediaService", "onCreate : webView initialized.");
+
 //        mManager.addView(mView, mParams);
 
+    }
+
+    public void startVideo(String videoId){
+        actualPlayer.loadVideo(videoId, 0);
     }
 
     protected void showPlayerNotification(){
@@ -321,9 +351,6 @@ public class MediaService extends Service implements View.OnClickListener{
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        if (!mediaPlayer.isPlaying()) {
-//            mediaPlayer.start();
-//        }
         return START_NOT_STICKY;
     }
 
@@ -337,7 +364,6 @@ public class MediaService extends Service implements View.OnClickListener{
     public void onDestroy() {
         unregisterReceiver(broadcastReceiver);
         unregisterReceiver(notificationListener);
-        isPlaying = false;
     }
 
 }

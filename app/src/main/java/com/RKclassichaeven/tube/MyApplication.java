@@ -10,6 +10,8 @@ import android.support.multidex.MultiDexApplication;
 
 import com.RKclassichaeven.tube.services.MediaService;
 
+import net.khirr.library.foreground.Foreground;
+
 import bases.BaseApp;
 import bases.Constants;
 
@@ -25,8 +27,12 @@ public class MyApplication extends MultiDexApplication {
 		MultiDex.install(this);
 	}
 */
+	private static MediaService mediaService;
+
 	public void onCreate() {
 		super.onCreate();
+
+		Foreground.Companion.init(this);
 
 		BaseApp.context = this;
 		final Intent backgroundIntentCall = new Intent(getBaseContext(), MediaService.class);
@@ -51,10 +57,14 @@ public class MyApplication extends MultiDexApplication {
 
 	private boolean mBounded = false;
 
+	public static MediaService getMediaService(){
+		return mediaService;
+	}
 
 	private ServiceConnection mConnection = new ServiceConnection() {
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
+			mediaService = null;
 			mBounded = false;
 		}
 
@@ -62,6 +72,7 @@ public class MyApplication extends MultiDexApplication {
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			mBounded = true;
 			MediaService.LocalBinder mLocalBinder = (MediaService.LocalBinder)service;
+			mediaService = mLocalBinder.getServiceInstance();
 			final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
 			activityIntent1.putExtra("action", "refresh");
 			sendBroadcast(activityIntent1);

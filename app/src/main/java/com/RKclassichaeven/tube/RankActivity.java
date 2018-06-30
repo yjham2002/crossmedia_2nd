@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.RKclassichaeven.tube.services.MediaService;
 import com.ccmheaven.tube.adapter.CommonListviewAdapter;
 import com.ccmheaven.tube.ads.AdHelper;
 import com.ccmheaven.tube.db.MyMusicDB;
@@ -334,10 +335,13 @@ public class RankActivity extends Activity {
 						}
 					}
 					if (!templist.isEmpty()) {
+						if(MyApplication.getMediaService() != null){
+							MyApplication.getMediaService().setTracks(templist);
+						}
 						Gson gson = new Gson();
 						String strJson=gson.toJson(templist);
 //						Intent intent = new Intent(RankActivity.this, YoutubePlayerActivity.class);
-						Intent intent = new Intent(RankActivity.this, FloatingMovieActivity.class);
+						Intent intent = new Intent(RankActivity.this, YoutubePlayerActivity.class);
 
 						intent.putExtra( "playlist", strJson );
 						startActivity(intent);

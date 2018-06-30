@@ -406,6 +406,9 @@ public class SearchActivity extends Activity {
                         }
                     }
                     if (!templist.isEmpty()) {
+                        if(MyApplication.getMediaService() != null){
+                            MyApplication.getMediaService().setTracks(templist);
+                        }
                         Gson gson = new Gson();
                         String strJson=gson.toJson(templist);
                         Intent intent = new Intent(SearchActivity.this, YoutubePlayerActivity.class);

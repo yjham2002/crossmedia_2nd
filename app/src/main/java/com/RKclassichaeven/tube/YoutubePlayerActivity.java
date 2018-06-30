@@ -54,7 +54,6 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	//private String path = Environment.getExternalStorageDirectory().getPath();
 	private YouTubePlayerView youTubeView;
 	private YouTubePlayer player;
-	public  List<ListInfo> list = new ArrayList<ListInfo>();
 
 	public static int FromActivity;
 //	private BottomView bottomview;
@@ -157,7 +156,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		btn_prev.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View view) {
-				if(list.size() == 1){
+				if(MyApplication.getMediaService().getTracks().size() == 1){
 					startPlay();
 					return;
 				}
@@ -166,7 +165,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 				int next_num = index - 2;
 				if(next_num < 0) {
 					Log.e("controllerButton", "Broken");
-					next_num = list.size() - 1;
+					next_num = MyApplication.getMediaService().getTracks().size() - 1;
 				}
 				index = next_num;
 				startPlayWithoutRounding();
@@ -232,7 +231,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		if(strJson != null) {
 			Type listType = new TypeToken<List<ListInfo>>() {
 			}.getType();
-			list = (List<ListInfo>) gson.fromJson(strJson, listType);
+			List<ListInfo> templist = (List<ListInfo>) gson.fromJson(strJson, listType);
+			if(MyApplication.getMediaService() != null){
+				MyApplication.getMediaService().setTracks(templist);
+			}
 		}
 
 		InitConfig();
@@ -263,7 +265,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		//listview.setOnTouchListener(new ListviewOnTouch()); --> do nothing
 		//listview.setOnScrollListener(new ScrollListener()); --> do nothing
 
-		listviewadapter = new CommonListviewAdapter(this, list, listview, handler);
+		listviewadapter = new CommonListviewAdapter(this, MyApplication.getMediaService().getTracks(), listview, handler);
 		listview.setAdapter(listviewadapter);
 
 		youTubeView.initialize(Constants.YOUTUBE_DEV_KEY, this);
@@ -340,7 +342,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 				//item 제거
 				int pos = num;
 				if (pos != listview.INVALID_POSITION) {
-					list.remove(pos);
+					MyApplication.getMediaService().getTracks().remove(pos);
 					listview.clearChoices();
 					listviewadapter.notifyDataSetChanged();
 				}
@@ -350,9 +352,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 				Log.d("dev", "remove_check_next : " + next_num);//앞으로 플레이할 것
 				Log.d("dev", "remove_check_current : " + (index - 1));//앞으로 플레이할 것
 
-				if (list.size() == 0) {
+				if (MyApplication.getMediaService().getTracks().size() == 0) {
 					finish();
-				} else if (next_num > list.size() - 1) {
+				} else if (next_num > MyApplication.getMediaService().getTracks().size() - 1) {
 					Log.d("dev", "remove_check 1 : 마지막을 넘어가므로 0으로 넘김");
 					next_num = 0;
 					startPlay(next_num);
@@ -381,17 +383,17 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	int currentPos = 0;
 
 	int random() {
-		if (randIndex == null || randIndex.length != list.size()) {
-			randIndex = new int[list.size()];
-			for (int i = 0; i < list.size(); i++) {
+		if (randIndex == null || randIndex.length != MyApplication.getMediaService().getTracks().size()) {
+			randIndex = new int[MyApplication.getMediaService().getTracks().size()];
+			for (int i = 0; i < MyApplication.getMediaService().getTracks().size(); i++) {
 				randIndex[i] = i;
 			}
-			suffle_pos = list.size();
+			suffle_pos = MyApplication.getMediaService().getTracks().size();
 		}
 
 		// 한번 전체가 재생되었으면, 다시 처음부터.
 		if (suffle_pos < 1) {
-			suffle_pos = list.size();
+			suffle_pos = MyApplication.getMediaService().getTracks().size();
 		}
 
 		// 랜덤하게 하나씩 뽑는다.
@@ -405,13 +407,14 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	}
 
 	private void startPlay() {
-		if (!list.isEmpty()) {
+		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
 			if (ad_fix.equals("Y")) {
 
 				if (playedList.isEmpty()) {
-					tvTitle.setText(list.get(index).getVideoName());
-					player.cueVideo(list.get(index).getVideoCode());
+					tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					playedList.add(index);
+
 				} else {
 
 					boolean isFirst = true;
@@ -422,21 +425,21 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 						}
 					}
 					if (isFirst) {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.cueVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 						playedList.add(index);
 					} else {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.loadVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					}
 
 				}
 			} else {
-				if(index >= list.size()){
+				if(index >= MyApplication.getMediaService().getTracks().size()){
 					index = 0;
 				}
-				tvTitle.setText(list.get(index).getVideoName());
-				player.loadVideo(list.get(index).getVideoCode());
+				tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+				player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 			}
 
 			// select & scroll the item of listview
@@ -446,7 +449,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			listview.smoothScrollToPosition(index);
 		}
 
-		if (++index >= list.size()) {
+		if (++index >= MyApplication.getMediaService().getTracks().size()) {
 			index = 0;
 			if(doShuffle.equals(PLAY_MODE.PLAY_ALL)){
 				if(player != null) player.pause();
@@ -456,12 +459,12 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	}
 
 	private void startPlayWithoutRounding() {
-		if (!list.isEmpty()) {
+		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
 			if (ad_fix.equals("Y")) {
 
 				if (playedList.isEmpty()) {
-					tvTitle.setText(list.get(index).getVideoName());
-					player.cueVideo(list.get(index).getVideoCode());
+					tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					playedList.add(index);
 				} else {
 
@@ -473,18 +476,18 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 						}
 					}
 					if (isFirst) {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.cueVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 						playedList.add(index);
 					} else {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.loadVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					}
 
 				}
 			} else {
-				tvTitle.setText(list.get(index).getVideoName());
-				player.loadVideo(list.get(index).getVideoCode());
+				tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+				player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 			}
 
 			// select & scroll the item of listview
@@ -499,11 +502,11 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	private void startPlay(int num) {
 		index = num;
-		if (!list.isEmpty()) {
+		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
 			if (ad_fix.equals("Y")) {
 				if (playedList.isEmpty()) {
-					tvTitle.setText(list.get(index).getVideoName());
-					player.cueVideo(list.get(index).getVideoCode());
+					tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					playedList.add(index);
 				} else {
 					boolean isFirst = true;
@@ -514,22 +517,22 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 						}
 					}
 					if (isFirst) {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.cueVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 						playedList.add(index);
 					} else {
-						tvTitle.setText(list.get(index).getVideoName());
-						player.loadVideo(list.get(index).getVideoCode());
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 					}
 				}
 			} else {
-				tvTitle.setText(list.get(index).getVideoName());
-				player.loadVideo(list.get(index).getVideoCode());
+				tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+				player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode());
 			}
 			// listview.clearChoices();
 			// listview.setItemChecked(index, true);
 		}
-		if (++index >= list.size()) {
+		if (++index >= MyApplication.getMediaService().getTracks().size()) {
 			index = 0;
 		}
 		listviewadapter.notifyDataSetChanged();
@@ -563,7 +566,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		player.setPlaylistEventListener(playlistEventListener);
 		player.setPlayerStateChangeListener(playerStateChangeListener);
 		player.setPlaybackEventListener(playbackEventListener);
-		if (!wasRestored && !list.isEmpty()) {
+		if (!wasRestored && !MyApplication.getMediaService().getTracks().isEmpty()) {
 			listview.setItemChecked(index, true);
 			listviewadapter.notifyDataSetChanged();
 			startPlay();
@@ -746,7 +749,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			} else {
 				if (reason.toString().equals("NOT_PLAYABLE")) {
 					Log.d("dev", reason.toString() + " index:" + index);
-					if (list.size() == 1) {
+					if (MyApplication.getMediaService().getTracks().size() == 1) {
 						finish();
 					} else {
 						switch (doShuffle){
