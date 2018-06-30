@@ -62,6 +62,8 @@
     <color name="iron">#EEEEEE</color>
     <color name="transparent_white">#55FFFFFF</color>
     <color name="transparent_gray">#55000000</color>
+    <color name="transparent_inactive">#55000000</color>
+    <color name="transparent_active">#55bc0303</color>
     <color name="transparent_window">#AB000000</color>
     <color name="dayBackground">#05000000</color>
     <color name="facebook">#3b5998</color>

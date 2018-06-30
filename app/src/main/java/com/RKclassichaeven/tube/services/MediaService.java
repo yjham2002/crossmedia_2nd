@@ -21,6 +21,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -60,7 +61,7 @@ public class MediaService extends Service implements View.OnClickListener{
 
     private NotificationManager mNotificationManager;
     private static final int notiId = 20180319;
-    private View mView;
+    private View mView, botView, botArea;
     private View wrap;
     private List<ListInfo> tracks = new Vector<>();
     private WebView webView;
@@ -95,16 +96,20 @@ public class MediaService extends Service implements View.OnClickListener{
                     break;
                 }
                 case Constants.INTENT_NOTIFICATION.ACTION_CLOSE:{
-                    mNotificationManager.cancel(notiId);
-                    AlarmUtils.getInstance().cancelAll(MediaService.this);
-                    PreferenceUtil.setBoolean(Constants.PREFERENCE.IS_ALARM_SET, false);
-                    android.os.Process.killProcess(android.os.Process.myPid());
-                    System.exit(0);
+                    exitApp();
                     break;
                 }
             }
         }
     };
+
+    private void exitApp(){
+        mNotificationManager.cancel(notiId);
+        AlarmUtils.getInstance().cancelAll(MediaService.this);
+        PreferenceUtil.setBoolean(Constants.PREFERENCE.IS_ALARM_SET, false);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
+    }
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -153,6 +158,8 @@ public class MediaService extends Service implements View.OnClickListener{
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         mView = mInflater.inflate(R.layout.always_on_display_layout, null);
+        botView = mInflater.inflate(R.layout.always_on_display_layout_bottom, null);
+        botArea = botView.findViewById(R.id.area);
         player = mView.findViewById(R.id.player);
         wrap = mView.findViewById(R.id.wrapper);
 
@@ -169,24 +176,50 @@ public class MediaService extends Service implements View.OnClickListener{
 //                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
 
+        final WindowManager.LayoutParams mParamsBot = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT,
+                versionDependedType,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                PixelFormat.TRANSLUCENT);
+
+        mParamsBot.gravity = Gravity.BOTTOM;
+
         mManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         wrap.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
-                WindowManager.LayoutParams p = (WindowManager.LayoutParams)mView.getLayoutParams();
-                Log.e("fore", p + " ///// " + event.toString());
+                final WindowManager.LayoutParams p = (WindowManager.LayoutParams)mView.getLayoutParams();
 
                 switch (event.getActionMasked()) {
                     case MotionEvent.ACTION_DOWN:
                         dX = event.getRawX();
                         dY = event.getRawY();
+                        mManager.addView(botView, mParamsBot);
                         break;
 
                     case MotionEvent.ACTION_MOVE:
-                        p.x = (int)(p.x + (event.getRawX() - dX));
-                        p.y = (int)(p.y + (event.getRawY() - dY));
+                        if(botArea.getY() < dY){
+                            botArea.setBackgroundColor(getResources().getColor(R.color.transparent_active));
+                        }else{
+                            botArea.setBackgroundColor(getResources().getColor(R.color.transparent_inactive));
+                        }
+                        p.x = (int)(p.x - (dX - event.getRawX()));
+                        p.y = (int)(p.y - (dY - event.getRawY()));
                         mManager.updateViewLayout(mView, p);
+                        dX = event.getRawX();
+                        dY = event.getRawY();
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        if(botArea.getY() < dY){
+                            exitApp();
+                        }else{
+                            // Do Nothing
+                        }
+                        mManager.removeView(botView);
                         break;
 
                     default:
