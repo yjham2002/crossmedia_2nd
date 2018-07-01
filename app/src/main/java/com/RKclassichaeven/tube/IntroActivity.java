@@ -26,20 +26,38 @@ public class IntroActivity extends AppCompatActivity {
             System.exit(0);
         }
     };
+    private Handler failHandler = new Handler();
+    private Runnable failRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if(!isLoaded){
+                Toast.makeText(getApplicationContext(), "Unable to load an AD (KEY Expired or Load Failed)", Toast.LENGTH_LONG).show();
+                goMain();
+            }
+        }
+    };
+    private boolean isLoaded = false;
 
     private Runnable introRunnable = new Runnable() {
         public void run() {
+            failHandler.postDelayed(failRunnable, 10000);
             new AdHelper(IntroActivity.this).loadInterstitialAd(new SimpleCallback() {
                 @Override
                 public void callback() {
-                    Intent intent = new Intent(IntroActivity.this, RankActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
-                    finish();
+                    isLoaded = true;
+                    failHandler.removeCallbacks(failRunnable);
+                    goMain();
                 }
             });
         }
     };
+
+    private void goMain(){
+        Intent intent = new Intent(IntroActivity.this, RankActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+        finish();
+    }
 
     protected boolean canDrawOverlaysTest() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
