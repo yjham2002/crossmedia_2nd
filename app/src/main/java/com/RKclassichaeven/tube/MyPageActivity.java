@@ -36,10 +36,14 @@ import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.android.gms.ads.*;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import bases.SimpleCallback;
 
 public class MyPageActivity extends Activity {
     /**
@@ -74,6 +78,35 @@ public class MyPageActivity extends Activity {
 //        topMenuView = findViewById(R.id.topMenuView);
         bottomview.setActivity(this);
         bottomview.addAdView();
+
+        bottomview.setNewListCall(new SimpleCallback() {
+            @Override
+            public void callback() {
+                List<ListInfo> templist = new ArrayList<ListInfo>();
+                for (int i = 0; i < listview.getCount(); i++) {
+                    if (listview.isItemChecked(i)) {
+                        templist.add(list.get(i));
+                    }
+                }
+                if (!templist.isEmpty()) {
+                    if(MyApplication.getMediaService() != null){
+                        Gson gson = new Gson();
+                        String strJson=gson.toJson(templist);
+                        Type listType = new TypeToken<List<ListInfo>>() {
+                        }.getType();
+
+                        List<ListInfo> newList = (List<ListInfo>) gson.fromJson(strJson, listType);
+                        MyApplication.getMediaService().getSyncInfo().release();
+                        Log.e("MediaServiceSent", strJson);
+                        MyApplication.getMediaService().setTracks(newList);
+                        MyApplication.getMediaService().getSyncInfo().setBySong(newList.get(0));
+                    }
+                }
+                centerview.setVisibility(View.GONE);
+                listview.clearChoices();
+                listviewadapter.notifyDataSetChanged();
+            }
+        });
 
         centerview.InitButtonListener(centerviewlistener);
         listviewadapter = new CommonListviewAdapter(this, list, listview, handler);

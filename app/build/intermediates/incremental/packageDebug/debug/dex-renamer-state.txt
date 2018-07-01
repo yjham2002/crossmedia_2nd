@@ -1,7 +1,7 @@
-#Sun Jul 01 14:21:50 KST 2018
-base.0=C\:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
-path.1=classes.dex
+#Sun Jul 01 16:35:33 KST 2018
+base.0=C\:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\4
+path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+base.1=C\:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\4

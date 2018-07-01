@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ import comm.SimpleCall;
 
 public class BottomView extends LinearLayout {
 
-	private View view, hider;
+	private View view, hider, wrap;
     private LinearLayout llAdview;
     private LinearLayout llyLank, llyCategory, llySearch;
 //    private LinearLayout llyLank, llyCategory, llySearch, llyMyList;
@@ -154,6 +155,9 @@ public class BottomView extends LinearLayout {
 					}
 					break;
 				case R.id.bot_play:
+					if(newListCall != null){
+						newListCall.callback();
+					}
 					intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PLAY);
 					getContext().sendBroadcast(intent);
 					if(mediaService.getTracks().size() > 0){
@@ -173,10 +177,22 @@ public class BottomView extends LinearLayout {
 //						Toast.makeText(getContext(), "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
 					}
 					break;
+				case R.id.mainWrap:
+					Intent intentYT = new Intent(getContext(), YoutubePlayerActivity.class);
+					intentYT.putExtra("direct", true);
+					getContext().startActivity(intentYT);
+					((Activity)getContext()).overridePendingTransition( R.anim.slide_up, R.anim.slide_down );
+					break;
 				default: break;
 			}
 		}
 	};
+
+	private SimpleCallback newListCall;
+
+	public void setNewListCall(SimpleCallback newListCall) {
+		this.newListCall = newListCall;
+	}
 
 	private void setOnClickListener(View.OnClickListener onClickListener, View... views){
 		for(View view : views) {
@@ -213,13 +229,25 @@ public class BottomView extends LinearLayout {
 		next = view.findViewById(R.id.bot_next);
 		prev = view.findViewById(R.id.bot_prev);
 		pause = view.findViewById(R.id.bot_pause);
+		wrap = view.findViewById(R.id.mainWrap);
 
-		setOnClickListener(onClickListener, play, next, prev, pause);
+		setOnClickListener(onClickListener, play, next, prev, pause, wrap);
 
 		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {
 			@Override
 			public void callback() {
 				refreshPlayer();
+			}
+		});
+
+		MyApplication.getMediaService().setAffinityCall(new SimpleCallback() {
+			@Override
+			public void callback() {
+				Log.e("Affinity", "Pre-Called");
+				if(BottomView.this.activity != null) {
+					ActivityCompat.finishAffinity(BottomView.this.activity);
+					Log.e("Affinity", "Called");
+				}
 			}
 		});
 

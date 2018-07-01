@@ -100,4 +100,21 @@ public class ListInfo {
     public String getViews() {
         return views;
     }
+
+    @Override
+    public String toString() {
+        return "ListInfo{" +
+                "total=" + total +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", videoName='" + videoName + '\'' +
+                ", videoCode='" + videoCode + '\'' +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", videoId='" + videoId + '\'' +
+                ", artistName='" + artistName + '\'' +
+                ", runTime='" + runTime + '\'' +
+                ", views='" + views + '\'' +
+                ", pureTitle='" + pureTitle + '\'' +
+                ", pureArtist='" + pureArtist + '\'' +
+                '}';
+    }
 }

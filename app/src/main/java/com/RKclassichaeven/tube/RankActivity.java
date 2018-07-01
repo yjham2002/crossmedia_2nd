@@ -41,16 +41,20 @@ import com.ccmheaven.tube.view.ListviewLoadView;
 import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import bases.SimpleCallback;
 
 public class RankActivity extends Activity {
 
@@ -187,6 +191,35 @@ public class RankActivity extends Activity {
 		listviewLoadView = (ListviewLoadView) findViewById(R.id.listviewLoadView1);
 		centerView = (CenterView) findViewById(R.id.center_view);
 		centerView.InitButtonListener(centerviewlistener);
+
+		bottomview.setNewListCall(new SimpleCallback() {
+			@Override
+			public void callback() {
+				List<ListInfo> templist = new ArrayList<ListInfo>();
+				for (int i = 0; i < listview.getCount(); i++) {
+					if (listview.isItemChecked(i)) {
+						templist.add(list.get(i));
+					}
+				}
+				if (!templist.isEmpty()) {
+					if(MyApplication.getMediaService() != null){
+						Gson gson = new Gson();
+						String strJson=gson.toJson(templist);
+						Type listType = new TypeToken<List<ListInfo>>() {
+						}.getType();
+
+						List<ListInfo> newList = (List<ListInfo>) gson.fromJson(strJson, listType);
+						MyApplication.getMediaService().getSyncInfo().release();
+						Log.e("MediaServiceSent", strJson);
+						MyApplication.getMediaService().setTracks(newList);
+						MyApplication.getMediaService().getSyncInfo().setBySong(newList.get(0));
+					}
+				}
+				centerView.setVisibility(View.GONE);
+				listview.clearChoices();
+				adapter.notifyDataSetChanged();
+			}
+		});
 
         setMenuButtons(this);
 

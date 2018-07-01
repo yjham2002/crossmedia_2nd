@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -67,6 +68,7 @@ import utils.PreferenceUtil;
 public class MediaService extends Service implements View.OnClickListener{
 
     private SimpleCallback simpleCallback;
+    private SimpleCallback affinityCall;
     private NotificationManager mNotificationManager;
     private static final int notiId = 20180319;
     private View mView, botView, botArea;
@@ -90,11 +92,16 @@ public class MediaService extends Service implements View.OnClickListener{
     }
 
     public void setTracks(List<ListInfo> tracks) {
+        Log.e("MediaService", "track set : " + tracks.toString());
         this.tracks = tracks;
     }
 
     public void setSimpleCallback(SimpleCallback simpleCallback) {
         this.simpleCallback = simpleCallback;
+    }
+
+    public void setAffinityCall(SimpleCallback affinityCall) {
+        this.affinityCall = affinityCall;
     }
 
     private BroadcastReceiver notificationListener = new BroadcastReceiver() {
@@ -111,6 +118,7 @@ public class MediaService extends Service implements View.OnClickListener{
 
                     if(tracks.size() > 0) {
                         syncInfo.setPlayState();
+                        Log.e("MediaService", "Started with " + syncInfo.toString());
                         refreshPlayer();
                     }else{
                         Toast.makeText(context, "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
@@ -163,11 +171,24 @@ public class MediaService extends Service implements View.OnClickListener{
     };
 
     private void exitApp(){
+        if(affinityCall != null) affinityCall.callback();
+
+        final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+        activityIntent1.putExtra("action", "refresh");
+        activityIntent1.putExtra("second", "exitYT");
+        sendBroadcast(activityIntent1);
+
         mNotificationManager.cancel(notiId);
         AlarmUtils.getInstance().cancelAll(MediaService.this);
         PreferenceUtil.setBoolean(Constants.PREFERENCE.IS_ALARM_SET, false);
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(0);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(0);
+            }
+        }, 100);
     }
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {

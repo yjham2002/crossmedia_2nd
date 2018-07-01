@@ -11,6 +11,7 @@ import android.os.Bundle;
 //import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -115,6 +116,10 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			final String action = intent.getExtras().getString("second", "");
 			Log.e("TimerRecv", action);
 			switch (action){
+				case "exitYT":
+					ActivityCompat.finishAffinity(YoutubePlayerActivity.this);
+					Log.e("Affinity", "Called. YT.");
+					break;
 				case "stopYT":{
 					if(player != null) player.pause();
 					break;
@@ -157,7 +162,6 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		super.onPause();
 		isPausedByContext = true;
 		Log.e("onPause", Foreground.Companion.isBackground() + " / F : " + Foreground.Companion.isForeground());
-		unregisterReceiver(broadcastReceiver);
 	}
 
 	LinearLayout llAdview;
@@ -240,16 +244,20 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			}
 		}
 
-		Gson gson = new Gson();
-		String strJson = (String) extras.get("playlist");
+		if(extras.containsKey("direct") && extras.getBoolean("direct")){
+
+		}else{
+			Gson gson = new Gson();
+			String strJson = (String) extras.get("playlist");
 //		Log.e("devY", strJson);
-		if(strJson != null) {
-			Type listType = new TypeToken<List<ListInfo>>() {
-			}.getType();
-			List<ListInfo> templist = (List<ListInfo>) gson.fromJson(strJson, listType);
-			if(MyApplication.getMediaService() != null){
-				MyApplication.getMediaService().setTracks(templist);
-				MyApplication.getMediaService().getSyncInfo().release();
+			if(strJson != null) {
+				Type listType = new TypeToken<List<ListInfo>>() {
+				}.getType();
+				List<ListInfo> templist = (List<ListInfo>) gson.fromJson(strJson, listType);
+				if(MyApplication.getMediaService() != null){
+					MyApplication.getMediaService().setTracks(templist);
+					MyApplication.getMediaService().getSyncInfo().release();
+				}
 			}
 		}
 
@@ -688,12 +696,15 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 	protected void onDestroy() {
 		super.onDestroy();
+
 		if (player != null)
 			player.release();
 		if (playedList != null) {
 			playedList.clear();
 		}
 		index = 0;
+
+		unregisterReceiver(broadcastReceiver);
 	}
 
 	private boolean isFullscreen = false;
