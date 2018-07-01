@@ -447,6 +447,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 			if(syncInfo.getState() == SyncInfo.STATE_RELEASE) {
 				syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+				syncInfo.setPlayState();
 			}
 
 			Log.e("PlaybacksyncPlay", syncInfo.toString());
@@ -470,14 +471,18 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 						}
 					}
 					if (isFirst) {
+						Log.e("testif", "" + 0);
 						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
 						player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
 						playedList.add(index);
 					} else {
+						Log.e("testif", "" + 1);
 						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
 						if(syncInfo.getState() == SyncInfo.STATE_PLAY){
+							Log.e("testif", "" + 2);
 							player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
 						}else{
+							Log.e("testif", "" + 3);
 							player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
 						}
 					}
@@ -485,12 +490,17 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 				}
 			} else {
 				if(index >= MyApplication.getMediaService().getTracks().size()){
+					Log.e("testif", "" + 4);
 					index = 0;
 				}
 				tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
 				if(syncInfo.getState() == SyncInfo.STATE_PLAY){
+					Log.e("testif", "" + 5);
+					flagByLoad = true;
 					player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
 				}else{
+					Log.e("testif", "" + 6);
+					flagByLoad = false;
 					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
 				}
 			}
@@ -510,6 +520,8 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		}
 		listviewadapter.notifyDataSetChanged();
 	}
+
+	private boolean flagByLoad = true;
 
 	private void startPlay() {
 		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
@@ -827,7 +839,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		@Override
 		public void onLoaded(String videoId) {
 			playerState = String.format("LOADED %s", videoId);
-			player.play();
+			if(flagByLoad) player.play();
 			Log.d("dev", playerState);
 		}
 
