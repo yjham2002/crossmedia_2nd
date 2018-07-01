@@ -97,9 +97,40 @@ public class MediaService extends Service implements View.OnClickListener{
             Log.e("notiListener", action);
             switch (action) {
                 case Constants.INTENT_NOTIFICATION.ACTION_PLAY:{
+                    final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+                    activityIntent1.putExtra("action", "refresh");
+                    activityIntent1.putExtra("second", "playYT");
+                    context.sendBroadcast(activityIntent1);
+
+                    if(tracks.size() > 0) {
+                        syncInfo.setPlayState();
+                        refreshPlayer();
+                    }
                     break;
                 }
                 case Constants.INTENT_NOTIFICATION.ACTION_STOP:{
+                    final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+                    activityIntent1.putExtra("action", "refresh");
+                    activityIntent1.putExtra("second", "stopYT");
+                    context.sendBroadcast(activityIntent1);
+                    syncInfo.setPauseState();
+                    refreshPlayer();
+                    break;
+                }
+                case Constants.INTENT_NOTIFICATION.ACTION_NEXT:{
+                    nextSong();
+                    final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+                    activityIntent1.putExtra("action", "refresh");
+                    activityIntent1.putExtra("second", "nextYT");
+                    context.sendBroadcast(activityIntent1);
+                    break;
+                }
+                case Constants.INTENT_NOTIFICATION.ACTION_PREV:{
+                    prevSong();
+                    final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
+                    activityIntent1.putExtra("action", "refresh");
+                    activityIntent1.putExtra("second", "prevYT");
+                    context.sendBroadcast(activityIntent1);
                     break;
                 }
                 case Constants.INTENT_NOTIFICATION.ACTION_CLOSE:{
@@ -161,6 +192,20 @@ public class MediaService extends Service implements View.OnClickListener{
 
     public SyncInfo getSyncInfo() {
         return syncInfo;
+    }
+
+    private void nextSong(){
+        final int nextIndex = syncInfo.getCurrentIndex() + 1 > tracks.size() - 1 ?  0 : syncInfo.getCurrentIndex() + 1;
+        syncInfo.setCurrentIndex(nextIndex);
+        syncInfo.setBySong(tracks.get(nextIndex));
+        refreshPlayer();
+    }
+
+    private void prevSong(){
+        final int nextIndex = syncInfo.getCurrentIndex() - 1 < 0 ?  tracks.size() - 1 : syncInfo.getCurrentIndex() - 1;
+        syncInfo.setCurrentIndex(nextIndex);
+        syncInfo.setBySong(tracks.get(nextIndex));
+        refreshPlayer();
     }
 
     @Override
@@ -264,11 +309,10 @@ public class MediaService extends Service implements View.OnClickListener{
                                     return;
                                 }
                                 if(state == PlayerConstants.PlayerState.ENDED){
+                                    Log.e("MediaService", "ENDED");
                                     if(syncInfo.getState() == SyncInfo.STATE_PLAY){
-                                        final int nextIndex = syncInfo.getCurrentIndex() + 1 >= tracks.size() - 1 ?  0 : syncInfo.getCurrentIndex() + 1;
-                                        syncInfo.setCurrentIndex(nextIndex);
-                                        syncInfo.setBySong(tracks.get(nextIndex));
-                                        refreshPlayer();
+                                        Log.e("MediaService", "ENDED - STATE_PLAY");
+                                        nextSong();
                                     }
                                 }
                             }
@@ -404,19 +448,31 @@ public class MediaService extends Service implements View.OnClickListener{
         final Intent intent_play = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
         intent_play.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PLAY);
 //        intent_play.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent_play = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_PLAY, intent_play, 0);
-//        remoteViews.setOnClickPendingIntent(R.id.noti_play, pendingIntent_play);
+        PendingIntent pendingIntent_play = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_PLAY, intent_play, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.bot_play, pendingIntent_play);
 
         final Intent intent_stop = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
         intent_stop.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_STOP);
 //        intent_stop.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent_stop = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_STOP, intent_stop, 0);
-//        remoteViews.setOnClickPendingIntent(R.id.noti_pause, pendingIntent_stop);
+        PendingIntent pendingIntent_stop = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_STOP, intent_stop, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.bot_pause, pendingIntent_stop);
+
+        final Intent intent_next = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
+        intent_next.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_NEXT);
+//        intent_stop.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent_next = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_NEXT, intent_next, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.bot_next, pendingIntent_next);
+
+        final Intent intent_prev = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
+        intent_prev.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PREV);
+//        intent_stop.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent_prev = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_PREV, intent_prev, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.bot_prev, pendingIntent_prev);
 
         final Intent intent_close = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
         intent_close.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_CLOSE);
 //        intent_close.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent_close = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_CLOSE, intent_close, 0);
+        PendingIntent pendingIntent_close = PendingIntent.getBroadcast(this, Constants.INTENT_NOTIFICATION.REQ_CODE_ACTION_CLOSE, intent_close, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.noti_close, pendingIntent_close);
 
         PendingIntent noti_intent = createPendingIntent();
@@ -438,7 +494,7 @@ public class MediaService extends Service implements View.OnClickListener{
         if(syncInfo.getState() == SyncInfo.STATE_RELEASE) {
 
         }else{
-            if(syncInfo.getThumbnail() != null && syncInfo.getThumbnail().trim().equals("")) {
+            if(syncInfo.getThumbnail() != null && !syncInfo.getThumbnail().trim().equals("")) {
                 try {
                     Picasso
                             .get()

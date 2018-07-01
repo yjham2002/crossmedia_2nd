@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="testif" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="excep" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
@@ -24,23 +24,73 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/Constants$INTENT_NOTIFICATION.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/Constants$INTENT_NOTIFICATION.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/Constants.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/utils/AlarmUtils.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bases/utils/AlarmUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaybackEventListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaybackEventListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaylistEventListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaylistEventListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/YoutubePlayerActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$LocalBinder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService$LocalBinder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/RKclassichaeven/tube/services/MediaService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/BottomView$2$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/ccmheaven/tube/view/BottomView$2$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/Constants$INTENT_NOTIFICATION.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/Constants$INTENT_NOTIFICATION.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/Constants.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/Constants.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/utils/AlarmUtils.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/bases/utils/AlarmUtils.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$1.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$10.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$10.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$11.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$11.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$2.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$3.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$4.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$4.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$5.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$5.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$6.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$6.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$7.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$7.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$8.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$8.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$9.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$9.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaybackEventListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaybackEventListener.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener$1.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlayerStateChangeListener.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaylistEventListener.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity$MyPlaylistEventListener.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/YoutubePlayerActivity.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$1.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$2.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$2.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$3.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$3.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4$1$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4$1$1.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4$1.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$4.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$5.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$5.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$LocalBinder.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService$LocalBinder.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/RKclassichaeven/tube/services/MediaService.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/ccmheaven/tube/view/BottomView$2$1$1.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/51/com/ccmheaven/tube/view/BottomView$2$1$1.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/1/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/1/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/bases/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/bases/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,37 +114,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MediaService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MediaService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="353" column="16" lean-forward="false" selection-start-line="353" selection-start-column="16" selection-end-line="353" selection-end-column="16" />
+            <state relative-caret-position="382">
+              <caret line="408" column="28" lean-forward="false" selection-start-line="408" selection-start-column="28" selection-end-line="408" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2952#2953#0" expanded="true" />
                 <element signature="e#2981#2982#0" expanded="true" />
                 <element signature="e#3033#3034#0" expanded="true" />
                 <element signature="e#3069#3070#0" expanded="true" />
-                <element signature="e#5435#5436#0" expanded="true" />
-                <element signature="e#5466#5467#0" expanded="true" />
-                <element signature="e#7184#8851#0" expanded="true" />
-                <element signature="e#8850#8851#0" expanded="true" />
-                <element signature="e#8881#12018#0" expanded="true" />
-                <element signature="e#11899#11900#0" expanded="true" />
-                <element signature="e#11973#11974#0" expanded="true" />
-                <element signature="e#12017#12018#0" expanded="true" />
-                <element signature="e#20144#20145#0" expanded="true" />
-                <element signature="e#20183#20184#0" expanded="true" />
+                <element signature="e#7119#7120#0" expanded="true" />
+                <element signature="e#7150#7151#0" expanded="true" />
+                <element signature="e#9422#11089#0" expanded="true" />
+                <element signature="e#11088#11089#0" expanded="true" />
+                <element signature="e#11119#14091#0" expanded="true" />
+                <element signature="e#13972#13973#0" expanded="true" />
+                <element signature="e#14046#14047#0" expanded="true" />
+                <element signature="e#14090#14091#0" expanded="true" />
+                <element signature="e#23364#23365#0" expanded="true" />
+                <element signature="e#23403#23404#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YoutubePlayerActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player_notification_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/player_notification_layout.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-358">
+              <caret line="73" column="56" lean-forward="false" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimerAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/TimerAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="74" column="36" lean-forward="false" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlarmUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlarmBroadcastReceiver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="14" column="59" lean-forward="false" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YoutubePlayerActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="841" column="25" lean-forward="false" selection-start-line="841" selection-start-column="25" selection-end-line="841" selection-end-column="25" />
+            <state relative-caret-position="230">
+              <caret line="250" column="72" lean-forward="false" selection-start-line="250" selection-start-column="72" selection-end-line="250" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3013#3014#0" expanded="true" />
@@ -105,39 +210,26 @@
                 <element signature="e#3215#3216#0" expanded="true" />
                 <element signature="e#3274#3275#0" expanded="true" />
                 <element signature="e#3307#3308#0" expanded="true" />
-                <element signature="e#3394#3699#0" expanded="true" />
-                <element signature="e#3698#3699#0" expanded="true" />
-                <element signature="e#4667#4769#0" expanded="true" />
-                <element signature="e#4768#4769#0" expanded="true" />
-                <element signature="e#4803#5344#0" expanded="true" />
-                <element signature="e#5343#5344#0" expanded="true" />
-                <element signature="e#6305#6481#0" expanded="true" />
-                <element signature="e#6480#6481#0" expanded="true" />
-                <element signature="e#7825#8066#0" expanded="true" />
-                <element signature="e#8065#8066#0" expanded="true" />
-                <element signature="e#8789#9005#0" expanded="true" />
-                <element signature="e#9004#9005#0" expanded="true" />
-                <element signature="e#10203#10569#0" expanded="true" />
-                <element signature="e#10568#10569#0" expanded="true" />
-                <element signature="e#10751#12428#0" expanded="true" />
-                <element signature="e#12427#12428#0" expanded="true" />
-                <element signature="e#21889#22064#0" expanded="true" />
-                <element signature="e#22063#22064#0" expanded="true" />
-                <element signature="e#25783#26085#0" expanded="true" />
-                <element signature="e#26084#26085#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="76" column="55" lean-forward="false" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
-              <folding>
-                <element signature="e#1781#1782#0" expanded="true" />
-                <element signature="e#1807#1808#0" expanded="true" />
+                <element signature="e#3394#3955#0" expanded="true" />
+                <element signature="e#3954#3955#0" expanded="true" />
+                <element signature="e#4923#5025#0" expanded="true" />
+                <element signature="e#5024#5025#0" expanded="true" />
+                <element signature="e#5059#5160#0" expanded="true" />
+                <element signature="e#5159#5160#0" expanded="true" />
+                <element signature="e#6121#6297#0" expanded="true" />
+                <element signature="e#6296#6297#0" expanded="true" />
+                <element signature="e#7702#7943#0" expanded="true" />
+                <element signature="e#7942#7943#0" expanded="true" />
+                <element signature="e#8666#8882#0" expanded="true" />
+                <element signature="e#8881#8882#0" expanded="true" />
+                <element signature="e#10538#10904#0" expanded="true" />
+                <element signature="e#10903#10904#0" expanded="true" />
+                <element signature="e#11086#12763#0" expanded="true" />
+                <element signature="e#12762#12763#0" expanded="true" />
+                <element signature="e#22224#22399#0" expanded="true" />
+                <element signature="e#22398#22399#0" expanded="true" />
+                <element signature="e#26118#26420#0" expanded="true" />
+                <element signature="e#26419#26420#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,55 +278,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="always_on_display_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/always_on_display_layout.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RankActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="195" column="22" lean-forward="false" selection-start-line="195" selection-start-column="17" selection-end-line="195" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BottomView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="168" column="85" lean-forward="false" selection-start-line="168" selection-start-column="85" selection-end-line="168" selection-end-column="85" />
+            <state relative-caret-position="192">
+              <caret line="165" column="48" lean-forward="false" selection-start-line="165" selection-start-column="48" selection-end-line="165" selection-end-column="48" />
               <folding>
                 <element signature="e#3369#3642#0" expanded="true" />
                 <element signature="e#3641#3642#0" expanded="true" />
-                <element signature="e#4628#6922#0" expanded="true" />
-                <element signature="e#6863#6864#0" expanded="true" />
-                <element signature="e#6904#6905#0" expanded="true" />
-                <element signature="e#6921#6922#0" expanded="true" />
+                <element signature="e#4628#6921#0" expanded="true" />
+                <element signature="e#6862#6863#0" expanded="true" />
+                <element signature="e#6903#6904#0" expanded="true" />
+                <element signature="e#6920#6921#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_bottom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_bottom.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="94" column="47" lean-forward="false" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -250,14 +306,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>startPlay(</find>
-      <find>void start</find>
-      <find>setPl</find>
-      <find>refreshPl</find>
-      <find>refresh</find>
-      <find>setPla</find>
-      <find>startP</find>
-      <find>setPlay</find>
       <find>addView</find>
       <find>getSyncI</find>
       <find>onPla</find>
@@ -274,12 +322,20 @@
       <find>onVide</find>
       <find>playlist</find>
       <find>end</find>
-      <find>.END</find>
       <find>onIni</find>
       <find>onResu</find>
       <find>setCurrent</find>
       <find>setBy</find>
+      <find>.end</find>
+      <find>.END</find>
       <find>onLoaded</find>
+      <find>prev</find>
+      <find>onStateChange</find>
+      <find>ENDED</find>
+      <find>syncPl</find>
+      <find>.ENDED</find>
+      <find>temp</find>
+      <find>pendingIn</find>
     </findStrings>
     <replaceStrings>
       <replace>@color/black</replace>
@@ -2024,8 +2080,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_toggle_bottom_play.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_top.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_timer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_timer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/TimerAdapter.java" />
@@ -2071,10 +2125,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/player_notification_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_bottom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/always_on_display_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/models/SyncInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bases/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java" />
       </list>
     </option>
   </component>
@@ -2144,6 +2200,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RKhitsong" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2324,7 +2398,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
     <property name="device.picker.selection" value="1cd269012d027ece" />
-    <property name="SearchEverywhereHistoryKey" value="Ra&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java&#10;ListI&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/pub/ListInfo.java&#10;Media&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java&#10;Cons&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/pub/Constants.java&#10;catego&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/CategoryChildActivity.java&#10;Ini&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataThread&#10;InitD&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataFromDBThread&#10;MyA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java&#10;SearchA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java&#10;Search&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.SearchDataThread&#10;Thr&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Thread&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Common&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java&#10;AlarmR&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java" />
+    <property name="SearchEverywhereHistoryKey" value="Alarm&#9;PSI&#9;JAVA://bases.utils.AlarmBroadcastReceiver&#10;Ra&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/RankActivity.java&#10;ListI&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/pub/ListInfo.java&#10;Media&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java&#10;Cons&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/pub/Constants.java&#10;catego&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/CategoryChildActivity.java&#10;Ini&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataThread&#10;InitD&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.InitDataFromDBThread&#10;MyA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/MyApplication.java&#10;SearchA&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/RKclassichaeven/tube/SearchActivity.java&#10;Search&#9;PSI&#9;JAVA://com.ccmheaven.tube.thread.SearchDataThread&#10;Thr&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Thread&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/thread/CategoryChildDataThread.java&#10;Common&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/com/ccmheaven/tube/adapter/CommonListviewAdapter.java&#10;AlarmR&#9;FILE&#9;file://C:/Users/HP/AndroidStudioProjects/RKhitsong/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2434,7 +2508,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530414882066" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530417797835" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2482,7 +2556,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530414882066" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530417797835" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2665,7 +2739,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530414882069" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530417797838" />
       </method>
     </configuration>
     <list size="1">
@@ -2708,7 +2782,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2730,7 +2803,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2754,33 +2827,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/unit_grid_header_layout.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/TopMenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1729">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/imageTransform/RoundedTransform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2949,14 +2995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -3131,17 +3169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/player_notification_layout.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PierfrancescoSoffritti/AndroidYouTubePlayer/7.0.1/ca0189b01ee859112423ea0df961765011a93695/AndroidYouTubePlayer-7.0.1-sources.jar!/com/pierfrancescosoffritti/youtubeplayer/player/YouTubePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -3193,8 +3220,8 @@
         <state relative-caret-position="179">
           <caret line="76" column="55" lean-forward="false" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
           <folding>
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="false" />
+            <element signature="e#1807#1808#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3217,21 +3244,6 @@
         <state relative-caret-position="114">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="168" column="85" lean-forward="false" selection-start-line="168" selection-start-column="85" selection-end-line="168" selection-end-column="85" />
-          <folding>
-            <element signature="e#3369#3642#0" expanded="true" />
-            <element signature="e#3641#3642#0" expanded="true" />
-            <element signature="e#4628#6922#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <element signature="e#6904#6905#0" expanded="true" />
-            <element signature="e#6921#6922#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3261,34 +3273,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ccmheaven/tube/view/BottomView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="353" column="16" lean-forward="false" selection-start-line="353" selection-start-column="16" selection-end-line="353" selection-end-column="16" />
+        <state relative-caret-position="192">
+          <caret line="165" column="48" lean-forward="false" selection-start-line="165" selection-start-column="48" selection-end-line="165" selection-end-column="48" />
+          <folding>
+            <element signature="e#3369#3642#0" expanded="true" />
+            <element signature="e#3641#3642#0" expanded="true" />
+            <element signature="e#4628#6921#0" expanded="true" />
+            <element signature="e#6862#6863#0" expanded="true" />
+            <element signature="e#6903#6904#0" expanded="true" />
+            <element signature="e#6920#6921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/TimerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="74" column="36" lean-forward="false" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/utils/AlarmBroadcastReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="14" column="59" lean-forward="false" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
-            <element signature="e#2981#2982#0" expanded="true" />
-            <element signature="e#3033#3034#0" expanded="true" />
-            <element signature="e#3069#3070#0" expanded="true" />
-            <element signature="e#5435#5436#0" expanded="true" />
-            <element signature="e#5466#5467#0" expanded="true" />
-            <element signature="e#7184#8851#0" expanded="true" />
-            <element signature="e#8850#8851#0" expanded="true" />
-            <element signature="e#8881#12018#0" expanded="true" />
-            <element signature="e#11899#11900#0" expanded="true" />
-            <element signature="e#11973#11974#0" expanded="true" />
-            <element signature="e#12017#12018#0" expanded="true" />
-            <element signature="e#20144#20145#0" expanded="true" />
-            <element signature="e#20183#20184#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/player_notification_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-358">
+          <caret line="73" column="56" lean-forward="false" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/YoutubePlayerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="841" column="25" lean-forward="false" selection-start-line="841" selection-start-column="25" selection-end-line="841" selection-end-column="25" />
+        <state relative-caret-position="230">
+          <caret line="250" column="72" lean-forward="false" selection-start-line="250" selection-start-column="72" selection-end-line="250" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3013#3014#0" expanded="true" />
@@ -3299,26 +3339,58 @@
             <element signature="e#3215#3216#0" expanded="true" />
             <element signature="e#3274#3275#0" expanded="true" />
             <element signature="e#3307#3308#0" expanded="true" />
-            <element signature="e#3394#3699#0" expanded="true" />
-            <element signature="e#3698#3699#0" expanded="true" />
-            <element signature="e#4667#4769#0" expanded="true" />
-            <element signature="e#4768#4769#0" expanded="true" />
-            <element signature="e#4803#5344#0" expanded="true" />
-            <element signature="e#5343#5344#0" expanded="true" />
-            <element signature="e#6305#6481#0" expanded="true" />
-            <element signature="e#6480#6481#0" expanded="true" />
-            <element signature="e#7825#8066#0" expanded="true" />
-            <element signature="e#8065#8066#0" expanded="true" />
-            <element signature="e#8789#9005#0" expanded="true" />
-            <element signature="e#9004#9005#0" expanded="true" />
-            <element signature="e#10203#10569#0" expanded="true" />
-            <element signature="e#10568#10569#0" expanded="true" />
-            <element signature="e#10751#12428#0" expanded="true" />
-            <element signature="e#12427#12428#0" expanded="true" />
-            <element signature="e#21889#22064#0" expanded="true" />
-            <element signature="e#22063#22064#0" expanded="true" />
-            <element signature="e#25783#26085#0" expanded="true" />
-            <element signature="e#26084#26085#0" expanded="true" />
+            <element signature="e#3394#3955#0" expanded="true" />
+            <element signature="e#3954#3955#0" expanded="true" />
+            <element signature="e#4923#5025#0" expanded="true" />
+            <element signature="e#5024#5025#0" expanded="true" />
+            <element signature="e#5059#5160#0" expanded="true" />
+            <element signature="e#5159#5160#0" expanded="true" />
+            <element signature="e#6121#6297#0" expanded="true" />
+            <element signature="e#6296#6297#0" expanded="true" />
+            <element signature="e#7702#7943#0" expanded="true" />
+            <element signature="e#7942#7943#0" expanded="true" />
+            <element signature="e#8666#8882#0" expanded="true" />
+            <element signature="e#8881#8882#0" expanded="true" />
+            <element signature="e#10538#10904#0" expanded="true" />
+            <element signature="e#10903#10904#0" expanded="true" />
+            <element signature="e#11086#12763#0" expanded="true" />
+            <element signature="e#12762#12763#0" expanded="true" />
+            <element signature="e#22224#22399#0" expanded="true" />
+            <element signature="e#22398#22399#0" expanded="true" />
+            <element signature="e#26118#26420#0" expanded="true" />
+            <element signature="e#26419#26420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bases/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/RKclassichaeven/tube/services/MediaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="408" column="28" lean-forward="false" selection-start-line="408" selection-start-column="28" selection-end-line="408" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#2981#2982#0" expanded="true" />
+            <element signature="e#3033#3034#0" expanded="true" />
+            <element signature="e#3069#3070#0" expanded="true" />
+            <element signature="e#7119#7120#0" expanded="true" />
+            <element signature="e#7150#7151#0" expanded="true" />
+            <element signature="e#9422#11089#0" expanded="true" />
+            <element signature="e#11088#11089#0" expanded="true" />
+            <element signature="e#11119#14091#0" expanded="true" />
+            <element signature="e#13972#13973#0" expanded="true" />
+            <element signature="e#14046#14047#0" expanded="true" />
+            <element signature="e#14090#14091#0" expanded="true" />
+            <element signature="e#23364#23365#0" expanded="true" />
+            <element signature="e#23403#23404#0" expanded="true" />
           </folding>
         </state>
       </provider>

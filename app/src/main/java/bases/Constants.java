@@ -24,6 +24,10 @@ public class Constants {
         int REQ_CODE_ACTION_STOP = 121;
         String ACTION_CLOSE = "kr.co.picklecode.crossmedia2.action.notification.close";
         int REQ_CODE_ACTION_CLOSE = 131;
+        String ACTION_NEXT = "kr.co.picklecode.crossmedia2.action.notification.next";
+        int REQ_CODE_ACTION_NEXT = 141;
+        String ACTION_PREV = "kr.co.picklecode.crossmedia2.action.notification.prev";
+        int REQ_CODE_ACTION_PREV = 151;
     }
 
     public static final String ACTIVITY_INTENT_FILTER = "kr.co.picklecode.crossmedia2.intent.activity.common";

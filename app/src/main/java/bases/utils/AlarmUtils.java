@@ -15,7 +15,7 @@ import utils.PreferenceUtil;
 public class AlarmUtils {
 
     private static AlarmUtils instance;
-    private static final int ALARM_UNIQUE_ID = 1029389505;
+    private static final int ALARM_UNIQUE_ID = 1029389504;
 
     public static AlarmUtils getInstance() {
         if (instance == null) instance = new AlarmUtils();

@@ -119,6 +119,22 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 					if(player != null) player.pause();
 					break;
 				}
+				case "playYT":{
+					if(player != null) player.play();
+					break;
+				}
+				case "nextYT":{
+					if(player != null) {
+						startPlay();
+					}
+					break;
+				}
+				case "prevYT":{
+					if(player != null) {
+						prevSong();
+					}
+					break;
+				}
 			}
 		}
 	};
@@ -167,21 +183,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		btn_prev.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View view) {
-				if(MyApplication.getMediaService().getTracks().size() == 1){
-					startPlay();
-					return;
-				}
-
-				Log.e("controllerButton", "PREV - PRE : " + index);
-				int next_num = index - 2;
-				if(next_num < 0) {
-					Log.e("controllerButton", "Broken");
-					next_num = MyApplication.getMediaService().getTracks().size() - 1;
-				}
-				index = next_num;
-				startPlayWithoutRounding();
-				index++;
-				Log.e("controllerButton", "PREV - POST : " + index);
+				prevSong();
 			}
 		});
 
@@ -246,6 +248,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			List<ListInfo> templist = (List<ListInfo>) gson.fromJson(strJson, listType);
 			if(MyApplication.getMediaService() != null){
 				MyApplication.getMediaService().setTracks(templist);
+				MyApplication.getMediaService().getSyncInfo().release();
 			}
 		}
 
@@ -307,6 +310,24 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	}
 
 	private String ad_fix = "N";
+
+	private void prevSong(){
+		if(MyApplication.getMediaService().getTracks().size() == 1){
+			startPlay();
+			return;
+		}
+
+		Log.e("controllerButton", "PREV - PRE : " + index);
+		int next_num = index - 2;
+		if(next_num < 0) {
+			Log.e("controllerButton", "Broken");
+			next_num = MyApplication.getMediaService().getTracks().size() - 1;
+		}
+		index = next_num;
+		startPlayWithoutRounding();
+		index++;
+		Log.e("controllerButton", "PREV - POST : " + index);
+	}
 
 	private void InitConfig() {
 		SharedPreferences share = getSharedPreferences(LogoActivity.CONFIG_NAME, Context.MODE_PRIVATE);
