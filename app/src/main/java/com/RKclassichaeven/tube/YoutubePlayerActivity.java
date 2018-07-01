@@ -46,6 +46,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.gw.swipeback.SwipeBackLayout;
 
+import net.khirr.library.foreground.Foreground;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,12 +126,20 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		isPausedByContext = false;
 		registerReceiver(broadcastReceiver, new IntentFilter(bases.Constants.ACTIVITY_INTENT_FILTER));
+		if(isInitialized){
+			syncPlay();
+		}
 	}
+
+	private boolean isPausedByContext = false;
 
 	@Override
 	protected void onPause() {
 		super.onPause();
+		isPausedByContext = true;
+		Log.e("onPause", Foreground.Companion.isBackground() + " / F : " + Foreground.Companion.isForeground());
 		unregisterReceiver(broadcastReceiver);
 	}
 
@@ -323,6 +333,27 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		}
 	}
 
+	private Handler tracker = new Handler();
+	private int checkInterval = 500;
+	private Runnable trackingRunnable = new Runnable() {
+		@Override
+		public void run() {
+			float second = ((float)player.getCurrentTimeMillis() / 1000.0f);
+			Log.e("PlaybackTracker", player.getCurrentTimeMillis() + " / " + second);
+			MyApplication.getMediaService().getSyncInfo().setCurrentTime(second);
+			tracker.removeCallbacks(trackingRunnable);
+			tracker.postDelayed(this, checkInterval);
+		}
+	};
+
+	private void checkDuration(boolean flag){
+		if(flag){
+			tracker.post(trackingRunnable);
+		}else{
+			tracker.removeCallbacks(trackingRunnable);
+		}
+	}
+
 	public Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (msg.what == Constants.VIDEOPLAY) {
@@ -408,10 +439,83 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		return currentPos;
 	}
 
+	private void syncPlay(){
+		SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
+
+		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
+			this.index = syncInfo.getCurrentIndex();
+
+			if(syncInfo.getState() == SyncInfo.STATE_RELEASE) {
+				syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+			}
+
+			Log.e("PlaybacksyncPlay", syncInfo.toString());
+
+			MyApplication.getMediaService().refreshPlayer();
+
+			if (ad_fix.equals("Y")) {
+
+				if (playedList.isEmpty()) {
+					tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+					playedList.add(index);
+
+				} else {
+
+					boolean isFirst = true;
+					for (int i = 0; i < playedList.size(); i++) {
+						if (playedList.get(i) == index) {
+							isFirst = false;
+							break;
+						}
+					}
+					if (isFirst) {
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+						playedList.add(index);
+					} else {
+						tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+						if(syncInfo.getState() == SyncInfo.STATE_PLAY){
+							player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+						}else{
+							player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+						}
+					}
+
+				}
+			} else {
+				if(index >= MyApplication.getMediaService().getTracks().size()){
+					index = 0;
+				}
+				tvTitle.setText(MyApplication.getMediaService().getTracks().get(index).getVideoName());
+				if(syncInfo.getState() == SyncInfo.STATE_PLAY){
+					player.loadVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+				}else{
+					player.cueVideo(MyApplication.getMediaService().getTracks().get(index).getVideoCode(), (int)(syncInfo.getCurrentTime() * 1000));
+				}
+			}
+
+			// select & scroll the item of listview
+			listview.clearChoices();
+			listview.setSelection(index);
+			listview.setItemChecked(index, true);
+			listview.smoothScrollToPosition(index);
+		}
+
+		if (++index >= MyApplication.getMediaService().getTracks().size()) {
+			index = 0;
+			if(doShuffle.equals(PLAY_MODE.PLAY_ALL)){
+				if(player != null) player.pause();
+			}
+		}
+		listviewadapter.notifyDataSetChanged();
+	}
+
 	private void startPlay() {
 		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
 			SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
 			syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+			syncInfo.setCurrentIndex(index);
 			syncInfo.setPlayState();
 			MyApplication.getMediaService().refreshPlayer();
 			if (ad_fix.equals("Y")) {
@@ -559,11 +663,13 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	}
 
 	private boolean isFullscreen = false;
+	private boolean isInitialized = false;
 
 	// 놓迦뺏돨쀼딧변鑒
 	public void onInitializationSuccess(YouTubePlayer.Provider Provider,
 										YouTubePlayer player, boolean wasRestored) {
 		Log.d("dev", "InitializationSuccess");
+		this.isInitialized = true;
 		this.player = player;
 		this.player.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
 			@Override
@@ -580,7 +686,9 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		if (!wasRestored && !MyApplication.getMediaService().getTracks().isEmpty()) {
 			listview.setItemChecked(index, true);
 			listviewadapter.notifyDataSetChanged();
-			startPlay();
+//			startPlay();
+			// BLOCK
+			syncPlay();
 		}
 
 	}
@@ -616,6 +724,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 			Log.e("PlayBack", "onPlaying" + YoutubePlayerActivity.this.player.getCurrentTimeMillis());
 			MyApplication.getMediaService().getSyncInfo().setPlayState();
 			MyApplication.getMediaService().refreshPlayer();
+			checkDuration(true);
 			newConfig = -1;
 			playbackState = "PLAYING";
 			Log.d("dev", playbackState);
@@ -632,6 +741,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		public void onStopped() {
 			MyApplication.getMediaService().getSyncInfo().setPauseState();
 			MyApplication.getMediaService().refreshPlayer();
+			checkDuration(false);
 			playbackState = "STOPPED";
 			Log.d("dev", playbackState);
 			if (nowConfig == newConfig) {
@@ -644,8 +754,12 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 
 		@Override
 		public void onPaused() {
-			MyApplication.getMediaService().getSyncInfo().setPauseState();
-			MyApplication.getMediaService().refreshPlayer();
+			Log.e("onPaused", Foreground.Companion.isBackground() + " / F : " + Foreground.Companion.isForeground());
+			checkDuration(false);
+			if(!isPausedByContext) {
+				MyApplication.getMediaService().getSyncInfo().setPauseState();
+				MyApplication.getMediaService().refreshPlayer();
+			}
 			newConfig = -1;
 			playbackState = "PAUSED";
 			Log.d("dev", playbackState);

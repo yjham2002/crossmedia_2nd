@@ -266,6 +266,7 @@ public class MediaService extends Service implements View.OnClickListener{
                                 if(state == PlayerConstants.PlayerState.ENDED){
                                     if(syncInfo.getState() == SyncInfo.STATE_PLAY){
                                         final int nextIndex = syncInfo.getCurrentIndex() + 1 >= tracks.size() - 1 ?  0 : syncInfo.getCurrentIndex() + 1;
+                                        syncInfo.setCurrentIndex(nextIndex);
                                         syncInfo.setBySong(tracks.get(nextIndex));
                                         refreshPlayer();
                                     }

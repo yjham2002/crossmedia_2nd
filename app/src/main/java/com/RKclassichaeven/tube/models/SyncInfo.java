@@ -132,4 +132,16 @@ public class SyncInfo {
         }
     }
 
+    @Override
+    public String toString() {
+        return "SyncInfo{" +
+                "videoId='" + videoId + '\'' +
+                ", currentTime=" + currentTime +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", title='" + title + '\'' +
+                ", currentIndex=" + currentIndex +
+                ", author='" + author + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }
