@@ -33,6 +33,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import com.RKclassichaeven.tube.FloatingMovieActivity;
 import com.RKclassichaeven.tube.MyApplication;
@@ -55,6 +56,7 @@ import java.util.List;
 import java.util.Vector;
 
 import bases.Constants;
+import bases.SimpleCallback;
 import bases.imageTransform.RoundedTransform;
 import bases.utils.AlarmUtils;
 import utils.PreferenceUtil;
@@ -64,6 +66,7 @@ import utils.PreferenceUtil;
  */
 public class MediaService extends Service implements View.OnClickListener{
 
+    private SimpleCallback simpleCallback;
     private NotificationManager mNotificationManager;
     private static final int notiId = 20180319;
     private View mView, botView, botArea;
@@ -90,6 +93,10 @@ public class MediaService extends Service implements View.OnClickListener{
         this.tracks = tracks;
     }
 
+    public void setSimpleCallback(SimpleCallback simpleCallback) {
+        this.simpleCallback = simpleCallback;
+    }
+
     private BroadcastReceiver notificationListener = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -105,6 +112,8 @@ public class MediaService extends Service implements View.OnClickListener{
                     if(tracks.size() > 0) {
                         syncInfo.setPlayState();
                         refreshPlayer();
+                    }else{
+                        Toast.makeText(context, "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
                     }
                     break;
                 }
@@ -113,12 +122,20 @@ public class MediaService extends Service implements View.OnClickListener{
                     activityIntent1.putExtra("action", "refresh");
                     activityIntent1.putExtra("second", "stopYT");
                     context.sendBroadcast(activityIntent1);
-                    syncInfo.setPauseState();
-                    refreshPlayer();
+                    if(tracks.size() > 0) {
+                        syncInfo.setPauseState();
+                        refreshPlayer();
+                    }else{
+                        Toast.makeText(context, "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+                    }
                     break;
                 }
                 case Constants.INTENT_NOTIFICATION.ACTION_NEXT:{
-                    nextSong();
+                    if(tracks.size() > 0) {
+                        nextSong();
+                    }else{
+                        Toast.makeText(context, "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+                    }
                     final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
                     activityIntent1.putExtra("action", "refresh");
                     activityIntent1.putExtra("second", "nextYT");
@@ -126,7 +143,11 @@ public class MediaService extends Service implements View.OnClickListener{
                     break;
                 }
                 case Constants.INTENT_NOTIFICATION.ACTION_PREV:{
-                    prevSong();
+                    if(tracks.size() > 0) {
+                        prevSong();
+                    }else{
+                        Toast.makeText(context, "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+                    }
                     final Intent activityIntent1 = new Intent(Constants.ACTIVITY_INTENT_FILTER);
                     activityIntent1.putExtra("action", "refresh");
                     activityIntent1.putExtra("second", "prevYT");
@@ -409,11 +430,13 @@ public class MediaService extends Service implements View.OnClickListener{
                 activate(false);
             }
         }
+        if(simpleCallback != null) simpleCallback.callback();
     }
 
     private void activate(boolean active){
         if(active && Foreground.Companion.isBackground()){
             player.setVisibility(View.VISIBLE);
+            syncInfo.setCurrentScene(SyncInfo.SCENE_WINDOW);
             try {
                 mManager.addView(mView, mParams);
             }catch (Exception e){

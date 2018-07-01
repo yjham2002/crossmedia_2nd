@@ -13,6 +13,10 @@ public class SyncInfo {
     public static final int STATE_PAUSE = 200;
     public static final int STATE_RELEASE = 300;
 
+    public static final int SCENE_BOTTOM = 10;
+    public static final int SCENE_VIEW = 20;
+    public static final int SCENE_WINDOW = 30;
+
     private String videoId;
     private float currentTime;
     private String thumbnail;
@@ -20,6 +24,7 @@ public class SyncInfo {
     private int currentIndex;
     private String author;
     private int state = STATE_RELEASE;
+    private int currentScene = SCENE_BOTTOM;
 
     {
         this.currentIndex = 0;
@@ -30,13 +35,20 @@ public class SyncInfo {
 
     public SyncInfo(){}
 
+    public int getCurrentScene() {
+        return currentScene;
+    }
+
+    public void setCurrentScene(int currentScene) {
+        this.currentScene = currentScene;
+    }
+
     public void setBySong(ListInfo info){
         this.videoId = info.getVideoCode();
         this.currentTime = 0;
         this.thumbnail = info.getImageUrl();
         this.title = info.getVideoName();
         this.author = info.getArtistName();
-
     }
 
     public String getThumbnail() {

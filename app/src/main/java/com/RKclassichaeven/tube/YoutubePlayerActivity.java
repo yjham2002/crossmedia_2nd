@@ -142,6 +142,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_VIEW);
 		isPausedByContext = false;
 		registerReceiver(broadcastReceiver, new IntentFilter(bases.Constants.ACTIVITY_INTENT_FILTER));
 		if(isInitialized){

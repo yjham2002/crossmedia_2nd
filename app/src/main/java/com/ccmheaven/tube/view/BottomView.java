@@ -3,7 +3,9 @@ package com.ccmheaven.tube.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -22,6 +24,7 @@ import com.RKclassichaeven.tube.RankActivity;
 import com.RKclassichaeven.tube.SearchActivity;
 import com.RKclassichaeven.tube.YoutubePlayerActivity;
 import com.RKclassichaeven.tube.models.SyncInfo;
+import com.RKclassichaeven.tube.services.MediaService;
 import com.ccmheaven.tube.ads.AdHelper;
 import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.PlayerConstants;
@@ -29,6 +32,10 @@ import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView;
+
+import bases.Constants;
+import bases.SimpleCallback;
+import comm.SimpleCall;
 
 public class BottomView extends LinearLayout {
 
@@ -57,6 +64,27 @@ public class BottomView extends LinearLayout {
 		}
 	}
 
+	public static int getScreenWidth() {
+		return Resources.getSystem().getDisplayMetrics().widthPixels;
+	}
+
+	public static int getScreenHeight() {
+		return Resources.getSystem().getDisplayMetrics().heightPixels;
+	}
+
+	public static boolean isVisible(final View view) {
+		if (view == null) {
+			return false;
+		}
+		if (!view.isShown()) {
+			return false;
+		}
+		final Rect actualPosition = new Rect();
+		view.getGlobalVisibleRect(actualPosition);
+		final Rect screen = new Rect(0, 0, getScreenWidth(), getScreenHeight());
+		return actualPosition.intersect(screen);
+	}
+
 	private void refreshPlayer(){
 		SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
 		displayPlaybar();
@@ -64,9 +92,9 @@ public class BottomView extends LinearLayout {
 			if(syncInfo.getState() != SyncInfo.STATE_RELEASE){
 				hider.setBackgroundColor(getResources().getColor(R.color.transparent));
 				if(syncInfo.getState() == SyncInfo.STATE_PLAY) {
-					actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+					if(syncInfo.getCurrentScene() == SyncInfo.SCENE_BOTTOM) actualPlayer.loadVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
 				} else {
-					actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
+					if(syncInfo.getCurrentScene() == SyncInfo.SCENE_BOTTOM) actualPlayer.cueVideo(syncInfo.getVideoId(), syncInfo.getCurrentTime());
 				}
 			}else{
 				hider.setBackgroundColor(getResources().getColor(R.color.jet));
@@ -80,6 +108,7 @@ public class BottomView extends LinearLayout {
 		super.onWindowFocusChanged(hasWindowFocus);
 		if (hasWindowFocus) {
 			//onresume() called
+			MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
 			refreshPlayer();
 		} else {
 			// onPause() called
@@ -102,14 +131,47 @@ public class BottomView extends LinearLayout {
 	private View.OnClickListener onClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
+			MediaService mediaService = MyApplication.getMediaService();
+			SyncInfo syncInfo = mediaService.getSyncInfo();
+			final Intent intent = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
 			switch (view.getId()){
 				case R.id.bot_next:
+					intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_NEXT);
+					getContext().sendBroadcast(intent);
+					if(mediaService.getTracks().size() > 0){
+//						nextSong();
+					}else{
+//						Toast.makeText(getContext(), "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+					}
 					break;
 				case R.id.bot_prev:
+					intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PREV);
+					getContext().sendBroadcast(intent);
+					if(mediaService.getTracks().size() > 0){
+//						prevSong();
+					}else{
+//						Toast.makeText(getContext(), "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+					}
 					break;
 				case R.id.bot_play:
+					intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PLAY);
+					getContext().sendBroadcast(intent);
+					if(mediaService.getTracks().size() > 0){
+//						syncInfo.setPlayState();
+//						refreshPlayer();
+					}else{
+//						Toast.makeText(getContext(), "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+					}
 					break;
 				case R.id.bot_pause:
+					intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_STOP);
+					getContext().sendBroadcast(intent);
+					if(mediaService.getTracks().size() > 0){
+//						syncInfo.setPauseState();
+//						refreshPlayer();
+					}else{
+//						Toast.makeText(getContext(), "재생 곡을 추가해주세요", Toast.LENGTH_LONG).show();
+					}
 					break;
 				default: break;
 			}
@@ -122,6 +184,18 @@ public class BottomView extends LinearLayout {
 		}
 	}
 
+	private void nextSong(){
+		final Intent intent = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
+		intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_NEXT);
+		getContext().sendBroadcast(intent);
+	}
+
+	private void prevSong(){
+		final Intent intent = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
+		intent.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_PREV);
+		getContext().sendBroadcast(intent);
+	}
+
     /**
      * @param context
      * @param attrs
@@ -130,6 +204,7 @@ public class BottomView extends LinearLayout {
         super(context, attrs);
         view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.view_bottom, this);
         hider = view.findViewById(R.id.hider);
+
         youTubePlayerView = view.findViewById(R.id.iv_photo);
 
 		title = view.findViewById(R.id.tv_name);
@@ -140,6 +215,13 @@ public class BottomView extends LinearLayout {
 		pause = view.findViewById(R.id.bot_pause);
 
 		setOnClickListener(onClickListener, play, next, prev, pause);
+
+		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {
+			@Override
+			public void callback() {
+				refreshPlayer();
+			}
+		});
 
         youTubePlayerView.setEnabled(false);
 		youTubePlayerView.initialize(new YouTubePlayerInitListener() {
@@ -164,11 +246,7 @@ public class BottomView extends LinearLayout {
 								}
 								if(state == PlayerConstants.PlayerState.ENDED){
 									if(MyApplication.getMediaService().getSyncInfo().getState() == SyncInfo.STATE_PLAY){
-										final int nextIndex = MyApplication.getMediaService().getSyncInfo().getCurrentIndex() + 1 > MyApplication.getMediaService().getTracks().size() - 1
-												?  0 : MyApplication.getMediaService().getSyncInfo().getCurrentIndex() + 1;
-										MyApplication.getMediaService().getSyncInfo().setCurrentIndex(nextIndex);
-										MyApplication.getMediaService().getSyncInfo().setBySong(MyApplication.getMediaService().getTracks().get(nextIndex));
-										refreshPlayer();
+										nextSong();
 									}
 								}
 							}
