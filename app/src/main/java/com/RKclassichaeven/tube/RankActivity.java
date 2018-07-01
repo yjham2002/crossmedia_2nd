@@ -274,10 +274,10 @@ public class RankActivity extends Activity {
 					});
 					exitDialog.show();
 				}
-				break;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	private Handler handler = new Handler() {

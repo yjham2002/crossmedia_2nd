@@ -199,10 +199,10 @@ public class CategoryActivity extends Activity {
                     });
                     exitDialog.show();
                 }
+                return true;
 			}
-			break;
 		}
-		return true;
+		return false;
 	}
 
     private Handler handler = new Handler() {

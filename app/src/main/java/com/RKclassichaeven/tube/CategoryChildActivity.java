@@ -285,8 +285,9 @@ public class CategoryChildActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             finish();
+            return true;
         }
-        return true;
+        return false;
     }
 
     protected void onDestroy() {
