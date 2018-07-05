@@ -44,8 +44,60 @@ public class TopMenuView extends LinearLayout {
 
     public static CategoryBox categoryCurrent;
     private static HashMap<Integer, CategoryBox> cateMap = new HashMap<>();
+    private static int lastX = 0;
+    private static int lastY = 0;
+
     private static boolean isLoaded = false;
     private static int length = 0;
+
+    private TabLayout.OnTabSelectedListener tabSelectedListener = new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+            lastX = TopMenuView.this.tab.getScrollX();
+            lastY = TopMenuView.this.tab.getScrollY();
+
+            categoryCurrent = cateMap.get(tab.getPosition());
+
+            switch (tab.getPosition()){
+                case 0:{
+                    Intent intent = new Intent(getContext(), RankActivity.class);
+                    intent.putExtra("pos", tab.getPosition());
+                    getContext().startActivity(intent);
+                    overrideTransition();
+                    ActivityCompat.finishAffinity((Activity) getContext());
+                    ((Activity) getContext()).finish();
+                    break;
+                }
+                case 1:{
+                    Intent intent = new Intent(getContext(), CategoryActivity.class);
+                    getContext().startActivity(intent);
+                    overrideTransition();
+                    ActivityCompat.finishAffinity((Activity) getContext());
+                    ((Activity) getContext()).finish();
+                    break;
+                }
+                default:{
+                    Intent intent = new Intent(getContext(), MultiCategoryActivity.class);
+                    getContext().startActivity(intent);
+                    overrideTransition();
+                    ActivityCompat.finishAffinity((Activity) getContext());
+                    ((Activity) getContext()).finish();
+                    break;
+                }
+            }
+//                Toast.makeText(context, tab.getPosition() + " Tab", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+            // Do nothing
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+            // Do nothing
+        }
+    };
 
     private void addTabs(){
         for(int e = 0; e < length; e++){
@@ -59,8 +111,19 @@ public class TopMenuView extends LinearLayout {
 
     private void refreshCurrent(CategoryBox categoryBox){
         if(cateMap.size() - 1 < categoryBox.getManageNo()) return;
-        tab.getTabAt(categoryBox.getManageNo()).select();
-        tab.setScrollPosition(categoryBox.getManageNo(), 0f, true);
+//        tab.getTabAt(categoryBox.getManageNo()).select();
+
+        final TabLayout.Tab currentTab = tab.getTabAt(categoryBox.getManageNo());
+        if(currentTab != null){
+            tab.post(new Runnable() {
+                @Override
+                public void run() {
+                    tab.removeOnTabSelectedListener(tabSelectedListener);
+                    currentTab.select();
+                    tab.addOnTabSelectedListener(tabSelectedListener);
+                }
+            });
+        }
     }
 
     /**
@@ -120,51 +183,7 @@ public class TopMenuView extends LinearLayout {
             refreshCurrent(categoryCurrent);
         }
 
-        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                categoryCurrent = cateMap.get(tab.getPosition());
-
-                switch (tab.getPosition()){
-                    case 0:{
-                        Intent intent = new Intent(getContext(), RankActivity.class);
-                        intent.putExtra("pos", tab.getPosition());
-                        getContext().startActivity(intent);
-                        overrideTransition();
-                        ActivityCompat.finishAffinity((Activity) getContext());
-                        ((Activity) getContext()).finish();
-                        break;
-                    }
-                    case 1:{
-                        Intent intent = new Intent(getContext(), CategoryActivity.class);
-                        getContext().startActivity(intent);
-                        overrideTransition();
-                        ActivityCompat.finishAffinity((Activity) getContext());
-                        ((Activity) getContext()).finish();
-                        break;
-                    }
-                    default:{
-                        Intent intent = new Intent(getContext(), MultiCategoryActivity.class);
-                        getContext().startActivity(intent);
-                        overrideTransition();
-                        ActivityCompat.finishAffinity((Activity) getContext());
-                        ((Activity) getContext()).finish();
-                        break;
-                    }
-                }
-//                Toast.makeText(context, tab.getPosition() + " Tab", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                // Do nothing
-            }
-        });
+        tab.addOnTabSelectedListener(tabSelectedListener);
 
 //        llyMyList = (LinearLayout) view.findViewById(R.id.lly_tab4);
 
@@ -177,7 +196,7 @@ public class TopMenuView extends LinearLayout {
 //        tvCategory = (TextView) view.findViewById(R.id.bottom_text2);
 //        tvSearch = (TextView) view.findViewById(R.id.bottom_text3);
 //        tvMyList = (TextView) view.findViewById(R.id.bottom_text4);
-        
+
 //        llyLank.setOnClickListener(buttonListener);
 //        llyCategory.setOnClickListener(buttonListener);
 //        llySearch.setOnClickListener(buttonListener);
