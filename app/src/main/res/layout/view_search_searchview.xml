@@ -20,6 +20,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/thisgray"
         android:background="@color/colorPrimary"
+        android:textSize="18dp"
         android:hint="검색어를 입력해주세요."
         android:paddingBottom="0dp"
         android:paddingLeft="10dp"

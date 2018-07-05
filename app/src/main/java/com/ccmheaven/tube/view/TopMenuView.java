@@ -60,6 +60,7 @@ public class TopMenuView extends LinearLayout {
     private void refreshCurrent(CategoryBox categoryBox){
         if(cateMap.size() - 1 < categoryBox.getManageNo()) return;
         tab.getTabAt(categoryBox.getManageNo()).select();
+        tab.setScrollPosition(categoryBox.getManageNo(), 0f, true);
     }
 
     /**

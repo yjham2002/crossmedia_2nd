@@ -102,7 +102,7 @@ public final class R {
         public static final int s6 = 0x7f0c006f;
     }
     public static final class style {
-        public static final int Theme_IAPTheme = 0x7f0d016d;
+        public static final int Theme_IAPTheme = 0x7f0d016e;
     }
     public static final class styleable {
         public static final int[] AdsAttrs = { 0x7f030025, 0x7f030026, 0x7f030027 };

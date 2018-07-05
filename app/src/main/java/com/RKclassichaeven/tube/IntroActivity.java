@@ -31,7 +31,7 @@ public class IntroActivity extends AppCompatActivity {
         @Override
         public void run() {
             if(!isLoaded){
-                Toast.makeText(getApplicationContext(), "Unable to load an AD (KEY Expired or Load Failed)", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Unable to load an AD (KEY Expired or Load Failed)", Toast.LENGTH_LONG).show();
                 goMain();
             }
         }
@@ -40,7 +40,7 @@ public class IntroActivity extends AppCompatActivity {
 
     private Runnable introRunnable = new Runnable() {
         public void run() {
-            failHandler.postDelayed(failRunnable, 10000);
+            failHandler.postDelayed(failRunnable, 5000);
             new AdHelper(IntroActivity.this).loadInterstitialAd(new SimpleCallback() {
                 @Override
                 public void callback() {

@@ -21,6 +21,10 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
         activityIntent1.putExtra("second", "stopYT");
         context.sendBroadcast(activityIntent1);
 
+        final Intent activityIntent2 = new Intent(Constants.INTENT_NOTIFICATION.REP_FILTER);
+        activityIntent2.putExtra("action", Constants.INTENT_NOTIFICATION.ACTION_STOP);
+        context.sendBroadcast(activityIntent2);
+
         PreferenceUtil.setBoolean(Constants.PREFERENCE.IS_ALARM_SET, false);
         Log.e("alarmCall", "Stopping media");
     }

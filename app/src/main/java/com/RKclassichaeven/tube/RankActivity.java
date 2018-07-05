@@ -152,7 +152,7 @@ public class RankActivity extends Activity {
 						Intent intent = new Intent(context, MyPageActivity.class);
 						startActivity(intent);
 //						overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
-						finish();
+//						finish();
 						break;
 					}
 					default: break;

@@ -371,7 +371,7 @@ public class MediaService extends Service implements View.OnClickListener{
 
                             @Override
                             public void onError(int error) {
-
+                                nextSong();
                             }
 
                             @Override

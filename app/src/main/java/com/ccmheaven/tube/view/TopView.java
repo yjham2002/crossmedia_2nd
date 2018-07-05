@@ -2,6 +2,7 @@ package com.ccmheaven.tube.view;
 
 import com.RKclassichaeven.tube.CategoryActivity;
 import com.RKclassichaeven.tube.CategoryDetailActivity;
+import com.RKclassichaeven.tube.MultiCategoryActivity;
 import com.RKclassichaeven.tube.MyPageActivity;
 import com.RKclassichaeven.tube.R;
 import com.RKclassichaeven.tube.RankActivity;
@@ -109,6 +110,8 @@ public class TopView extends RelativeLayout {
                     if(getContext() instanceof RankActivity){
                         ((RankActivity) getContext()).openDrawer();
                     }else if(getContext() instanceof CategoryActivity){
+                        ((CategoryActivity) getContext()).openDrawer();
+                    }else if(getContext() instanceof MultiCategoryActivity){
                         ((CategoryActivity) getContext()).openDrawer();
                     }
                 }

@@ -42,7 +42,7 @@
                 android:text="Play Music"
                 android:gravity="left|center_vertical"
                 android:textColor="@color/white"
-                android:textSize="18sp" ><requestFocus/></TextView>
+                android:textSize="18dp" ><requestFocus/></TextView>
 
             <TextView
                 android:id="@+id/noti_sub"
@@ -58,7 +58,7 @@
                 android:gravity="left|center_vertical"
                 android:textColor="#a9afc0"
                 android:text=""
-                android:textSize="14sp" ><requestFocus/></TextView>
+                android:textSize="14dp" ><requestFocus/></TextView>
         </LinearLayout>
 
         <LinearLayout

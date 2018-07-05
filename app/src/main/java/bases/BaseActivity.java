@@ -18,9 +18,14 @@ import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.ads.InterstitialAd;
+
+import static bases.BaseApp.context;
 
 /**
  * Base class for activities
@@ -65,7 +70,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     public void showToast(String message){
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+        ViewGroup group = (ViewGroup) toast.getView();
+        TextView messageTextView = (TextView) group.getChildAt(0);
+        messageTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+
+        toast.show();
     }
 
     @Override

@@ -291,7 +291,7 @@ public class BottomView extends LinearLayout {
 
 							@Override
 							public void onError(int error) {
-
+								nextSong();
 							}
 
 							@Override

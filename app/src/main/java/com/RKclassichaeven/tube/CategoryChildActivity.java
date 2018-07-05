@@ -40,6 +40,7 @@ import com.ccmheaven.tube.view.TopMenuView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -180,9 +181,9 @@ public class CategoryChildActivity extends Activity {
             if(imgUrl != null && !imgUrl.equals("")){
                 Picasso
                         .get()
-                        .load(imgUrl)
-                        .centerCrop()
-                        .resize(400, 170)
+                        .load(imgUrl).memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+//                        .centerCrop()
+//                        .resize(400, 170)
                         .placeholder(R.drawable.ico_hour_thin_all)
                         .transform(new RoundedTransform(12, 0)).into(thm);
             }

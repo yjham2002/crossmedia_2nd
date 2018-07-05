@@ -41,7 +41,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
         bottomview.addAdView();
 
         gridview = (GridView) findViewById(R.id.gv_category);
-        adapter = new CategoryGridViewAdapter(this, list, gridview, handler, true);
+        adapter = new CategoryGridViewAdapter(this, list, gridview, handler, false);
         gridview.setAdapter(adapter);
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {

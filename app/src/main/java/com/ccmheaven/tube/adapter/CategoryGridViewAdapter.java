@@ -15,7 +15,9 @@ import android.widget.TextView;
 import com.RKclassichaeven.tube.R;
 import com.ccmheaven.tube.pub.CategoryListInfo;
 import com.ccmheaven.tube.pub.ImageLoader;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import java.util.List;
 
@@ -120,12 +122,15 @@ public class CategoryGridViewAdapter extends BaseAdapter {
             placeHolder = R.drawable.ico_hour_thin;
         }
 
-        Picasso
+        RequestCreator r = Picasso
                 .get()
-                .load(list.get(arg0).getImageUrl())
-                .centerCrop()
-                .resize(400, ht)
-                .placeholder(placeHolder)
+                .load(list.get(arg0).getImageUrl());
+
+        if(!isSlim){
+            r.centerCrop().resize(400, ht);
+        }
+
+                r.placeholder(placeHolder)
                 .transform(new RoundedTransform(rad, 0, true, true, false, false)).into(hostview.m_ivPhoto);
 
         return arg1;
