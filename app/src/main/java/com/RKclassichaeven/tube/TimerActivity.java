@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 
 import com.RKclassichaeven.tube.models.AdapterCall;
 import com.RKclassichaeven.tube.models.TimerItem;
+import com.ccmheaven.tube.view.BottomView;
 import com.ccmheaven.tube.view.TopView;
 import com.google.android.gms.ads.AdView;
 
@@ -32,6 +33,7 @@ public class TimerActivity extends BaseActivity {
 
     private Activity mContext;
 
+    private BottomView bottomview;
     private RecyclerView mRecyclerView;
     private TimerAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -77,12 +79,14 @@ public class TimerActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        bottomview.onActivityResume();
         registerReceiver(broadcastReceiver, new IntentFilter(Constants.ACTIVITY_INTENT_FILTER));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        bottomview.onActivityPause();
         unregisterReceiver(broadcastReceiver);
     }
 
@@ -126,6 +130,7 @@ public class TimerActivity extends BaseActivity {
         this.mContext = this;
 
         bufferProgress = findViewById(R.id.bufferProgress);
+        bottomview = (BottomView) findViewById(R.id.bottomView1);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mAdapter = new TimerAdapter(this, R.layout.layout_timer, new AdapterCall<TimerItem>() {

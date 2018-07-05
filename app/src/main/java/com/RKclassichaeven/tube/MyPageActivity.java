@@ -62,6 +62,18 @@ public class MyPageActivity extends Activity {
 //    private TopMenuView topMenuView;
     private ExitDialog exitDialog;
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        bottomview.onActivityResume();
+    }
+
+    @Override
+    public void onPause(){
+        bottomview.onActivityPause();
+        super.onPause();
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);

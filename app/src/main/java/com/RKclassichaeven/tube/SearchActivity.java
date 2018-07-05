@@ -73,6 +73,18 @@ public class SearchActivity extends Activity {
 
     private ListviewLoadView listviewLoadView;
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        bottomview.onActivityResume();
+    }
+
+    @Override
+    public void onPause(){
+        bottomview.onActivityPause();
+        super.onPause();
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);

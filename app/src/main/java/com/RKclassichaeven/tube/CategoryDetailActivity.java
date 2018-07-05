@@ -30,6 +30,18 @@ public class CategoryDetailActivity extends AppCompatActivity {
     private ProgressDialog loagindDialog;
 
     @Override
+    public void onResume(){
+        super.onResume();
+        bottomview.onActivityResume();
+    }
+
+    @Override
+    public void onPause(){
+        bottomview.onActivityPause();
+        super.onPause();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_detail);

@@ -107,14 +107,23 @@ public class BottomView extends LinearLayout {
 	@Override
 	public void onWindowFocusChanged(boolean hasWindowFocus) {
 		super.onWindowFocusChanged(hasWindowFocus);
+
+		Log.e("BottomView", "onWindowFocusChanged : " + hasWindowFocus);
+
 		if (hasWindowFocus) {
 			//onresume() called
-			MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
-			refreshPlayer();
 		} else {
-			if(actualPlayer != null) actualPlayer.pause();
 			// onPause() called
 		}
+	}
+
+	public void onActivityResume(){
+		MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
+		refreshPlayer();
+	}
+
+	public void onActivityPause(){
+		if(actualPlayer != null) actualPlayer.pause();
 	}
 
 	private void displayPlaybar(){
@@ -213,6 +222,20 @@ public class BottomView extends LinearLayout {
 		getContext().sendBroadcast(intent);
 	}
 
+	private boolean mStatusBarShown;
+
+	@Override
+	protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
+		super.onVisibilityChanged(changedView, visibility);
+		Log.e("BottomView", "onVisibilityChanged : " + (visibility == View.VISIBLE));
+		if (visibility == View.VISIBLE) {
+			//onResume called
+		}
+    	else {
+			// onPause() called
+		}
+	}
+
     /**
      * @param context
      * @param attrs
@@ -234,6 +257,30 @@ public class BottomView extends LinearLayout {
 
 		title.setSelected(true);
 		sub.setSelected(true);
+
+//		View decorView = ((Activity)getContext()).getWindow().getDecorView();
+//		decorView.setOnSystemUiVisibilityChangeListener
+//				(new View.OnSystemUiVisibilityChangeListener() {
+//					@Override
+//					public void onSystemUiVisibilityChange(int visibility) {
+//						// Note that system bars will only be "visible" if none of the
+//						// LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
+//						if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+//							// TODO: The system bars are visible. Make any desired
+//							// adjustments to your UI, such as showing the action bar or
+//							// other navigational controls.
+//							mStatusBarShown = true;
+//							Log.e("BottomView", "onSystemUiVisibilityChange : " + mStatusBarShown);
+//
+//						} else {
+//							// TODO: The system bars are NOT visible. Make any desired
+//							// adjustments to your UI, such as hiding the action bar or
+//							// other navigational controls.
+//							mStatusBarShown = false;
+//							Log.e("BottomView", "onSystemUiVisibilityChange : " + mStatusBarShown);
+//						}
+//					}
+//				});
 
 		setOnClickListener(onClickListener, play, next, prev, pause, wrap);
 

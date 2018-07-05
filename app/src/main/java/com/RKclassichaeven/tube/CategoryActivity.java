@@ -52,6 +52,18 @@ public class CategoryActivity extends Activity {
         mDrawer = findViewById(R.id.drawer);
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        bottomview.onActivityResume();
+    }
+
+    @Override
+    public void onPause(){
+        bottomview.onActivityPause();
+        super.onPause();
+    }
+
     public void closeDrawer() {
         mDrawer.closeDrawer(Gravity.LEFT);
         isOpened = false;

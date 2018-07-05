@@ -73,6 +73,18 @@ public class MultiCategoryActivity extends AppCompatActivity {
         isOpened = true;
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        bottomview.onActivityResume();
+    }
+
+    @Override
+    public void onPause(){
+        bottomview.onActivityPause();
+        super.onPause();
+    }
+
     private void setMenuButtons(final Context context){
         View menu_home = findViewById(R.id.menu_new_home);
         View menu_favor = findViewById(R.id.menu_new_favor);
