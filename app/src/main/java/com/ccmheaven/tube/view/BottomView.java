@@ -232,6 +232,9 @@ public class BottomView extends LinearLayout {
 		pause = view.findViewById(R.id.bot_pause);
 		wrap = view.findViewById(R.id.mainWrap);
 
+		title.setSelected(true);
+		sub.setSelected(true);
+
 		setOnClickListener(onClickListener, play, next, prev, pause, wrap);
 
 		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {

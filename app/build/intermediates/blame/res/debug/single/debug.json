@@ -1008,12 +1008,12 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9840015ef6fd75d56f751678a7d54c1e\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_multi_category.xml.flat",
-        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\activity_multi_category.xml"
-    },
-    {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_psts_tab.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-1\\files-1.1\\library-1.1.1.aar\\230d3c8bba44546363f80d21cc452ff7\\res\\layout\\psts_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_multi_category.xml.flat",
+        "source": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\src\\main\\res\\layout\\activity_multi_category.xml"
     },
     {
         "merged": "C:\\Users\\HP\\AndroidStudioProjects\\RKhitsong\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
