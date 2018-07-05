@@ -464,6 +464,7 @@ public class MediaService extends Service implements View.OnClickListener{
                 Log.e("MediaService", "view already attached");
             }
         }else{
+            if(actualPlayer != null) actualPlayer.pause();
             player.setVisibility(View.INVISIBLE);
             try{
                 mManager.removeView(mView);

@@ -112,6 +112,7 @@ public class BottomView extends LinearLayout {
 			MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
 			refreshPlayer();
 		} else {
+			if(actualPlayer != null) actualPlayer.pause();
 			// onPause() called
 		}
 	}

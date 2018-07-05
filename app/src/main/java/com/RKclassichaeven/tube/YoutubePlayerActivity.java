@@ -657,6 +657,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		if (!MyApplication.getMediaService().getTracks().isEmpty()) {
 			SyncInfo syncInfo = MyApplication.getMediaService().getSyncInfo();
 			syncInfo.setBySong(MyApplication.getMediaService().getTracks().get(index));
+			syncInfo.setCurrentIndex(index);
 			syncInfo.setPlayState();
 			MyApplication.getMediaService().refreshPlayer();
 			if (ad_fix.equals("Y")) {
