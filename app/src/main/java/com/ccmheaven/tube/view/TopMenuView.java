@@ -113,16 +113,31 @@ public class TopMenuView extends LinearLayout {
         if(cateMap.size() - 1 < categoryBox.getManageNo()) return;
 //        tab.getTabAt(categoryBox.getManageNo()).select();
 
-        final TabLayout.Tab currentTab = tab.getTabAt(categoryBox.getManageNo());
-        if(currentTab != null){
-            tab.post(new Runnable() {
-                @Override
-                public void run() {
-                    tab.removeOnTabSelectedListener(tabSelectedListener);
-                    currentTab.select();
-                    tab.addOnTabSelectedListener(tabSelectedListener);
-                }
-            });
+        if(getContext() instanceof RankActivity && isLoaded && cateMap.size() > 0){
+            categoryCurrent = cateMap.get(0);
+            final TabLayout.Tab currentTab = tab.getTabAt(0);
+            if(currentTab != null){
+                tab.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        tab.removeOnTabSelectedListener(tabSelectedListener);
+                        currentTab.select();
+                        tab.addOnTabSelectedListener(tabSelectedListener);
+                    }
+                });
+            }
+        }else{
+            final TabLayout.Tab currentTab = tab.getTabAt(categoryBox.getManageNo());
+            if(currentTab != null){
+                tab.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        tab.removeOnTabSelectedListener(tabSelectedListener);
+                        currentTab.select();
+                        tab.addOnTabSelectedListener(tabSelectedListener);
+                    }
+                });
+            }
         }
     }
 

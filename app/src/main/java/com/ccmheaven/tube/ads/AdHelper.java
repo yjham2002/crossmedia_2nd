@@ -76,6 +76,17 @@ public class AdHelper {
 //		activity.finish();
 	}
 
+	public void loadInterstitialAdWithOnLoad(SimpleCallback callback, SimpleCallback onLoad){
+		if ("Y".equals(ad_interstital)) {
+			if("admob".equals(ad_type)){
+				new AdmobHelper(activity).loadInterstitialAdWithOnLoad(callback, onLoad);
+			}else if("adfit".equals(ad_type)){
+				new AdfitHelper(activity).loadInterstitialAd();
+			}
+		}
+//		activity.finish();
+	}
+
 	public void loadInterstitialAd(SimpleCallback callback){
 		if ("Y".equals(ad_interstital)) {
 			if("admob".equals(ad_type)){

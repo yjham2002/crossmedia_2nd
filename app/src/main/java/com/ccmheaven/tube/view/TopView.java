@@ -112,7 +112,7 @@ public class TopView extends RelativeLayout {
                     }else if(getContext() instanceof CategoryActivity){
                         ((CategoryActivity) getContext()).openDrawer();
                     }else if(getContext() instanceof MultiCategoryActivity){
-                        ((CategoryActivity) getContext()).openDrawer();
+                        ((MultiCategoryActivity) getContext()).openDrawer();
                     }
                 }
             }

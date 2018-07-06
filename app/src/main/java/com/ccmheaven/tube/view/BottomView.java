@@ -120,6 +120,23 @@ public class BottomView extends LinearLayout {
 	public void onActivityResume(){
 		MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
 		refreshPlayer();
+		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {
+			@Override
+			public void callback() {
+				refreshPlayer();
+			}
+		});
+
+		MyApplication.getMediaService().setAffinityCall(new SimpleCallback() {
+			@Override
+			public void callback() {
+				Log.e("Affinity", "Pre-Called");
+				if(BottomView.this.activity != null) {
+					ActivityCompat.finishAffinity(BottomView.this.activity);
+					Log.e("Affinity", "Called");
+				}
+			}
+		});
 	}
 
 	public void onActivityPause(){
@@ -283,24 +300,6 @@ public class BottomView extends LinearLayout {
 //				});
 
 		setOnClickListener(onClickListener, play, next, prev, pause, wrap);
-
-		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {
-			@Override
-			public void callback() {
-				refreshPlayer();
-			}
-		});
-
-		MyApplication.getMediaService().setAffinityCall(new SimpleCallback() {
-			@Override
-			public void callback() {
-				Log.e("Affinity", "Pre-Called");
-				if(BottomView.this.activity != null) {
-					ActivityCompat.finishAffinity(BottomView.this.activity);
-					Log.e("Affinity", "Called");
-				}
-			}
-		});
 
         youTubePlayerView.setEnabled(false);
 		youTubePlayerView.initialize(new YouTubePlayerInitListener() {

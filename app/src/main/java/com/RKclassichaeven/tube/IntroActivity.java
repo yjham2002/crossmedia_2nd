@@ -41,12 +41,16 @@ public class IntroActivity extends AppCompatActivity {
     private Runnable introRunnable = new Runnable() {
         public void run() {
             failHandler.postDelayed(failRunnable, 5000);
-            new AdHelper(IntroActivity.this).loadInterstitialAd(new SimpleCallback() {
+            new AdHelper(IntroActivity.this).loadInterstitialAdWithOnLoad(new SimpleCallback() {
+                @Override
+                public void callback() {
+                    goMain();
+                }
+            }, new SimpleCallback() {
                 @Override
                 public void callback() {
                     isLoaded = true;
                     failHandler.removeCallbacks(failRunnable);
-                    goMain();
                 }
             });
         }
