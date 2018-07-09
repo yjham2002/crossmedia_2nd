@@ -147,6 +147,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		isForeground = true;
 		MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_VIEW);
 		isPausedByContext = false;
 		registerReceiver(broadcastReceiver, new IntentFilter(bases.Constants.ACTIVITY_INTENT_FILTER));
@@ -161,6 +162,8 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 	protected void onPause() {
 		super.onPause();
 		isPausedByContext = true;
+		isFullscreen = false;
+		isForeground = false;
 		Log.e("onPause", Foreground.Companion.isBackground() + " / F : " + Foreground.Companion.isForeground());
 	}
 
@@ -708,6 +711,7 @@ public class YoutubePlayerActivity extends YouTubeFailureRecoveryActivity {
 		unregisterReceiver(broadcastReceiver);
 	}
 
+	public static boolean isForeground = false;
 	private boolean isFullscreen = false;
 	private boolean isInitialized = false;
 

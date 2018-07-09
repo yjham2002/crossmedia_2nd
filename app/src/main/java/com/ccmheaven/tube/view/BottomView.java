@@ -118,6 +118,8 @@ public class BottomView extends LinearLayout {
 	}
 
 	public void onActivityResume(){
+		if(YoutubePlayerActivity.isForeground) return;
+		Log.e("onPauseActivityResume", getContext().getClass().getSimpleName() + " called");
 		MyApplication.getMediaService().getSyncInfo().setCurrentScene(SyncInfo.SCENE_BOTTOM);
 		refreshPlayer();
 		MyApplication.getMediaService().setSimpleCallback(new SimpleCallback() {
@@ -140,7 +142,10 @@ public class BottomView extends LinearLayout {
 	}
 
 	public void onActivityPause(){
-		if(actualPlayer != null) actualPlayer.pause();
+		if(actualPlayer != null) {
+			Log.e("onPauseActivity", getContext().getClass().getSimpleName() + " called");
+			actualPlayer.pause();
+		}
 	}
 
 	private void displayPlaybar(){
